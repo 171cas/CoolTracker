@@ -7,8 +7,8 @@ An exercise consist of a name and at least one of the following information as r
 Users can also see other users workouts; like them and comment them. Users can follow other users and direct message them as well.
 Users will be able to see their workouts and the users they follow workouts on the home page once they log in.
 
-## Features
-- Create an account, sign in, or log in as a demo user
+Some functionality of a user will be:
+- Create an account, sign in or log in as a demo user
 - Create, view, edit and delete:
    - Workouts
    - Exercises
