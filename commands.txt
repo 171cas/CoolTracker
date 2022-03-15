@@ -6,3 +6,7 @@ backend
     npx sequelize init
     (.env) psql -c "CREATE USER <username> PASSWORD '<password>' CREATEDB"
     npx dotenv sequelize db:create
+    npx sequelize model:generate --name User --attributes username:string,first_name:string,last_name:string,email:string,hashedPassword:string
+    npx dotenv sequelize db:migrate
+    npx sequelize seed:generate --name demo-user
+    npx dotenv sequelize db:seed:all
