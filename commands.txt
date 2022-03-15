@@ -1,0 +1,8 @@
+backend
+    npm init -y
+    npm install bcryptjs cookie-parser cors csurf dotenv express express-async-handler express-validator faker helmet jsonwebtoken morgan per-env pg@">=8.4.1" sequelize@5 sequelize-cli@5
+    npm install -D dotenv-cli nodemon
+    uuidgen
+    npx sequelize init
+    (.env) psql -c "CREATE USER <username> PASSWORD '<password>' CREATEDB"
+    npx dotenv sequelize db:create
