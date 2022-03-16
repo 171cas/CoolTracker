@@ -10,3 +10,8 @@ backend
     npx dotenv sequelize db:migrate
     npx sequelize seed:generate --name demo-user
     npx dotenv sequelize db:seed:all
+
+
+frontend
+    npx create-react-app . --template @appacademy/react-redux-v17 --use-npm
+    npm install js-cookie
