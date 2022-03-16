@@ -16,13 +16,28 @@ module.exports = (sequelize, DataTypes) => {
         }
       }
     },
-    first_name: DataTypes.STRING,
-    last_name: DataTypes.STRING,
+    first_name: {
+      type: DataTypes.STRING,
+      validate: {
+        len: [2, 30],
+      }
+    },
+    last_name: {
+      type: DataTypes.STRING,
+      validate: {
+        len: [2, 30],
+      }
+    },
     email: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        len: [3, 25]
+        len: [3, 25],
+        isNotEmail(value) {
+          if (!Validator.isEmail(value)) {
+            throw new Error('Must be a valid email.');
+          }
+        }
       }
     },
     hashedPassword: {
