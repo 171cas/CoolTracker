@@ -15,3 +15,11 @@ backend
 frontend
     npx create-react-app . --template @appacademy/react-redux-v17 --use-npm
     npm install js-cookie
+
+
+backend
+    npx dotenv sequelize db:seed:undo:all
+    npx dotenv sequelize db:migrate:undo:all
+    npx sequelize model:generate --name Workout --attributes user_id:integer,date:dateonly,notes:text,completion_time:integer,calories_burned:integer,body_weight:float
+    npx dotenv sequelize db:migrate
+    npx dotenv sequelize db:migrate db:seed:all
