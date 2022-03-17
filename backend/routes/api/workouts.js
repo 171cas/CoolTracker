@@ -15,9 +15,16 @@ async function list() {
 
 router.get('/', asyncHandler(async function (_req, res) {
     const workouts = await list();
-    return res.json(workouts)
-}))
+    return res.json(workouts);
+}));
 
+
+router.get(
+    '/:id',
+    asyncHandler(async function (req, res) {
+        const workout = await Workout.findByPk(req.params.id);
+        return res.json(workout);
+    }));
 
 
 const validateCreate = [
@@ -110,12 +117,6 @@ router.delete(
     })
 );
 
-router.get(
-    '/:id',
-    asyncHandler(async function (req, res) {
-        const workout = await Workout.findByPk(req.params.id);
-        return res.json(workout);
-    }));
 
 
 
