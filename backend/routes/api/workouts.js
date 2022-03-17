@@ -102,7 +102,12 @@ router.delete(
     })
 );
 
-
+router.get(
+    '/:id',
+    asyncHandler(async function (req, res) {
+        const workout = await Workout.findByPk(req.params.id);
+        return res.json(workout);
+    }));
 
 
 
