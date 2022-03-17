@@ -92,6 +92,17 @@ router.put(
     })
 );
 
+router.delete(
+    '/:id',
+    restoreUser,
+    asyncHandler(async function (req, res) {
+        const workout = await Workout.findByPk(req.params.id);
+        await Workout.destroy({ where: { id: workout.id } })
+        return res.json(workout)
+    })
+);
+
+
 
 
 
