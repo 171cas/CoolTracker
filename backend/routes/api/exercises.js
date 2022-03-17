@@ -12,11 +12,32 @@ const router = express.Router();
 async function list() {
     return await Exercise.findAll();
 }
-
 router.get('/', asyncHandler(async function (_req, res) {
     const exercises = await list();
     return res.json(exercises);
 }));
+
+
+async function listUser(user_id) {
+    return await Exercise.findAll({ where: { user_id: user_id } });
+}
+router.get(
+    '/user/:id',
+    asyncHandler(async function (req, res) {
+        const exercises = await listUser(req.params.id);
+        return res.json(exercises);
+    }));
+
+async function listWO(workout_id) {
+    return await Exercise.findAll({ where: { workout_id: workout_id } });
+}
+router.get(
+    '/workout/:id',
+    asyncHandler(async function (req, res) {
+        const exercises = await listWO(req.params.id);
+        return res.json(exercises);
+    }));
+
 
 router.get(
     '/:id',

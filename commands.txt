@@ -94,6 +94,17 @@ fetch('/api/exercises/1', {
     "XSRF-TOKEN": `gpHuQ1pA-XT48oBKtP8GZB6sw_8FmW3AG0Kg`
   },
   body: JSON.stringify({
+    name: 'Bench Press',
     notes: 'it was hard'
   })
+}).then(res => res.json()).then(data => console.log(data));
+
+
+
+fetch('/api/exercises/1', {
+  method: 'DELETE',
+  headers: {
+    "Content-Type": "application/json",
+    "XSRF-TOKEN": `gpHuQ1pA-XT48oBKtP8GZB6sw_8FmW3AG0Kg`
+  }
 }).then(res => res.json()).then(data => console.log(data));

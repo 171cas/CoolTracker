@@ -12,12 +12,20 @@ const router = express.Router();
 async function list() {
     return await Workout.findAll();
 }
-
 router.get('/', asyncHandler(async function (_req, res) {
     const workouts = await list();
     return res.json(workouts);
 }));
 
+async function listUser(user_id) {
+    return await Workout.findAll({ where: { user_id: user_id } });
+}
+router.get(
+    '/user/:id',
+    asyncHandler(async function (req, res) {
+        const workouts = await listUser(req.params.id);
+        return res.json(workouts);
+    }));
 
 router.get(
     '/:id',
