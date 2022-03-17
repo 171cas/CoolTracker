@@ -62,3 +62,10 @@ fetch('/api/workouts/1', {
     "XSRF-TOKEN": `KrRWMCSW-kY3i6oupH-DzyXUlJkhCe1S9hFg`
   }
 }).then(res => res.json()).then(data => console.log(data));
+
+
+
+backend
+    npx dotenv sequelize db:seed:undo:all
+    npx dotenv sequelize db:migrate:undo:all
+    npx sequelize model:generate --name Exercise --attributes user_id:integer,workout_id:integer,name:string,distance:integer,sets:integer,reps:integer,rest:integer,weight:integer,notes:text,completion_time:integer
