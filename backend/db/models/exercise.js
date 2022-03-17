@@ -19,7 +19,7 @@ module.exports = (sequelize, DataTypes) => {
     distance: {
       type: DataTypes.INTEGER,
       validate: {
-        min: 1,
+        min: 0,
         max: 10000 //Meter or Mile? We can decide it later
       },
     },
@@ -40,7 +40,7 @@ module.exports = (sequelize, DataTypes) => {
     rest: {
       type: DataTypes.INTEGER,
       validate: {
-        min: 1,
+        min: 0,
         max: 86400 //24 hrs in seconds
       },
     },

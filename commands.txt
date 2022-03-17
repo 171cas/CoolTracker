@@ -21,6 +21,9 @@ backend
     npx dotenv sequelize db:seed:undo:all
     npx dotenv sequelize db:migrate:undo:all
     npx sequelize model:generate --name Workout --attributes user_id:integer,date:dateonly,notes:text,completion_time:integer,calories_burned:integer,body_weight:float
+
+    npx dotenv sequelize db:seed:undo:all
+    npx dotenv sequelize db:migrate:undo:all
     npx dotenv sequelize db:migrate
     npx dotenv sequelize db:seed:all
 
@@ -29,7 +32,7 @@ fetch('/api/workouts', {
   method: 'POST',
   headers: {
     "Content-Type": "application/json",
-    "XSRF-TOKEN": `nRYMu0dv-0dUTmYwkb4947UJzMVwQpVtTcZw`
+    "XSRF-TOKEN": `gpHuQ1pA-XT48oBKtP8GZB6sw_8FmW3AG0Kg`
   },
   body: JSON.stringify({
     date:'2022-03-17',
@@ -69,3 +72,28 @@ backend
     npx dotenv sequelize db:seed:undo:all
     npx dotenv sequelize db:migrate:undo:all
     npx sequelize model:generate --name Exercise --attributes user_id:integer,workout_id:integer,name:string,distance:integer,sets:integer,reps:integer,rest:integer,weight:integer,notes:text,completion_time:integer
+
+
+fetch('/api/exercises', {
+  method: 'POST',
+  headers: {
+    "Content-Type": "application/json",
+    "XSRF-TOKEN": `gpHuQ1pA-XT48oBKtP8GZB6sw_8FmW3AG0Kg`
+  },
+  body: JSON.stringify({
+    name: 'bench press',
+    weight: 155,
+    reps: 5
+  })
+}).then(res => res.json()).then(data => console.log(data));
+
+fetch('/api/exercises/1', {
+  method: 'PUT',
+  headers: {
+    "Content-Type": "application/json",
+    "XSRF-TOKEN": `gpHuQ1pA-XT48oBKtP8GZB6sw_8FmW3AG0Kg`
+  },
+  body: JSON.stringify({
+    notes: 'it was hard'
+  })
+}).then(res => res.json()).then(data => console.log(data));

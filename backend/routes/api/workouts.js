@@ -79,7 +79,7 @@ router.post(
 );
 
 
-// Create Workout
+// Update Workout
 router.put(
     '/:id(\\d+)',
     restoreUser,
