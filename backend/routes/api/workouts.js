@@ -2,8 +2,8 @@
 const express = require('express');
 const asyncHandler = require('express-async-handler');
 
-const { setTokenCookie, requireAuth } = require('../../utils/auth');
-const { User, Workout } = require('../../db/models');
+const { restoreUser } = require('../../utils/auth');
+const { Workout } = require('../../db/models');
 const { check } = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validation');
 
@@ -34,10 +34,9 @@ const validateCreate = [
 // Create Workout
 router.post(
     '/',
+    restoreUser,
     validateCreate,
     asyncHandler(async (req, res) => {
-        // console.log('\n\n\n\n\n\n\n\n', req.session, '\n\n\n\n\n\n\n\n')
-        // const { user } = req;
         const {
             date,
             notes,
@@ -47,7 +46,7 @@ router.post(
         } = req.body;
 
         const workout = await Workout.createWo({
-            user_id: 1,
+            user_id: req.user.id,
             date,
             notes,
             completion_time,
