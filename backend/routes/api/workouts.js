@@ -79,6 +79,10 @@ router.put(
     validateCreate,
     asyncHandler(async (req, res) => {
         const workout = await Workout.findByPk(req.params.id)
+        if (req.user.id !== workout.user_id) {
+            throw new Error('Access Denied. Your IP will be blocked and reported for suspicious activity. \n (Not really because this is a demo project, but it definitely will for the completed version.)');
+            return
+        }
         workout.date = req.body.date;
         workout.notes = req.body.notes;
         workout.completion_time = req.body.completion_time;
@@ -97,6 +101,10 @@ router.delete(
     restoreUser,
     asyncHandler(async function (req, res) {
         const workout = await Workout.findByPk(req.params.id);
+        if (req.user.id !== workout.user_id) {
+            throw new Error('Access Denied. Your IP will be blocked and reported for suspicious activity. \n (Not really because this is a demo project, but it definitely will for the completed version.)');
+            return
+        }
         await Workout.destroy({ where: { id: workout.id } })
         return res.json(workout)
     })
