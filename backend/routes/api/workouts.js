@@ -9,6 +9,17 @@ const { handleValidationErrors } = require('../../utils/validation');
 
 const router = express.Router();
 
+async function list() {
+    return await Workout.findAll();
+}
+
+router.get('/', asyncHandler(async function (_req, res) {
+    const workouts = await list();
+    return res.json(workouts)
+}))
+
+
+
 const validateCreate = [
     check('date')
         .exists({ checkFalsy: true })
@@ -54,6 +65,27 @@ router.post(
             body_weight
         });
 
+        return res.json({
+            workout
+        });
+    })
+);
+
+
+// Create Workout
+router.put(
+    '/:id(\\d+)',
+    restoreUser,
+    validateCreate,
+    asyncHandler(async (req, res) => {
+        const workout = await Workout.findByPk(req.params.id)
+        workout.date = req.body.date;
+        workout.notes = req.body.notes;
+        workout.completion_time = req.body.completion_time;
+        workout.calories_burned = req.body.calories_burned;
+        workout.body_weight = req.body.body_weight;
+
+        await workout.save()
         return res.json({
             workout
         });
