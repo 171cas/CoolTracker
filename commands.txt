@@ -78,9 +78,10 @@ fetch('/api/exercises', {
   method: 'POST',
   headers: {
     "Content-Type": "application/json",
-    "XSRF-TOKEN": `gpHuQ1pA-XT48oBKtP8GZB6sw_8FmW3AG0Kg`
+    "XSRF-TOKEN": `2HHEY7Jx-vJ1vV2KZjVrbm8oHrZk6Y1fHzac`
   },
   body: JSON.stringify({
+    workout_id: 4
     name: 'bench press',
     weight: 155,
     reps: 5

@@ -4,7 +4,7 @@ const asyncHandler = require('express-async-handler');
 
 const { restoreUser } = require('../../utils/auth');
 const { Workout } = require('../../db/models');
-const { check } = require('express-validator');
+const { check, body } = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validation');
 
 const router = express.Router();
@@ -39,21 +39,21 @@ const validateCreate = [
     check('date')
         .exists({ checkFalsy: true })
         .withMessage('Please provide a valid Date.'),
-    check('notes')
-        .isLength({ max: 30 })
-        .withMessage('Please provide a note with less than 500 characters.'),
     check('completion_time')
-        .isInt({ max: 86400 })
+        .notEmpty()
+        .isInt({ min: 0, max: 86400 })
         .toInt()
-        .withMessage('Workout time should be less than a whole day.'),
+        .withMessage('Please provide a valid Completion Time (1-86400).'),
     check('calories_burned')
-        .isInt({ max: 20000 })
+        .notEmpty()
+        .isInt({ min: 0, max: 20000 })
         .toInt()
-        .withMessage('Calories burned should be less than 20,000 Cal.'),
+        .withMessage('Please provide valid Calories Burned (1-20000).'),
     check('body_weight')
-        .isInt({ max: 1500 })
+        .notEmpty()
+        .isInt({ min: 0, max: 1500 })
         .toInt()
-        .withMessage('Body weight should be less than 1,500 lbs.'),
+        .withMessage('Please provide a valid Body Weight (1-1500).'),
     handleValidationErrors
 ];
 
@@ -63,13 +63,17 @@ router.post(
     restoreUser,
     validateCreate,
     asyncHandler(async (req, res) => {
-        const {
+        let {
             date,
             notes,
             completion_time,
             calories_burned,
             body_weight
         } = req.body;
+
+        if (completion_time === 0) completion_time = null
+        if (calories_burned === 0) calories_burned = null
+        if (body_weight === 0) body_weight = null
 
         const workout = await Workout.createWo({
             user_id: req.user.id,
@@ -80,9 +84,9 @@ router.post(
             body_weight
         });
 
-        return res.json({
+        return res.json(
             workout
-        });
+        );
     })
 );
 
@@ -100,9 +104,9 @@ router.put(
         }
         workout.date = req.body.date;
         workout.notes = req.body.notes;
-        workout.completion_time = req.body.completion_time;
-        workout.calories_burned = req.body.calories_burned;
-        workout.body_weight = req.body.body_weight;
+        workout.completion_time = (req.body.completion_time === 0 ? null : req.body.completion_time);
+        workout.calories_burned = (req.body.calories_burned === 0 ? null : req.body.calories_burned);
+        workout.body_weight = (req.body.body_weight === 0 ? null : req.body.body_weight);
 
         await workout.save()
         return res.json({

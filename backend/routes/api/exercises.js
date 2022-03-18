@@ -122,7 +122,7 @@ router.post(
 
         const exercise = await Exercise.create({
             user_id: req.user.id,
-            workout_id: 1, //dont forget to change this later
+            workout_id,
             name,
             distance,
             sets,
