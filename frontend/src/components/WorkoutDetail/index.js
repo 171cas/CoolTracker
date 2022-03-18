@@ -35,7 +35,7 @@ const WorkoutDetail = ({ propId }) => {
         reviewLinks = (
             <>
                 <button onClick={handleClickDelete}>Delete Workout</button>
-                <button>Edit Workout</button>
+                <NavLink to={`/workout/${workout?.id}/edit`}><button>Edit Workout</button></NavLink>
             </>
         );
     } else {
@@ -50,8 +50,11 @@ const WorkoutDetail = ({ propId }) => {
         <div className='singleWO'>
             <p><NavLink to={`/workout/${workout?.id}`} >Workout #{workout?.id} </NavLink> </p>
             {reviewLinks && reviewLinks}
-            <p>Date #{workout?.date}</p>
-            <p>Note #{workout?.notes}</p>
+            {workout?.date ? (<p>Date #{workout?.date}</p>) : (<></>)}
+            {workout?.notes ? (<p>Notes: {workout?.notes}</p>) : (<></>)}
+            {workout?.completion_time ? (<p>Completion Time: {workout?.completion_time}</p>) : (<></>)}
+            {workout?.calories_burned ? (<p>Calories Burned: {workout?.calories_burned}</p>) : (<></>)}
+            {workout?.body_weight ? (<p>Body Weight: {workout?.body_weight}</p>) : (<></>)}
         </div>
     )
 }

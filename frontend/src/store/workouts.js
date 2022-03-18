@@ -8,7 +8,7 @@ const REMOVE = '/workouts/remove'
 
 const addWorkout = (new_workout) => ({ type: ADD, new_workout })
 const loadWorkouts = workouts => ({ type: LOAD, workouts })
-const updateWorkout = edit_workout => ({ type: UPDATE, edit_workout })
+const updateWorkout = (edit_workout) => ({ type: UPDATE, edit_workout })
 const removeWorkout = remove_workout => ({ type: REMOVE, remove_workout })
 
 
@@ -19,7 +19,6 @@ export const createWorkout = (payload) => async dispatch => {
     });
     if (response.ok) {
         const new_workout = await response.json();
-        console.log(new_workout)
         dispatch(addWorkout(new_workout));
         return new_workout;
     } else if (response.status < 500) {
@@ -81,7 +80,6 @@ const workoutReducer = (state = {}, action) => {
     switch (action.type) {
         case ADD:
             newState = { ...state };
-            console.log(action.new_workout)
             newState[action.new_workout.id] = action.new_workout;
             return newState;
         case LOAD:
