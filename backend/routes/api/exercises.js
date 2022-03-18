@@ -1,4 +1,4 @@
-// backend/routes/api/workouts.js
+// backend/routes/api/exercises.js
 const express = require('express');
 const asyncHandler = require('express-async-handler');
 
@@ -172,7 +172,7 @@ router.delete(
     restoreUser,
     asyncHandler(async function (req, res) {
         const exercise = await Exercise.findByPk(req.params.id);
-        if (req.user.id !== Exercise.user_id) {
+        if (req.user.id !== exercise.user_id) {
             throw new Error('Access Denied. Your IP will be blocked and reported for suspicious activity. \n (Not really because this is a demo project, but it definitely will for the completed version.)');
             return
         }
