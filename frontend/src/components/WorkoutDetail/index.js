@@ -7,6 +7,7 @@ const WorkoutDetail = ({ propId }) => {
     let { workoutId } = useParams();
     if (propId) workoutId = propId;
 
+    const history = useHistory();
     const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user);
 
@@ -28,6 +29,7 @@ const WorkoutDetail = ({ propId }) => {
     const handleClickDelete = async (e) => {
         e.preventDefault();
         await dispatch(deleteWorkout(+workoutId))
+        history.push(`/`)
     };
 
     let reviewLinks;

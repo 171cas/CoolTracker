@@ -133,9 +133,9 @@ router.post(
             completion_time,
         });
 
-        return res.json({
+        return res.json(
             exercise
-        });
+        );
     })
 );
 
@@ -161,9 +161,9 @@ router.put(
         exercise.completion_time = req.body.completion_time;
 
         await exercise.save()
-        return res.json({
+        return res.json(
             exercise
-        });
+        );
     })
 );
 
