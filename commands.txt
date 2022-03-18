@@ -32,7 +32,7 @@ fetch('/api/workouts', {
   method: 'POST',
   headers: {
     "Content-Type": "application/json",
-    "XSRF-TOKEN": `gpHuQ1pA-XT48oBKtP8GZB6sw_8FmW3AG0Kg`
+    "XSRF-TOKEN": `OLngBgGt-1i2pwbbBVHxHu6Fl2enFSGXiyFs`
   },
   body: JSON.stringify({
     date:'2022-03-17',
@@ -113,3 +113,16 @@ backend
     npx dotenv sequelize db:seed:undo:all
     npx dotenv sequelize db:migrate:undo:all
     npx sequelize model:generate --name Like --attributes user_id:integer,workout_id:integer
+    npx dotenv sequelize db:migrate
+    npx dotenv sequelize db:seed:all
+
+fetch('/api/likes', {
+  method: 'POST',
+  headers: {
+    "Content-Type": "application/json",
+    "XSRF-TOKEN": `D4iN5C8J-DA523APfvDjIvE5iBjz4oFcoBpk`
+  },
+  body: JSON.stringify({
+    workout_id: 1
+  })
+}).then(res => res.json()).then(data => console.log(data));
