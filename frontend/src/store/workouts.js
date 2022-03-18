@@ -5,7 +5,7 @@ const REMOVE = '/workouts/remove'
 
 
 const addWorkout = new_workout => ({ type: ADD, new_workout })
-const loadWorkout = workouts => ({ type: LOAD, workouts })
+const loadWorkouts = workouts => ({ type: LOAD, workouts })
 const updateWorkout = edit_workout => ({ type: UPDATE, edit_workout })
 const removeWorkout = remove_workout => ({ type: REMOVE, remove_workout })
 
@@ -32,7 +32,7 @@ export const getWorkouts = () => async dispatch => {
     const response = await fetch('/api/workouts/');
     if (response.ok) {
         const workouts = await response.json();
-        dispatch(loadWorkout(workouts));
+        dispatch(loadWorkouts(workouts));
         return workouts;
     }
     return response;
@@ -60,7 +60,7 @@ export const editWorkout = (payload) => async dispatch => {
 }
 
 export const deleteWorkout = (id) => async dispatch => {
-    const response = await fetch(`/api/images/${id}`, {
+    const response = await fetch(`/api/workouts/${id}`, {
         method: 'DELETE'
     });
     if (response.ok) {
