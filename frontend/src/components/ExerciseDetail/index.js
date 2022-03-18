@@ -14,7 +14,6 @@ const ExerciseDetail = ({ propId }) => {
     const exercises = useSelector((state) => state.exercises)
     const exercise = exercises[exerciseId]
 
-    console.log('exerciseId', exerciseId)
 
     const handleClickDelete = async (e) => {
         e.preventDefault();

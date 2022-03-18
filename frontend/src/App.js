@@ -11,6 +11,7 @@ import WorkoutBrowser from "./components/WorkoutBrowser";
 import WorkoutEdit from "./components/WorkoutEdit";
 
 import ExerciseDetail from "./components/ExerciseDetail";
+import ExerciseBrowser from "./components/ExerciseBrowser";
 
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
@@ -51,6 +52,9 @@ function App() {
           </Route>
           <Route exact path="/workout/:workoutId/edit">
             <WorkoutEdit />
+          </Route>
+          <Route path="/exercises">
+            <ExerciseBrowser />
           </Route>
           <Route exact path="/exercise/:exerciseId">
             <ExerciseDetail />

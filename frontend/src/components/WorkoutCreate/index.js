@@ -31,7 +31,6 @@ const WorkoutCreate = () => {
             calories_burned: +calories_burned,
             body_weight: +body_weight
         }
-        console.log(payload)
 
         let new_workout = await dispatch(createWorkout(payload))
             .catch(async (res) => {
