@@ -1,0 +1,26 @@
+{
+  "name": "FinalProject",
+  "version": "1.0.0",
+  "description": "CoolTracker is a general workout tracker application with features inspired on Instagram and twitter. Users can record a workout which have one or more exercises and be able to see their past workouts in order to know their progression. In the user profiles, they will see their last workouts and be able to click then to be redirected to the workout detail page. A workout consist of one or more exercises and a date as required data, but the users can add more information to it. For example, calories burned, time of completion, notes and so on. An exercise consist of a name and at least one of the following information as required data: Series, Repetition, Weight, Rest and Completion Time. Users can also see other users workouts; like them and comment them. Users can follow other users and direct message them as well. Users will be able to see their workouts and the users they follow workouts on the home page once they log in.",
+  "main": "index.js",
+  "scripts": {
+    "heroku-postbuild": "npm run build --prefix frontend",
+    "install": "npm --prefix backend install backend && npm --prefix frontend install frontend",
+    "dev:backend": "npm install --prefix backend start",
+    "dev:frontend": "npm install --prefix frontend start",
+    "sequelize": "npm run --prefix backend sequelize",
+    "sequelize-cli": "npm run --prefix backend sequelize-cli",
+    "start": "npm start --prefix backend"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/171cas/CoolTracker.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/171cas/CoolTracker/issues"
+  },
+  "homepage": "https://github.com/171cas/CoolTracker#readme"
+}
