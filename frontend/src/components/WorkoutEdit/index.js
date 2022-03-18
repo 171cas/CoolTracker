@@ -14,7 +14,7 @@ const WorkoutEdit = ({ propId }) => {
     const workouts = useSelector((state) => state.workouts)
     const workout = workouts[workoutId]
 
-    if (workout.user_id !== sessionUser.id) {
+    if (workout?.user_id !== sessionUser.id) {
         throw new Error('Access Denied')
     }
 

@@ -5,9 +5,12 @@ import { Route, Switch } from "react-router-dom";
 
 import LoginFormPage from "./components/LoginFormPage";
 import SignupFormPage from "./components/SignupFormPage";
+
 import WorkoutDetail from "./components/WorkoutDetail";
 import WorkoutBrowser from "./components/WorkoutBrowser";
 import WorkoutEdit from "./components/WorkoutEdit";
+
+import ExerciseDetail from "./components/ExerciseDetail";
 
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
@@ -48,6 +51,9 @@ function App() {
           </Route>
           <Route exact path="/workout/:workoutId/edit">
             <WorkoutEdit />
+          </Route>
+          <Route exact path="/exercise/:exerciseId">
+            <ExerciseDetail />
           </Route>
         </Switch>
       )}
