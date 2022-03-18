@@ -9,6 +9,14 @@ const { handleValidationErrors } = require('../../utils/validation');
 
 const router = express.Router();
 
+async function list() {
+    return await User.findAll();
+}
+router.get('/', asyncHandler(async function (_req, res) {
+    const users = await list();
+    return res.json(users);
+}));
+
 const validateSignup = [
     check('email')
         .exists({ checkFalsy: true })

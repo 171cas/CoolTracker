@@ -1,10 +1,14 @@
 import { createStore, combineReducers, applyMiddleware, compose } from "redux";
 import thunk from "redux-thunk";
 import sessionReducer from './session';
+import usersReducer from './users';
+import workoutReducer from './workouts';
 
 const rootReducer = combineReducers({
   // add reducer functions here
   session: sessionReducer,
+  user: usersReducer,
+  workouts: workoutReducer,
 });
 
 let enhancer;
