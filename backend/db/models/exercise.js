@@ -47,8 +47,8 @@ module.exports = (sequelize, DataTypes) => {
     weight: {
       type: DataTypes.INTEGER,
       validate: {
-        min: 1, //Baby
-        max: 1500 //World record is 1,400 lbs
+        min: 0,
+        max: 5000
       },
     },
     notes: {
