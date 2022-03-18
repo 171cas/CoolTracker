@@ -41,6 +41,7 @@ module.exports = (sequelize, DataTypes) => {
     // associations can be defined here
     Workout.belongsTo(models.User, { foreignKey: 'user_id' })
     Workout.hasMany(models.Exercise, { foreignKey: 'workout_id' });
+    Workout.hasMany(models.Like, { foreignKey: 'workout_id' });
   };
 
   //---------
