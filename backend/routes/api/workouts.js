@@ -109,9 +109,9 @@ router.put(
         workout.body_weight = (req.body.body_weight === 0 ? null : req.body.body_weight);
 
         await workout.save()
-        return res.json({
+        return res.json(
             workout
-        });
+        );
     })
 );
 

@@ -1,15 +1,27 @@
 import { useState } from "react";
-import { useDispatch } from 'react-redux';
-import { createWorkout } from "../../store/workouts";
+import { useDispatch, useSelector } from 'react-redux';
+import { editWorkout } from "../../store/workouts";
+import { useParams, useHistory } from 'react-router-dom';
 
-const WorkoutCreate = () => {
+const WorkoutEdit = () => {
+    let { workoutId } = useParams();
+
+    const history = useHistory();
     const dispatch = useDispatch();
+    const sessionUser = useSelector(state => state.session.user);
 
-    const [date, setDate] = useState('') //`${new Date().getFullYear()}-${new Date().getMonth()}-${new Date().getDate()}`
-    const [notes, setNotes] = useState('')
-    const [completion_time, setCompletionT] = useState('')
-    const [calories_burned, setCaloriesB] = useState('')
-    const [body_weight, setBodyW] = useState('')
+    const workouts = useSelector((state) => state.workouts)
+    const workout = workouts[workoutId]
+
+    if (workout?.user_id !== sessionUser.id) {
+        throw new Error('Access Denied')
+    }
+
+    const [date, setDate] = useState(workout?.date) //`${new Date().getFullYear()}-${new Date().getMonth()}-${new Date().getDate()}`
+    const [notes, setNotes] = useState(workout?.notes ? workout?.notes : '')
+    const [completion_time, setCompletionT] = useState(workout?.completion_time ? workout?.completion_time : '')
+    const [calories_burned, setCaloriesB] = useState(workout?.calories_burned ? workout?.calories_burned : '')
+    const [body_weight, setBodyW] = useState(workout?.body_weight ? workout?.body_weight : '')
 
     const [errors, setErrors] = useState([]);
 
@@ -25,6 +37,7 @@ const WorkoutCreate = () => {
         setErrors([]);
 
         const payload = {
+            id: workoutId,
             date,
             notes,
             completion_time: +completion_time,
@@ -32,17 +45,13 @@ const WorkoutCreate = () => {
             body_weight: +body_weight
         }
 
-        let new_workout = await dispatch(createWorkout(payload))
+        let workout = await dispatch(editWorkout(payload))
             .catch(async (res) => {
                 const data = await res.json();
                 if (data && data?.errors) setErrors(data?.errors);
             });
-        setDate('')
-        setNotes('')
-        setCompletionT('')
-        setCaloriesB('')
-        setBodyW('')
-        setErrors([])
+
+        if (workout) { history.push(`/workout/${workoutId}`) }
     };
 
     return (
@@ -88,7 +97,7 @@ const WorkoutCreate = () => {
                         min='1'
                         max='1500'
                     />
-                    <button type='submit'>Create new Workout</button>
+                    <button type='submit'>Edit new Workout</button>
                 </form>
             </div>
         </section>
@@ -97,4 +106,4 @@ const WorkoutCreate = () => {
 
 }
 
-export default WorkoutCreate;
+export default WorkoutEdit;

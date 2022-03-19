@@ -13,6 +13,7 @@ function Navigation({ isLoaded }) {
         sessionLinks = (
             <>
                 <li><NavLink exact to="/workouts">Workouts</NavLink></li>
+                <li><NavLink exact to="/exercises">Exercises</NavLink></li>
                 <li><ProfileButton user={sessionUser} /></li>
             </>
         );

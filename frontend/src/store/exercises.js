@@ -1,3 +1,5 @@
+import { csrfFetch } from './csrf';
+
 const ADD = '/exercises/add'
 const LOAD = '/exercises/load'
 const UPDATE = '/exercises/edit'
@@ -11,9 +13,10 @@ const removeExercise = remove_exercise => ({ type: REMOVE, remove_exercise })
 
 
 export const createExercise = (payload) => async dispatch => {
-    const response = await fetch('/api/exercises/', {
+
+    const response = await csrfFetch('/api/exercises/', {
         method: 'POST',
-        body: payload,
+        body: JSON.stringify(payload),
     });
     if (response.ok) {
         const new_exercise = await response.json();
@@ -30,8 +33,10 @@ export const createExercise = (payload) => async dispatch => {
 
 export const getExercises = () => async dispatch => {
     const response = await fetch('/api/exercises/');
+    console.log('response', response)
     if (response.ok) {
         const exercises = await response.json();
+        console.log('exercises', exercises)
         dispatch(loadExercises(exercises));
         return exercises;
     }
@@ -39,7 +44,7 @@ export const getExercises = () => async dispatch => {
 }
 
 export const editExercise = (payload) => async dispatch => {
-    const response = await fetch(`/api/exercises/${payload.id}`, {
+    const response = await csrfFetch(`/api/exercises/${payload.id}`, {
         method: 'PUT',
         headers: {
             "Content-Type": "application/json"
@@ -60,7 +65,7 @@ export const editExercise = (payload) => async dispatch => {
 }
 
 export const deleteExercise = (id) => async dispatch => {
-    const response = await fetch(`/api/exercises/${id}`, {
+    const response = await csrfFetch(`/api/exercises/${id}`, {
         method: 'DELETE'
     });
     if (response.ok) {

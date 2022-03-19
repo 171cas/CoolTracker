@@ -5,8 +5,14 @@ import { Route, Switch } from "react-router-dom";
 
 import LoginFormPage from "./components/LoginFormPage";
 import SignupFormPage from "./components/SignupFormPage";
+
 import WorkoutDetail from "./components/WorkoutDetail";
 import WorkoutBrowser from "./components/WorkoutBrowser";
+import WorkoutEdit from "./components/WorkoutEdit";
+
+import ExerciseDetail from "./components/ExerciseDetail";
+import ExerciseBrowser from "./components/ExerciseBrowser";
+import ExerciseEdit from "./components/ExerciseEdit";
 
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
@@ -42,8 +48,20 @@ function App() {
           <Route path="/workouts">
             <WorkoutBrowser />
           </Route>
-          <Route path="/workout/:workoutId">
+          <Route exact path="/workout/:workoutId">
             <WorkoutDetail />
+          </Route>
+          <Route exact path="/workout/:workoutId/edit">
+            <WorkoutEdit />
+          </Route>
+          <Route path="/exercises">
+            <ExerciseBrowser />
+          </Route>
+          <Route exact path="/exercise/:exerciseId">
+            <ExerciseDetail />
+          </Route>
+          <Route exact path="/exercise/:exerciseId/edit">
+            <ExerciseEdit />
           </Route>
         </Switch>
       )}
