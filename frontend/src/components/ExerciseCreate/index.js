@@ -44,6 +44,15 @@ const ExerciseCreate = ({ propId }) => {
                 const data = await res.json();
                 if (data && data?.errors) setErrors(data?.errors);
             });
+
+        setName('')
+        setNotes('')
+        setDistance('')
+        setSets('')
+        setReps('')
+        setRest('')
+        setWeight('')
+        setErrors([])
     };
 
     return (

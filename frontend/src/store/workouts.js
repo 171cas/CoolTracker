@@ -1,4 +1,5 @@
 import { csrfFetch } from './csrf';
+import { getExercises } from './exercises';
 
 const ADD = '/workouts/add'
 const LOAD = '/workouts/load'

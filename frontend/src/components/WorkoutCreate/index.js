@@ -37,6 +37,12 @@ const WorkoutCreate = () => {
                 const data = await res.json();
                 if (data && data?.errors) setErrors(data?.errors);
             });
+        setDate('')
+        setNotes('')
+        setCompletionT('')
+        setCaloriesB('')
+        setBodyW('')
+        setErrors([])
     };
 
     return (

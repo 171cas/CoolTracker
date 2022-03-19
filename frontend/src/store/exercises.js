@@ -33,8 +33,10 @@ export const createExercise = (payload) => async dispatch => {
 
 export const getExercises = () => async dispatch => {
     const response = await fetch('/api/exercises/');
+    console.log('response', response)
     if (response.ok) {
         const exercises = await response.json();
+        console.log('exercises', exercises)
         dispatch(loadExercises(exercises));
         return exercises;
     }

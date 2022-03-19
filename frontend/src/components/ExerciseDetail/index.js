@@ -1,12 +1,13 @@
 import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useParams, NavLink, useHistory } from 'react-router-dom';
+import { useParams, NavLink, useHistory, useLocation } from 'react-router-dom';
 import { getExercises, deleteExercise } from '../../store/exercises';
 
 const ExerciseDetail = ({ propId }) => {
     let { exerciseId, workoutId } = useParams();
 
     if (propId) exerciseId = propId;
+
 
     const history = useHistory();
     const dispatch = useDispatch();
@@ -19,7 +20,7 @@ const ExerciseDetail = ({ propId }) => {
     const handleClickDelete = async (e) => {
         e.preventDefault();
         await dispatch(deleteExercise(+exerciseId))
-        history.push(`/`)
+        if (!propId) history.push(`/exercises`)
     };
 
     let reviewLinks;

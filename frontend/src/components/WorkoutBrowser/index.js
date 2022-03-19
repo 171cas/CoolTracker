@@ -18,7 +18,6 @@ const WorkoutBrowser = () => {
             <WorkoutCreate />
             <div className='containerWO'>
                 {workoutList && workoutList?.map((workout, i) => {
-                    //console.log(workout)
                     return (<WorkoutDetail propId={workout.id} key={i} />) // change it later to workout.id
                 })}
             </div>

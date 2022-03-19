@@ -108,7 +108,7 @@ router.post(
     validateCreate,
     secondValidate,
     asyncHandler(async (req, res) => {
-        const {
+        let {
             workout_id,
             name,
             distance,
@@ -119,6 +119,9 @@ router.post(
             notes,
             completion_time,
         } = req.body;
+
+        if (reps === 0) reps = 1
+        if (sets === 0) sets = 1
 
         const exercise = await Exercise.create({
             user_id: req.user.id,
