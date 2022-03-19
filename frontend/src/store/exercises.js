@@ -13,9 +13,11 @@ const removeExercise = remove_exercise => ({ type: REMOVE, remove_exercise })
 
 
 export const createExercise = (payload) => async dispatch => {
+
+    console.log('hits store', payload)
     const response = await csrfFetch('/api/exercises/', {
         method: 'POST',
-        body: payload,
+        body: JSON.stringify(payload),
     });
     if (response.ok) {
         const new_exercise = await response.json();

@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams, NavLink, useHistory } from 'react-router-dom';
 import { getWorkouts, deleteWorkout } from '../../store/workouts';
+import ExerciseBrowser from '../ExerciseBrowser';
+import ExerciseCreate from '../ExerciseCreate';
 
 const WorkoutDetail = ({ propId }) => {
     let { workoutId } = useParams();
@@ -57,6 +59,8 @@ const WorkoutDetail = ({ propId }) => {
             {workout?.completion_time ? (<p>Completion Time: {workout?.completion_time}</p>) : (<></>)}
             {workout?.calories_burned ? (<p>Calories Burned: {workout?.calories_burned}</p>) : (<></>)}
             {workout?.body_weight ? (<p>Body Weight: {workout?.body_weight}</p>) : (<></>)}
+            {!propId && <ExerciseCreate propId={workout?.id} />}
+            <ExerciseBrowser propId={workout?.id} />
         </div>
     )
 }

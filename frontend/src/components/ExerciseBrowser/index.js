@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useParams, NavLink, useHistory } from 'react-router-dom';
 
 import ExerciseDetail from '../ExerciseDetail';
-//import WorkoutCreate from '../WorkoutCreate';
 
 const ExerciseBrowser = ({ propId }) => {
 
@@ -15,11 +14,6 @@ const ExerciseBrowser = ({ propId }) => {
         :
         Object.values(exercises).reverse()
     )
-
-    console.log('propId', propId)
-    console.log('exercises', exercises)
-    console.log('exerciseList', exerciseList)
-
 
     return (
         <>
