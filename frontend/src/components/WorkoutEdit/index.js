@@ -3,9 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { editWorkout } from "../../store/workouts";
 import { useParams, useHistory } from 'react-router-dom';
 
-const WorkoutEdit = ({ propId }) => {
+const WorkoutEdit = () => {
     let { workoutId } = useParams();
-    if (propId) workoutId = propId;
 
     const history = useHistory();
     const dispatch = useDispatch();
@@ -19,10 +18,10 @@ const WorkoutEdit = ({ propId }) => {
     }
 
     const [date, setDate] = useState(workout?.date) //`${new Date().getFullYear()}-${new Date().getMonth()}-${new Date().getDate()}`
-    const [notes, setNotes] = useState(workout?.notes)
-    const [completion_time, setCompletionT] = useState(workout?.completion_time)
-    const [calories_burned, setCaloriesB] = useState(workout?.calories_burned)
-    const [body_weight, setBodyW] = useState(workout?.body_weight)
+    const [notes, setNotes] = useState(workout?.notes ? workout?.notes : '')
+    const [completion_time, setCompletionT] = useState(workout?.completion_time ? workout?.completion_time : '')
+    const [calories_burned, setCaloriesB] = useState(workout?.calories_burned ? workout?.calories_burned : '')
+    const [body_weight, setBodyW] = useState(workout?.body_weight ? workout?.body_weight : '')
 
     const [errors, setErrors] = useState([]);
 

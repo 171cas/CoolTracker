@@ -12,6 +12,7 @@ import WorkoutEdit from "./components/WorkoutEdit";
 
 import ExerciseDetail from "./components/ExerciseDetail";
 import ExerciseBrowser from "./components/ExerciseBrowser";
+import ExerciseEdit from "./components/ExerciseEdit";
 
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
@@ -58,6 +59,9 @@ function App() {
           </Route>
           <Route exact path="/exercise/:exerciseId">
             <ExerciseDetail />
+          </Route>
+          <Route exact path="/exercise/:exerciseId/edit">
+            <ExerciseEdit />
           </Route>
         </Switch>
       )}

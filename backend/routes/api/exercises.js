@@ -120,8 +120,6 @@ router.post(
             completion_time,
         } = req.body;
 
-        console.log('hits api')
-
         const exercise = await Exercise.create({
             user_id: req.user.id,
             workout_id,

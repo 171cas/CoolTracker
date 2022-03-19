@@ -4,7 +4,8 @@ import { useParams, NavLink, useHistory } from 'react-router-dom';
 import { getExercises, deleteExercise } from '../../store/exercises';
 
 const ExerciseDetail = ({ propId }) => {
-    let { exerciseId } = useParams();
+    let { exerciseId, workoutId } = useParams();
+
     if (propId) exerciseId = propId;
 
     const history = useHistory();

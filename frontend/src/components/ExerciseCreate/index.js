@@ -39,9 +39,7 @@ const ExerciseCreate = ({ propId }) => {
             weight: +weight,
         }
 
-        console.log('payload', payload)
-
-        let new_workout = await dispatch(createExercise(payload))
+        let new_exercise = await dispatch(createExercise(payload))
             .catch(async (res) => {
                 const data = await res.json();
                 if (data && data?.errors) setErrors(data?.errors);
