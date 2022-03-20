@@ -1,4 +1,3 @@
-// backend/routes/api/likes.js
 const express = require('express');
 const asyncHandler = require('express-async-handler');
 
