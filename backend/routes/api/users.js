@@ -1,4 +1,3 @@
-// backend/routes/api/users.js
 const express = require('express');
 const asyncHandler = require('express-async-handler');
 
