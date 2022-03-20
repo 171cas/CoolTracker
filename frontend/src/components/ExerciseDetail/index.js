@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams, NavLink, useHistory, useLocation } from 'react-router-dom';
 import { getExercises, deleteExercise } from '../../store/exercises';
+import './ExerciseDetail.css'
 
 const ExerciseDetail = ({ propId }) => {
     let { exerciseId, workoutId } = useParams();
@@ -41,8 +42,9 @@ const ExerciseDetail = ({ propId }) => {
 
     return (
         <div className='singleEx'>
-            <p><NavLink to={`/exercise/${exercise?.id}`} >Exercise #{exercise?.id} </NavLink> </p>
-            {reviewLinks && reviewLinks}
+            <p><NavLink to={`/exercise/${exercise?.id}`} >Exercise #{exercise?.id} </NavLink>
+                {reviewLinks && reviewLinks}
+            </p>
             {exercise?.name ? (<p>Name #{exercise?.name}</p>) : (<></>)}
             {exercise?.notes ? (<p>Notes #{exercise?.notes}</p>) : (<></>)}
             {exercise?.distance ? (<p>Distance: {exercise?.distance}</p>) : (<></>)}

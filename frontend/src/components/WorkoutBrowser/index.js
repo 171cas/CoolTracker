@@ -5,6 +5,7 @@ import { getWorkouts } from '../../store/workouts';
 
 import WorkoutDetail from '../WorkoutDetail';
 import WorkoutCreate from '../WorkoutCreate';
+import './WorkoutBrowser.css'
 
 const WorkoutBrowser = () => {
 
@@ -14,14 +15,12 @@ const WorkoutBrowser = () => {
 
 
     return (
-        <>
+        <div className='containerWO'>
             <WorkoutCreate />
-            <div className='containerWO'>
-                {workoutList && workoutList?.map((workout, i) => {
-                    return (<WorkoutDetail propId={workout.id} key={i} />) // change it later to workout.id
-                })}
-            </div>
-        </>
+            {workoutList && workoutList?.map((workout, i) => {
+                return (<WorkoutDetail propId={workout.id} key={i} />) // change it later to workout.id
+            })}
+        </div>
     )
 }
 
