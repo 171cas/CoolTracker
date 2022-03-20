@@ -33,7 +33,7 @@ async function listWO(workout_id) {
 router.get(
     '/workout/:id',
     asyncHandler(async function (req, res) {
-        const exercises = await listWO(req.params.id);
+        const exercises = await listWO(req?.params?.id);
         return res.json(exercises);
     }));
 
