@@ -15,14 +15,12 @@ const WorkoutBrowser = () => {
 
 
     return (
-        <>
-            <div className='containerWO'>
-                <WorkoutCreate />
-                {workoutList && workoutList?.map((workout, i) => {
-                    return (<WorkoutDetail propId={workout.id} key={i} />) // change it later to workout.id
-                })}
-            </div>
-        </>
+        <div className='containerWO'>
+            <WorkoutCreate />
+            {workoutList && workoutList?.map((workout, i) => {
+                return (<WorkoutDetail propId={workout.id} key={i} />) // change it later to workout.id
+            })}
+        </div>
     )
 }
 

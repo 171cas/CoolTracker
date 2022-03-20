@@ -47,19 +47,21 @@ const WorkoutDetail = ({ propId }) => {
 
 
     return (
-        <div className='singleWO'>
-            <p>
-                <NavLink to={`/workout/${workout?.id}`} >Workout #{workout?.id} </NavLink>
-                {reviewLinks && reviewLinks}
-            </p>
-            {workout?.date ? (<p>Date #{workout?.date}</p>) : (<></>)}
-            {workout?.notes ? (<p>Notes: {workout?.notes}</p>) : (<></>)}
-            {workout?.completion_time ? (<p>Completion Time: {workout?.completion_time}</p>) : (<></>)}
-            {workout?.calories_burned ? (<p>Calories Burned: {workout?.calories_burned}</p>) : (<></>)}
-            {workout?.body_weight ? (<p>Body Weight: {workout?.body_weight}</p>) : (<></>)}
-            {!propId && <ExerciseCreate propId={workout?.id} />}
-            {propId ? <p><NavLink to={`/workout/${workout?.id}`} >Exercises: {exCount} </NavLink></p>
-                : <ExerciseBrowser propId={workout?.id} />}
+        <div className='containerWO'>
+            <div className='singleWO'>
+                <p>
+                    <NavLink to={`/workout/${workout?.id}`} >Workout #{workout?.id} </NavLink>
+                    {reviewLinks && reviewLinks}
+                </p>
+                {workout?.date ? (<p>Date #{workout?.date}</p>) : (<></>)}
+                {workout?.notes ? (<p>Notes: {workout?.notes}</p>) : (<></>)}
+                {workout?.completion_time ? (<p>Completion Time: {workout?.completion_time}</p>) : (<></>)}
+                {workout?.calories_burned ? (<p>Calories Burned: {workout?.calories_burned}</p>) : (<></>)}
+                {workout?.body_weight ? (<p>Body Weight: {workout?.body_weight}</p>) : (<></>)}
+                {!propId && <ExerciseCreate propId={workout?.id} />}
+                {propId ? <p><NavLink to={`/workout/${workout?.id}`} >Exercises: {exCount} </NavLink></p>
+                    : <ExerciseBrowser propId={workout?.id} />}
+            </div>
         </div>
     )
 }

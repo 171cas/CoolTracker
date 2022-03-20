@@ -61,42 +61,53 @@ const WorkoutEdit = () => {
             </ul>
             <div className="createWOCont">
                 <form className="createWOForm" onSubmit={handleSubmit}>
-                    <input
-                        type='date'
-                        required
-                        value={date}
-                        onChange={updateDate}
-                    />
-                    <input
-                        type='text'
-                        placeholder='Notes'
-                        value={notes}
-                        onChange={updateNotes}
-                    />
-                    <input
-                        type='number'
-                        placeholder='Completion Time'
-                        value={completion_time}
-                        onChange={updateCompletionT}
-                        min='1'
-                        max='86400'
-                    />
-                    <input
-                        type='number'
-                        placeholder='Calories Burned'
-                        value={calories_burned}
-                        onChange={updateCaloriesB}
-                        min='1'
-                        max='20000'
-                    />
-                    <input
-                        type='number'
-                        placeholder='Body Weight'
-                        value={body_weight}
-                        onChange={updateBodyW}
-                        min='1'
-                        max='1500'
-                    />
+                    <p>Workout #{workoutId}</p>
+                    <p>Date #
+                        <input
+                            type='date'
+                            required
+                            value={date}
+                            onChange={updateDate}
+                        />
+                    </p>
+                    <p>Notes
+                        <input
+                            type='text'
+                            placeholder='Notes'
+                            value={notes}
+                            onChange={updateNotes}
+                        />
+                    </p>
+                    <p>Completion Time
+                        <input
+                            type='number'
+                            placeholder='Completion Time'
+                            value={completion_time}
+                            onChange={updateCompletionT}
+                            min='1'
+                            max='86400'
+                        />
+                    </p>
+                    <p>Calories Burned
+                        <input
+                            type='number'
+                            placeholder='Calories Burned'
+                            value={calories_burned}
+                            onChange={updateCaloriesB}
+                            min='1'
+                            max='20000'
+                        />
+                    </p>
+                    <p>Body Weight
+                        <input
+                            type='number'
+                            placeholder='Body Weight'
+                            value={body_weight}
+                            onChange={updateBodyW}
+                            min='1'
+                            max='1500'
+                        />
+                    </p>
                     <button type='submit'>Edit new Workout</button>
                 </form>
             </div>
