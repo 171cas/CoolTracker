@@ -1,12 +1,11 @@
 .singleWO{
     overflow: hidden;
     width: 100%;
-    max-width: 450px;
     height: auto;
     background-color: #5D737E;
     border-radius: 3px;
     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-    padding: 10px;
+    padding: 20px 10px;
     margin: 15px;
     border:1px solid ;
     border-color: #D8DBE2;
@@ -15,19 +14,26 @@
 
 .singleWO a, a:hover, a:focus, a:active {
     text-decoration: none;
-    color: inherit;
+    color: #FF784F;
 }
 
 
 .singleWO > h3 {
     text-decoration: underline;
     color: #FF784F;
+    margin-bottom: 15px;
 }
 
 
 .singleWO > h4 {
-    text-decoration: underline;
     color: #FF784F;
+}
+
+.singleWO h4:hover{
+    color: #ffa185;
+}
+.singleWO h3:hover{
+    color: #ffa185;
 }
 
 .singleWO p {

@@ -32,19 +32,14 @@ const ExerciseDetail = ({ propId }) => {
                 <NavLink to={`/exercise/${exercise?.id}/edit`}><button>Edit Exercise</button></NavLink>
             </>
         );
-    } else {
-        reviewLinks = (
-            <>
-            </>
-        );
     }
 
 
     return (
         <div className='singleEx'>
-            <p><NavLink to={`/exercise/${exercise?.id}`} >Exercise #{exercise?.id} </NavLink>
+            <h3><NavLink to={`/exercise/${exercise?.id}`} >Exercise #{exercise?.id} </NavLink>
                 {reviewLinks && reviewLinks}
-            </p>
+            </h3>
             {exercise?.name ? (<p>Name #{exercise?.name}</p>) : (<></>)}
             {exercise?.notes ? (<p>Notes #{exercise?.notes}</p>) : (<></>)}
             {exercise?.distance ? (<p>Distance: {exercise?.distance}</p>) : (<></>)}

@@ -16,14 +16,11 @@ const ExerciseBrowser = ({ propId }) => {
     )
 
     return (
-        <>
-
-            <div className='containerEx'>
-                {exerciseList && exerciseList?.map((exercise, i) => {
-                    return (<ExerciseDetail propId={exercise.id} key={i} />) // change it later
-                })}
-            </div>
-        </>
+        <div className='containerEx'>
+            {exerciseList && exerciseList?.map((exercise, i) => {
+                return (<ExerciseDetail propId={exercise.id} key={i} />) // change it later
+            })}
+        </div>
     )
 }
 

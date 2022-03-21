@@ -3,6 +3,7 @@
     position: fixed;
     top: 0;
     width: 100%;
+    /* min-width: 455px; */
     height: 75px;
     background-color: #1c1b1b;
     /* background-image: linear-gradient(#D8DBE2, #020202); */
@@ -24,4 +25,8 @@
 .navBar a:hover {
     text-decoration: none;
     color: lightgray;
+}
+
+.navBar * {
+    font-size: 20px;
 }

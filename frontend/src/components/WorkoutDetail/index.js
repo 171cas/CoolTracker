@@ -74,17 +74,17 @@ const WorkoutDetail = ({ propId }) => {
     return (
         <div className='containerWO'>
             <div className='singleWO'>
-                <h3>
-                    <NavLink to={`/workout/${workout?.id}`} >Workout #{workout?.id} </NavLink>
+                <div>
+                    <NavLink to={`/workout/${workout?.id}`} ><h3>Workout #{workout?.id}</h3></NavLink>
                     {reviewLinks && reviewLinks}
-                </h3>
+                </div>
                 {workout?.date ? (<p>Date #{workout?.date}</p>) : (<></>)}
                 {workout?.notes ? (<p>Notes: {workout?.notes}</p>) : (<></>)}
                 {workout?.completion_time ? (<p>Completion Time: {workout?.completion_time}</p>) : (<></>)}
                 {workout?.calories_burned ? (<p>Calories Burned: {workout?.calories_burned}</p>) : (<></>)}
                 {workout?.body_weight ? (<p>Body Weight: {workout?.body_weight}</p>) : (<></>)}
                 {!propId && <ExerciseCreate propId={workout?.id} />}
-                {propId ? <h4><NavLink to={`/workout/${workout?.id}`} >Exercises: {exCount} </NavLink></h4>
+                {propId ? <NavLink to={`/workout/${workout?.id}`}><h4>Exercises: {exCount}</h4></NavLink>
                     : <ExerciseBrowser propId={workout?.id} />}
             </div>
         </div>

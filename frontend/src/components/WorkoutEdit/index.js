@@ -62,7 +62,7 @@ const WorkoutEdit = () => {
             </ul>
             <div className="createWOCont">
                 <form className="createWOForm" onSubmit={handleSubmit}>
-                    <h3>Workout #ID</h3>
+                    <h3>Workout #{workoutId}</h3>
 
                     <div className="singleLine">
                         <p>Date:</p>
