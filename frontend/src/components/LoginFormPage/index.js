@@ -39,11 +39,12 @@ function LoginFormPage() {
         <div className='loginContainer'>
             <form onSubmit={handleSubmit} className='loginForm'>
                 <ul>
-                    {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+                    {errors.map((error, idx) => <li key={idx} className='important'>{error}</li>)}
                 </ul>
                 <label>
-                    Username or Email
+                    Login
                     <input
+                        placeholder='Username/Email'
                         type="text"
                         value={credential}
                         onChange={(e) => setCredential(e.target.value)}
@@ -53,6 +54,7 @@ function LoginFormPage() {
                 <label>
                     Password
                     <input
+                        placeholder='Password'
                         type="password"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
