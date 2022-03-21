@@ -60,24 +60,34 @@ const ExerciseEdit = () => {
     };
 
     return (
-        <section>
+
+
+        <div className='singleEx'>
             <ul>
                 {errors?.map((error, idx) => <li className='required' key={idx}>{error}</li>)}
             </ul>
-            <div className="createExCont">
-                <form className="createExForm" onSubmit={handleSubmit}>
+            <form className="createExForm" onSubmit={handleSubmit}>
+                <h3>Exercise #{exerciseId}</h3>
+                <label className="singleLine">
+                    Name
                     <input
                         type='text'
                         placeholder='Name'
                         value={name}
                         onChange={updateName}
                     />
+                </label>
+                <label className="singleLine">
+                    Notes
                     <input
                         type='text'
                         placeholder='Notes'
                         value={notes}
                         onChange={updateNotes}
                     />
+                </label>
+                <label className="singleLine">
+                    Distance
                     <input
                         type='number'
                         placeholder='Distance'
@@ -86,6 +96,9 @@ const ExerciseEdit = () => {
                         min='0'
                         max='10000'
                     />
+                </label>
+                <label className="singleLine">
+                    Sets
                     <input
                         type='number'
                         placeholder='Sets'
@@ -94,6 +107,9 @@ const ExerciseEdit = () => {
                         min='1'
                         max='1000'
                     />
+                </label>
+                <label className="singleLine">
+                    Reps
                     <input
                         type='number'
                         placeholder='Reps'
@@ -102,6 +118,9 @@ const ExerciseEdit = () => {
                         min='1'
                         max='1000'
                     />
+                </label>
+                <label className="singleLine">
+                    Rest
                     <input
                         type='number'
                         placeholder='Rest'
@@ -110,6 +129,9 @@ const ExerciseEdit = () => {
                         min='0'
                         max='86400'
                     />
+                </label>
+                <label className="singleLine">
+                    Added Weight
                     <input
                         type='number'
                         placeholder='Added Weight'
@@ -118,10 +140,10 @@ const ExerciseEdit = () => {
                         min='0'
                         max='5000'
                     />
-                    <button type='submit'>Edit Exercise</button>
-                </form>
-            </div>
-        </section>
+                </label>
+                <button type='submit'>Edit Exercise</button>
+            </form>
+        </div>
     );
 
 

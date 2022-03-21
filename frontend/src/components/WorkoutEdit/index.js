@@ -55,30 +55,35 @@ const WorkoutEdit = () => {
     };
 
     return (
-        <section>
+
+        <div className='containerWO'>
             <ul>
                 {errors?.map((error, idx) => <li className='required' key={idx}>{error}</li>)}
             </ul>
             <div className="createWOCont">
                 <form className="createWOForm" onSubmit={handleSubmit}>
-                    <p>Workout #{workoutId}</p>
-                    <p>Date #
+                    <h3>Workout #{workoutId}</h3>
+
+                    <div className="singleLine">
+                        <p>Date:</p>
                         <input
                             type='date'
                             required
                             value={date}
                             onChange={updateDate}
                         />
-                    </p>
-                    <p>Notes
+                    </div>
+                    <div className="singleLine">
+                        <p>Notes</p>
                         <input
-                            type='text'
+                            type='textArea'
                             placeholder='Notes'
                             value={notes}
                             onChange={updateNotes}
                         />
-                    </p>
-                    <p>Completion Time
+                    </div>
+                    <div className="singleLine">
+                        <p>Completion Time</p>
                         <input
                             type='number'
                             placeholder='Completion Time'
@@ -87,8 +92,9 @@ const WorkoutEdit = () => {
                             min='1'
                             max='86400'
                         />
-                    </p>
-                    <p>Calories Burned
+                    </div>
+                    <div className="singleLine">
+                        <p>Calories Burned</p>
                         <input
                             type='number'
                             placeholder='Calories Burned'
@@ -97,8 +103,9 @@ const WorkoutEdit = () => {
                             min='1'
                             max='20000'
                         />
-                    </p>
-                    <p>Body Weight
+                    </div>
+                    <div className="singleLine">
+                        <p>Body Weight</p>
                         <input
                             type='number'
                             placeholder='Body Weight'
@@ -107,11 +114,11 @@ const WorkoutEdit = () => {
                             min='1'
                             max='1500'
                         />
-                    </p>
-                    <button type='submit'>Edit new Workout</button>
+                    </div>
+                    <button type='submit' className="addButton">Edit Workout</button>
                 </form>
             </div>
-        </section>
+        </div>
     );
 
 

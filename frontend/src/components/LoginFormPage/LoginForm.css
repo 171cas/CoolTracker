@@ -1,3 +1,7 @@
-.loginForm{
-    background-color: grey;
+.loginForm label{
+    margin: 0 10px;
+}
+
+.loginForm input, button{
+    margin: 0 5px;
 }

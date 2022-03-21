@@ -36,31 +36,35 @@ function LoginFormPage() {
     }
 
     return (
-        <form onSubmit={handleSubmit} className='loginForm'>
-            <ul>
-                {errors.map((error, idx) => <li key={idx}>{error}</li>)}
-            </ul>
-            <label>
-                Username or Email
-                <input
-                    type="text"
-                    value={credential}
-                    onChange={(e) => setCredential(e.target.value)}
-                    required
-                />
-            </label>
-            <label>
-                Password
-                <input
-                    type="password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    required
-                />
-            </label>
-            <button type="submit">Log In</button>
-            <button onClick={handleClickDemo}>Demo User</button>
-        </form>
+        <div className='loginContainer'>
+            <form onSubmit={handleSubmit} className='loginForm'>
+                <ul>
+                    {errors.map((error, idx) => <li key={idx} className='important'>{error}</li>)}
+                </ul>
+                <label>
+                    Login
+                    <input
+                        placeholder='Username/Email'
+                        type="text"
+                        value={credential}
+                        onChange={(e) => setCredential(e.target.value)}
+                        required
+                    />
+                </label>
+                <label>
+                    Password
+                    <input
+                        placeholder='Password'
+                        type="password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        required
+                    />
+                </label>
+                <button type="submit">Log In</button>
+                <button onClick={handleClickDemo}>Demo User</button>
+            </form>
+        </div>
     );
 }
 

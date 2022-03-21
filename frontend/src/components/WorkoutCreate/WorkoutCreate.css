@@ -1,9 +1,73 @@
 .createWOCont{
-    width: 400px;
+    width: 100%;
+    max-width: 450px;
     height: auto;
-    background-color: beige;
+    background-color: #5D737E;
+    border:1px solid ;
+    border-color: #D8DBE2;
     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-    border-radius: 10px;
-    padding: 10px;
+    border-radius: 3px;
+    padding: 20px 10px;
     margin: 15px;
+}
+.createWOForm{
+    width: 100%;
+    max-width: 450px;
+    display: grid;
+}
+.createWOForm > h3 {
+    color: #FF784F;
+    margin-bottom: 15px;
+}
+
+.singleLine{
+    display: grid;
+    grid: 1fr 1fr;
+    grid-auto-flow: column;
+    align-items: flex-end;
+    margin: 5px;
+    justify-content: space-between;
+    border-bottom: 1px solid #aaa;
+    margin-bottom: 20px;
+}
+
+.singleLine p {
+    width:fit-content;
+    margin: 0;
+
+}
+
+.singleLine input {
+    width: 150px;
+}
+
+.addButton{
+    justify-self: center;
+    margin: auto;
+
+    background-color: #FF784F;
+    border-radius: 8px;
+    border-style: none;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 500;
+    height: 30px;
+    line-height: 20px;
+    list-style: none;
+    margin: 2px;
+    outline: none;
+    padding: 1px 10px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: baseline;
+    user-select: none;
+    touch-action: manipulation;
+}
+
+.addButton:hover{
+    background-color: #ffa185;
 }

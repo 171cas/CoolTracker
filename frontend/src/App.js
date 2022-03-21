@@ -58,13 +58,25 @@ function App() {
             <WorkoutEdit />
           </Route>
           <Route path="/exercises">
-            <ExerciseBrowser />
+            <div className='containerWO'>
+              <div className='singleWO'>
+                <ExerciseBrowser />
+              </div>
+            </div>
           </Route>
           <Route exact path="/exercise/:exerciseId">
-            <ExerciseDetail />
+            <div className='containerWO'>
+              <div className='singleWO'>
+                <ExerciseDetail />
+              </div>
+            </div>
           </Route>
           <Route exact path="/exercise/:exerciseId/edit">
-            <ExerciseEdit />
+            <div className='containerWO'>
+              <div className='singleWO'>
+                <ExerciseEdit />
+              </div>
+            </div>
           </Route>
         </Switch>
       )}

@@ -48,30 +48,34 @@ const WorkoutCreate = () => {
     };
 
     return (
-        <section>
-            <ul>
-                {errors?.map((error, idx) => <li className='required' key={idx}>{error}</li>)}
-            </ul>
-            <div className="createWOCont">
+        <div className="createWOCont">
+            <section>
+                <ul>
+                    {errors?.map((error, idx) => <li className='required' key={idx}>{error}</li>)}
+                </ul>
                 <form className="createWOForm" onSubmit={handleSubmit}>
-                    <p>Workout #ID</p>
-                    <p>Date #
+                    <h3>Workout #ID</h3>
+
+                    <label className="singleLine">
+                        <p>Date:</p>
                         <input
                             type='date'
                             required
                             value={date}
                             onChange={updateDate}
                         />
-                    </p>
-                    <p>Notes
+                    </label>
+                    <label className="singleLine">
+                        <p>Notes</p>
                         <input
                             type='text'
                             placeholder='Notes'
                             value={notes}
                             onChange={updateNotes}
                         />
-                    </p>
-                    <p>Completion Time
+                    </label>
+                    <label className="singleLine">
+                        <p>Completion Time</p>
                         <input
                             type='number'
                             placeholder='Completion Time'
@@ -80,8 +84,9 @@ const WorkoutCreate = () => {
                             min='1'
                             max='86400'
                         />
-                    </p>
-                    <p>Calories Burned
+                    </label>
+                    <label className="singleLine">
+                        <p>Calories Burned</p>
                         <input
                             type='number'
                             placeholder='Calories Burned'
@@ -90,8 +95,9 @@ const WorkoutCreate = () => {
                             min='1'
                             max='20000'
                         />
-                    </p>
-                    <p>Body Weight
+                    </label>
+                    <label className="singleLine">
+                        <p>Body Weight</p>
                         <input
                             type='number'
                             placeholder='Body Weight'
@@ -100,11 +106,11 @@ const WorkoutCreate = () => {
                             min='1'
                             max='1500'
                         />
-                    </p>
-                    <button type='submit'>Create new Workout</button>
+                    </label>
+                    <button type='submit' className="addButton">Create New Workout</button>
                 </form>
-            </div>
-        </section>
+            </section>
+        </div>
     );
 
 

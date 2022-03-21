@@ -1,0 +1,32 @@
+.navBar{
+    overflow: visible;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    /* min-width: 455px; */
+    height: 75px;
+    background-color: #1c1b1b;
+    /* background-image: linear-gradient(#D8DBE2, #020202); */
+    z-index: 100;
+    display: flex;
+    flew-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    background-image: url('https://wallpapercave.com/dwp1x/wp2639534.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.navBar a {
+    text-decoration: none;
+    color: white;
+}
+
+.navBar a:hover {
+    text-decoration: none;
+    color: lightgray;
+}
+
+.navBar * {
+    font-size: 20px;
+}

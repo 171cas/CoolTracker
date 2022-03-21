@@ -5,11 +5,16 @@ import { getWorkouts, deleteWorkout } from '../../store/workouts';
 import { getExercises } from '../../store/exercises';
 import ExerciseBrowser from '../ExerciseBrowser';
 import ExerciseCreate from '../ExerciseCreate';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faGear } from "@fortawesome/free-solid-svg-icons";
 import './WorkoutDetail.css'
 
 const WorkoutDetail = ({ propId }) => {
     let { workoutId } = useParams();
     if (propId) workoutId = propId;
+
+
+    const [showMenu, setShowMenu] = useState(false);
 
     const history = useHistory();
     const dispatch = useDispatch();
@@ -23,6 +28,21 @@ const WorkoutDetail = ({ propId }) => {
     const exercisesWO = exList.filter(({ workout_id }) => workout_id === +workoutId)
     const exCount = exercisesWO.length
 
+    const openMenu = () => {
+        setShowMenu(true);
+    };
+    useEffect(() => {
+        if (!showMenu) return;
+
+        const closeMenu = () => {
+            setShowMenu(false);
+        };
+
+        document.addEventListener('click', closeMenu);
+
+        return () => document.removeEventListener("click", closeMenu);
+    }, [showMenu]);
+
     const handleClickDelete = async (e) => {
         e.preventDefault();
         await dispatch(deleteWorkout(+workoutId))
@@ -34,8 +54,13 @@ const WorkoutDetail = ({ propId }) => {
     if (sessionUser?.id === workout?.user_id) {
         reviewLinks = (
             <>
-                <button onClick={handleClickDelete}>Delete Workout</button>
-                <NavLink to={`/workout/${workout?.id}/edit`}><button>Edit Workout</button></NavLink>
+                <FontAwesomeIcon icon={faGear} onClick={openMenu} className='gear' />
+                {showMenu && (
+                    <>
+                        <button onClick={handleClickDelete} className='optionButton'>Delete Workout</button>
+                        <NavLink to={`/workout/${workout?.id}/edit`} ><button className='optionButton'>Edit Workout</button></NavLink>
+                    </>
+                )}
             </>
         );
     } else {
@@ -49,17 +74,17 @@ const WorkoutDetail = ({ propId }) => {
     return (
         <div className='containerWO'>
             <div className='singleWO'>
-                <p>
-                    <NavLink to={`/workout/${workout?.id}`} >Workout #{workout?.id} </NavLink>
+                <div>
+                    <NavLink to={`/workout/${workout?.id}`} ><h3>Workout #{workout?.id}</h3></NavLink>
                     {reviewLinks && reviewLinks}
-                </p>
+                </div>
                 {workout?.date ? (<p>Date #{workout?.date}</p>) : (<></>)}
                 {workout?.notes ? (<p>Notes: {workout?.notes}</p>) : (<></>)}
                 {workout?.completion_time ? (<p>Completion Time: {workout?.completion_time}</p>) : (<></>)}
                 {workout?.calories_burned ? (<p>Calories Burned: {workout?.calories_burned}</p>) : (<></>)}
                 {workout?.body_weight ? (<p>Body Weight: {workout?.body_weight}</p>) : (<></>)}
                 {!propId && <ExerciseCreate propId={workout?.id} />}
-                {propId ? <p><NavLink to={`/workout/${workout?.id}`} >Exercises: {exCount} </NavLink></p>
+                {propId ? <NavLink to={`/workout/${workout?.id}`}><h4>Exercises: {exCount}</h4></NavLink>
                     : <ExerciseBrowser propId={workout?.id} />}
             </div>
         </div>
