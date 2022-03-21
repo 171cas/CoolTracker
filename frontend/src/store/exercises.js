@@ -32,9 +32,7 @@ export const createExercise = (payload) => async dispatch => {
 }
 
 export const getExercises = () => async dispatch => {
-    console.log('hits get ex')
     const response = await fetch('/api/exercises/');
-    console.log('response', response)
     if (response.ok) {
         const exercises = await response.json();
         dispatch(loadExercises(exercises));
@@ -86,12 +84,8 @@ const exerciseReducer = (state = {}, action) => {
             newState[action.new_exercise.id] = action.new_exercise;
             return newState;
         case LOAD:
-            console.log('hits red load state', state)
             newState = { ...state };
-            console.log('hits red load act', action)
-            console.log('hits red load act exerc', action.exercises)
             action.exercises.forEach(exercise => newState[exercise.id] = exercise);
-            console.log('hits red aft foreach', action)
             return newState;
         case UPDATE:
             newState = { ...state }

@@ -5,9 +5,6 @@ import './HomePage.css'
 const HomePage = () => {
     const sessionUser = useSelector(state => state.session.user);
     let sessionLinks;
-    if (sessionUser) {
-        return <Redirect to='/workouts' />
-    }
 
     return (
         <div className='containerHome'>

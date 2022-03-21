@@ -1,5 +1,6 @@
 import { csrfFetch } from './csrf';
 import { getExercises } from './exercises';
+import { deleteExercise } from './exercises';
 
 const ADD = '/workouts/add'
 const LOAD = '/workouts/load'
@@ -63,9 +64,13 @@ export const editWorkout = (payload) => async dispatch => {
 }
 
 export const deleteWorkout = (id) => async dispatch => {
+    // const exercisesR = await fetch(`/api/exercises/workout/${id}`);
+    // const exercises = await exercisesR.json();
+
     const response = await csrfFetch(`/api/workouts/${id}`, {
         method: 'DELETE'
     });
+    // console.log("exercises from delete", exercises)
     if (response.ok) {
         const remove_workout = await response.json();
         dispatch(removeWorkout(id));
