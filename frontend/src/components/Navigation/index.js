@@ -1,11 +1,21 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
+import React, { useState, useEffect } from "react";
+import { NavLink, useHistory } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import LoginFormPage from '../LoginFormPage';
 import './Navigation.css';
 
 function Navigation({ isLoaded }) {
     const sessionUser = useSelector(state => state.session.user);
+    const history = useHistory();
+
+    useEffect(() => {
+        if (!sessionUser) {
+            const pathname = window.location.pathname //returns the current url minus the domain name
+            if (pathname !== '/' || pathname !== '/signup') {
+                history.push(`/`)
+            }
+        }
+    }, []);
 
     let sessionLinks;
     if (sessionUser) {
