@@ -5,6 +5,7 @@ import { Route, Switch } from "react-router-dom";
 import HomePage from './components/HomePage'
 import LoginFormPage from "./components/LoginFormPage";
 import SignupFormPage from "./components/SignupFormPage";
+import ProfilePage from "./components/ProfilePage";
 
 import WorkoutDetail from "./components/WorkoutDetail";
 import WorkoutBrowser from "./components/WorkoutBrowser";
@@ -47,6 +48,9 @@ function App() {
           </Route>
           <Route path="/signup">
             <SignupFormPage />
+          </Route>
+          <Route exact path="/profile">
+            <ProfilePage />
           </Route>
           <Route path="/workouts">
             <WorkoutBrowser />

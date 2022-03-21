@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams, NavLink, useHistory } from 'react-router-dom';
 import { getWorkouts, deleteWorkout } from '../../store/workouts';
+import { deleteExercise } from '../../store/exercises';
 import { getExercises } from '../../store/exercises';
 import ExerciseBrowser from '../ExerciseBrowser';
 import ExerciseCreate from '../ExerciseCreate';
@@ -43,10 +44,17 @@ const WorkoutDetail = ({ propId }) => {
         return () => document.removeEventListener("click", closeMenu);
     }, [showMenu]);
 
+    const deleteExeCascade = async () => {
+        console.log(exercisesWO)
+        await exercisesWO.forEach(exercise => {
+            dispatch(deleteExercise(exercise?.id))
+        })
+    }
+
     const handleClickDelete = async (e) => {
         e.preventDefault();
         await dispatch(deleteWorkout(+workoutId))
-        await dispatch(getExercises())
+        await deleteExeCascade()
         if (!propId) history.push(`/workouts`)
     };
 

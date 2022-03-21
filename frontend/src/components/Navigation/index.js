@@ -1,7 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import ProfileButton from './ProfileButton';
 import LoginFormPage from '../LoginFormPage';
 import './Navigation.css';
 
@@ -12,9 +11,9 @@ function Navigation({ isLoaded }) {
     if (sessionUser) {
         sessionLinks = (
             <>
-                <NavLink exact to="/workouts">Workouts</NavLink>
-                <NavLink exact to="/exercises">Exercises</NavLink>
-                <ProfileButton user={sessionUser} />
+                <NavLink exact to="/workouts">My Workouts</NavLink>
+                <NavLink exact to="/exercises">My Exercises</NavLink>
+                <NavLink exact to="/profile">My Profile</NavLink>
             </>
         );
     } else {
