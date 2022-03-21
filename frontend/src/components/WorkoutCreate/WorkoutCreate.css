@@ -1,5 +1,6 @@
 .createWOCont{
-    width: 400px;
+    width: 100%;
+    max-width: 450px;
     height: auto;
     background-color: #5D737E;
     border:1px solid ;
@@ -8,6 +9,11 @@
     border-radius: 3px;
     padding: 10px;
     margin: 15px;
+}
+.createWOForm{
+    width: 100%;
+    max-width: 450px;
+    display: grid;
 }
 .createWOForm > h3 {
     color: #FF784F;
@@ -32,10 +38,6 @@
 
 .singleLine input {
     width: 150px;
-}
-
-.createWOForm{
-    display: grid;
 }
 
 .addButton{

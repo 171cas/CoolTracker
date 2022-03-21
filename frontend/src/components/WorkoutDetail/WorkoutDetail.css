@@ -1,6 +1,7 @@
 .singleWO{
     overflow: hidden;
-    width: 400px;
+    width: 100%;
+    max-width: 450px;
     height: auto;
     background-color: #5D737E;
     border-radius: 3px;
