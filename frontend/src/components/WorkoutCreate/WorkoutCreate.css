@@ -1,9 +1,67 @@
 .createWOCont{
     width: 400px;
     height: auto;
-    background-color: beige;
+    background-color: #21565C;
+    border:1px solid ;
+    border-color: #B5B0B3;
     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-    border-radius: 10px;
+    border-radius: 3px;
     padding: 10px;
     margin: 15px;
+}
+.createWOForm > h3 {
+    color: #ff5722;
+}
+
+.singleLine{
+    display: grid;
+    grid: 1fr 1fr;
+    grid-auto-flow: column;
+    align-items: center;
+    margin: 5px;
+    justify-content: space-between;
+}
+
+.singleLine > p {
+    width:fit-content;
+}
+
+.singleLine input {
+    width: 150px;
+}
+
+.createWOForm{
+    display: grid;
+}
+
+.addButton{
+    justify-self: center;
+    margin: auto;
+
+    background-color: #ff5722;
+    border-radius: 8px;
+    border-style: none;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 500;
+    height: 30px;
+    line-height: 20px;
+    list-style: none;
+    margin: 2px;
+    outline: none;
+    padding: 1px 10px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    transition: color 100ms;
+    vertical-align: baseline;
+    user-select: none;
+    touch-action: manipulation;
+}
+
+.addButton:hover{
+    background-color: #ffa185;
 }
