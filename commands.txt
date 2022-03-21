@@ -127,3 +127,13 @@ fetch('/api/likes', {
     workout_id: 1
   })
 }).then(res => res.json()).then(data => console.log(data));
+
+
+
+heroku run npx dotenv sequelize db:seed:undo:all
+
+heroku run npm run sequelize db:migrate:undo:all
+
+heroku run npm run sequelize db:seed:all
+
+heroku run npm run sequelize db:migrate
