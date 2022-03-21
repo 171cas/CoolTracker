@@ -45,7 +45,6 @@ const WorkoutDetail = ({ propId }) => {
     }, [showMenu]);
 
     const deleteExeCascade = async () => {
-        console.log(exercisesWO)
         await exercisesWO.forEach(exercise => {
             dispatch(deleteExercise(exercise?.id))
         })
@@ -53,8 +52,8 @@ const WorkoutDetail = ({ propId }) => {
 
     const handleClickDelete = async (e) => {
         e.preventDefault();
-        await dispatch(deleteWorkout(+workoutId))
         await deleteExeCascade()
+        await dispatch(deleteWorkout(+workoutId))
         if (!propId) history.push(`/workouts`)
     };
 
