@@ -1,4 +1,5 @@
 .singleWO{
+    overflow: hidden;
     width: 400px;
     height: auto;
     background-color: #21565C;
@@ -8,4 +9,55 @@
     margin: 15px;
     border:1px solid ;
     border-color: #B5B0B3;
+}
+
+
+.singleWO a, a:hover, a:focus, a:active {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+.singleWO > h3 {
+    text-decoration: underline;
+    color: #ff5722;
+}
+
+
+.singleWO > h4 {
+    text-decoration: underline;
+    color: #ff5722;
+}
+
+.gear{
+    color: darkgray;
+    margin: 0 15px;
+    cursor: pointer;
+}
+
+.optionButton{
+    justify-self: center;
+    margin: auto 5px;
+
+    background-color: #B5B0B3;
+    border-radius: 8px;
+    border-style: none;
+    box-sizing: border-box;
+    color: black;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 500;
+    height: 30px;
+    line-height: 20px;
+    list-style: none;
+    margin: 2px;
+    outline: none;
+    padding: 1px 10px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: baseline;
+    user-select: none;
+    touch-action: manipulation;
 }
