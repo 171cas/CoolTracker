@@ -2,13 +2,13 @@
     overflow: hidden;
     width: 400px;
     height: auto;
-    background-color: #21565C;
+    background-color: #5D737E;
     border-radius: 3px;
     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
     padding: 10px;
     margin: 15px;
     border:1px solid ;
-    border-color: #B5B0B3;
+    border-color: #D8DBE2;
 }
 
 
@@ -20,13 +20,19 @@
 
 .singleWO > h3 {
     text-decoration: underline;
-    color: #ff5722;
+    color: #FF784F;
 }
 
 
 .singleWO > h4 {
     text-decoration: underline;
-    color: #ff5722;
+    color: #FF784F;
+}
+
+.singleWO p {
+
+    border-bottom: 1px solid #aaa;
+    margin-bottom: 20px;
 }
 
 .gear{
@@ -39,11 +45,11 @@
     justify-self: center;
     margin: auto 5px;
 
-    background-color: #B5B0B3;
+    background-color: #E1E5EE;
     border-radius: 8px;
     border-style: none;
     box-sizing: border-box;
-    color: black;
+    color: #020202;
     cursor: pointer;
     display: inline-block;
     font-size: 14px;

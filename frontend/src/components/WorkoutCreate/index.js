@@ -68,7 +68,7 @@ const WorkoutCreate = () => {
                     <div className="singleLine">
                         <p>Notes</p>
                         <input
-                            type='textArea'
+                            type='text'
                             placeholder='Notes'
                             value={notes}
                             onChange={updateNotes}
@@ -107,7 +107,7 @@ const WorkoutCreate = () => {
                             max='1500'
                         />
                     </div>
-                    <button type='submit' className="addButton">Create new Workout</button>
+                    <button type='submit' className="addButton">Create New Workout</button>
                 </form>
             </div>
         </section>
