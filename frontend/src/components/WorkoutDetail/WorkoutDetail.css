@@ -15,7 +15,6 @@
 .singleWO a, a:hover, a:focus, a:active {
     font-family: 'Bungee', cursive;
     text-decoration: none;
-    text-shadow: 2px 2px #020202;
     color: #FF784F;
 }
 .singleWO a:hover{
