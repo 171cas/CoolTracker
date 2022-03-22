@@ -6,16 +6,7 @@ import './Navigation.css';
 
 function Navigation({ isLoaded }) {
     const sessionUser = useSelector(state => state.session.user);
-    const history = useHistory();
-
-    useEffect(() => {
-        if (!sessionUser) {
-            const pathname = window.location.pathname //returns the current url minus the domain name
-            if (pathname !== '/' || pathname !== '/signup') {
-                history.push(`/`)
-            }
-        }
-    }, []);
+    const trtying = useSelector(state => state);
 
     let sessionLinks;
     if (sessionUser) {
@@ -38,7 +29,7 @@ function Navigation({ isLoaded }) {
         <div className='navBar'>
             <NavLink exact to="/">Home</NavLink>
             {isLoaded && sessionLinks}
-            <LoginFormPage />
+            {!sessionUser && <LoginFormPage />}
         </div>
     );
 }

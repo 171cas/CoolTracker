@@ -11,9 +11,9 @@ function LoginFormPage() {
     const [password, setPassword] = useState('');
     const [errors, setErrors] = useState([]);
 
-    if (sessionUser) return (
-        <Redirect to="/" />
-    );
+    // if (sessionUser) return (
+    //     <Redirect to="/" />
+    // );
 
     const handleClickDemo = async (e) => {
         e.preventDefault();
@@ -29,6 +29,7 @@ function LoginFormPage() {
         e.preventDefault();
         setErrors([]);
         return dispatch(sessionActions.login({ credential, password }))
+            .then(() => <Redirect to="/" />)
             .catch(async (res) => {
                 const data = await res.json();
                 if (data && data.errors) setErrors(data.errors);

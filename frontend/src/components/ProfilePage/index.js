@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useParams, NavLink, useHistory, Redirect } from 'react-router-dom';
+import { useParams, NavLink, useHistory } from 'react-router-dom';
 import { getWorkouts } from '../../store/workouts';
 
 import WorkoutDetail from '../WorkoutDetail';
