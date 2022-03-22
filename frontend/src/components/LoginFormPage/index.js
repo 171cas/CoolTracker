@@ -38,9 +38,7 @@ function LoginFormPage() {
     return (
         <div className='loginContainer'>
             <form onSubmit={handleSubmit} className='loginForm'>
-                <ul>
-                    {errors.map((error, idx) => <li key={idx} className='important'>{error}</li>)}
-                </ul>
+                {errors.length ? <p className='important'>The provided credentials were invalid</p> : <></>}
                 <label>
                     Login
                     <input

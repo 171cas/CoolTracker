@@ -64,7 +64,7 @@ const ExerciseEdit = () => {
 
         <div className='singleEx'>
             <ul>
-                {errors?.map((error, idx) => <li className='required' key={idx}>{error}</li>)}
+                {errors?.map((error, idx) => <li className='important' key={idx}>{error}</li>)}
             </ul>
             <form className="createExForm" onSubmit={handleSubmit}>
                 <h3>Exercise #{exerciseId}</h3>

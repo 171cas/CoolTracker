@@ -43,29 +43,33 @@ const ExerciseCreate = ({ propId }) => {
         let new_exercise = await dispatch(createExercise(payload))
             .catch(async (res) => {
                 const data = await res.json();
-                if (data && data?.errors) setErrors(data?.errors);
+                if (data?.errors) setErrors(data?.errors);
             });
 
-        setName('')
-        setNotes('')
-        setDistance('')
-        setSets('')
-        setReps('')
-        setRest('')
-        setWeight('')
-        setErrors([])
+        if (new_exercise) {
+            setName('')
+            setNotes('')
+            setDistance('')
+            setSets('')
+            setReps('')
+            setRest('')
+            setWeight('')
+            setErrors([])
+        }
     };
 
     return (
         <section>
-            <ul>
-                {errors?.map((error, idx) => <li className='required' key={idx}>{error}</li>)}
-            </ul>
             <div className="singleEx">
+                <ul>
+                    {errors?.map((error, idx) => <li className='important' key={idx}>{error}</li>)}
+                </ul>
                 <form className="createExForm" onSubmit={handleSubmit}>
+                    <h3>Add an Exercise:</h3>
                     <label className="singleLine">
                         Name
                         <input
+                            required
                             type='text'
                             placeholder='Name'
                             value={name}

@@ -24,7 +24,6 @@ const WorkoutCreate = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        setErrors([]);
 
         const payload = {
             date,
@@ -37,21 +36,23 @@ const WorkoutCreate = () => {
         let new_workout = await dispatch(createWorkout(payload))
             .catch(async (res) => {
                 const data = await res.json();
-                if (data && data?.errors) setErrors(data?.errors);
+                if (data?.errors) setErrors(data.errors);
             });
-        setDate('')
-        setNotes('')
-        setCompletionT('')
-        setCaloriesB('')
-        setBodyW('')
-        setErrors([])
+        if (new_workout) {
+            setDate('')
+            setNotes('')
+            setCompletionT('')
+            setCaloriesB('')
+            setBodyW('')
+            setErrors([])
+        }
     };
 
     return (
         <div className="createWOCont">
             <section>
                 <ul>
-                    {errors?.map((error, idx) => <li className='required' key={idx}>{error}</li>)}
+                    {errors?.map((error, idx) => <li className='important' key={idx}>{error}</li>)}
                 </ul>
                 <form className="createWOForm" onSubmit={handleSubmit}>
                     <h3>Workout #ID</h3>

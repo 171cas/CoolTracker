@@ -48,7 +48,7 @@ const WorkoutEdit = () => {
         let workout = await dispatch(editWorkout(payload))
             .catch(async (res) => {
                 const data = await res.json();
-                if (data && data?.errors) setErrors(data?.errors);
+                if (data?.errors) setErrors(data?.errors);
             });
 
         if (workout) { history.push(`/workout/${workoutId}`) }
@@ -57,10 +57,10 @@ const WorkoutEdit = () => {
     return (
 
         <div className='containerWO'>
-            <ul>
-                {errors?.map((error, idx) => <li className='required' key={idx}>{error}</li>)}
-            </ul>
             <div className="createWOCont">
+                <ul>
+                    {errors?.map((error, idx) => <li className='important' key={idx}>{error}</li>)}
+                </ul>
                 <form className="createWOForm" onSubmit={handleSubmit}>
                     <h3>Workout #{workoutId}</h3>
 

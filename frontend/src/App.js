@@ -64,6 +64,7 @@ function App() {
           <Route path="/exercises">
             <div className='containerWO'>
               <div className='singleWO'>
+                <h3 style={{ textDecoration: "none" }} >Exercises</h3>
                 <ExerciseBrowser />
               </div>
             </div>
@@ -87,5 +88,6 @@ function App() {
     </>
   );
 }
+
 
 export default App;
