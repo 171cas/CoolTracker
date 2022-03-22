@@ -36,8 +36,6 @@ const WorkoutCreate = () => {
         let new_workout = await dispatch(createWorkout(payload))
             .catch(async (res) => {
                 const data = await res.json();
-                console.log('data errors length', data?.errors?.length)
-                console.log('response', res)
                 if (data?.errors) setErrors(data.errors);
             });
         if (new_workout) {
