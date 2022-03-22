@@ -5,3 +5,35 @@
 .loginForm input, button{
     margin: 0 5px;
 }
+
+
+.loginButton{
+    justify-self: center;
+    margin: auto;
+
+    background-color: #EFEFEF;
+    border-radius: 2px;
+    border-style: solid;
+    box-sizing: border-box;
+    color: #020202;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 500;
+    height: 30px;
+    line-height: 20px;
+    list-style: none;
+    margin: 2px;
+    outline: none;
+    padding: 1px 10px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: baseline;
+    user-select: none;
+    touch-action: manipulation;
+}
+
+.loginButton:hover{
+    background-color: white;
+}
