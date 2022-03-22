@@ -19,7 +19,8 @@ router.get('/', asyncHandler(async function (_req, res) {
 const validateSignup = [
     check('email')
         .exists({ checkFalsy: true })
-        .isLength({ min: 4, max: 30 })
+        .withMessage('Please provide a value for email.')
+        // .isLength({ min: 4, max: 30 })
         .isEmail()
         .withMessage('Please provide a valid email.'),
     check('username')
@@ -31,7 +32,7 @@ const validateSignup = [
         .isEmail()
         .withMessage('Username cannot be an email.'),
     check('password')
-        .exists({ checkFalsy: true })
+        // .exists({ checkFalsy: true })
         .isLength({ min: 6 })
         .withMessage('Password must be 6 characters or more.'),
     check('first_name')
