@@ -1,4 +1,3 @@
-import { useSelector } from 'react-redux';
 import './HomePage.css'
 
 const HomePage = () => {

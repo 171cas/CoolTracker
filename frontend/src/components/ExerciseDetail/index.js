@@ -1,13 +1,13 @@
 import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useParams, NavLink, useHistory, useLocation } from 'react-router-dom';
+import { useParams, NavLink, useHistory } from 'react-router-dom';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faGear } from "@fortawesome/free-solid-svg-icons";
-import { getExercises, deleteExercise } from '../../store/exercises';
+import { deleteExercise } from '../../store/exercises';
 import './ExerciseDetail.css'
 
 const ExerciseDetail = ({ propId }) => {
-    let { exerciseId, workoutId } = useParams();
+    let { exerciseId } = useParams();
     if (propId) exerciseId = propId;
 
     const [showMenu, setShowMenu] = useState(false);

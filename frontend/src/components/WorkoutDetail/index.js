@@ -1,9 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams, NavLink, useHistory } from 'react-router-dom';
-import { getWorkouts, deleteWorkout } from '../../store/workouts';
+import { deleteWorkout } from '../../store/workouts';
 import { deleteExercise } from '../../store/exercises';
-import { getExercises } from '../../store/exercises';
 import ExerciseBrowser from '../ExerciseBrowser';
 import ExerciseCreate from '../ExerciseCreate';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
@@ -71,14 +70,6 @@ const WorkoutDetail = ({ propId }) => {
             </>
         );
     }
-
-    // else {
-    //     reviewLinks = (
-    //         <>
-    //         </>
-    //     );
-    // }
-
 
     return (
         <div className='containerWO'>

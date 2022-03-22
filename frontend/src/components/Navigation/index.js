@@ -1,33 +1,32 @@
-import React, { useState, useEffect } from "react";
-import { NavLink, useHistory } from 'react-router-dom';
+import React from "react";
+import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import LoginFormPage from '../LoginFormPage';
 import './Navigation.css';
 
 function Navigation({ isLoaded }) {
     const sessionUser = useSelector(state => state.session.user);
-    const trtying = useSelector(state => state);
 
     let sessionLinks;
     if (sessionUser) {
         sessionLinks = (
             <>
-                <NavLink exact to="/workouts">My Workouts</NavLink>
-                <NavLink exact to="/exercises">My Exercises</NavLink>
-                <NavLink exact to="/profile">My Profile</NavLink>
+                <NavLink exact to="/workouts"><h3>My Workouts</h3></NavLink>
+                <NavLink exact to="/exercises"><h3>My Exercises</h3></NavLink>
+                <NavLink exact to="/profile"><h3>My Profile</h3></NavLink>
             </>
         );
     } else {
         sessionLinks = (
             <>
-                <NavLink to="/signup">Sign Up</NavLink>
+                <NavLink to="/signup"><h3>Sign Up</h3></NavLink>
             </>
         );
     }
 
     return (
         <div className='navBar'>
-            <NavLink exact to="/">Home</NavLink>
+            <NavLink exact to="/"><h3>Home</h3></NavLink>
             {isLoaded && sessionLinks}
             {!sessionUser && <LoginFormPage />}
         </div>

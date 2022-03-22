@@ -13,13 +13,18 @@
 
 
 .singleWO a, a:hover, a:focus, a:active {
+    font-family: 'Bungee', cursive;
     text-decoration: none;
+    text-shadow: 1px 1px #020202;
     color: #FF784F;
+}
+.singleWO a:hover{
+    color: #ffa185;
 }
 
 
 .singleWO > h3 {
-    text-decoration: underline;
+    text-decoration: none;
     color: #FF784F;
     margin-bottom: 15px;
 }
@@ -30,9 +35,6 @@
 }
 
 .singleWO h4:hover{
-    color: #ffa185;
-}
-.singleWO h3:hover{
     color: #ffa185;
 }
 

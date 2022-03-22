@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { Route, Switch, useHistory } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 
 import HomePage from './components/HomePage'
 import LoginFormPage from "./components/LoginFormPage";
@@ -29,7 +29,6 @@ function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
 
-  const history = useHistory();
 
   useEffect(() => {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));

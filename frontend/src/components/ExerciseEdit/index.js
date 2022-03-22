@@ -8,7 +8,6 @@ const ExerciseEdit = () => {
 
     const history = useHistory();
     const dispatch = useDispatch();
-    const sessionUser = useSelector(state => state.session.user);
 
     const exercises = useSelector((state) => state.exercises)
     const exercise = exercises[exerciseId]

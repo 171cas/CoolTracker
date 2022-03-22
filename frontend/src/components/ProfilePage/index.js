@@ -1,10 +1,5 @@
-import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useParams, NavLink, useHistory } from 'react-router-dom';
-import { getWorkouts } from '../../store/workouts';
-
-import WorkoutDetail from '../WorkoutDetail';
-import WorkoutCreate from '../WorkoutCreate';
+import { useHistory } from 'react-router-dom';
 
 import * as sessionActions from '../../store/session';
 import './ProfilePage.css'

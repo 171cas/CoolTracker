@@ -1,7 +1,6 @@
 import { createStore, combineReducers, applyMiddleware, compose } from "redux";
 import thunk from "redux-thunk";
 import sessionReducer from './session';
-//import usersReducer from './users';
 import workoutReducer from './workouts';
 import exerciseReducer from './exercises';
 import likeReducer from './likes';
