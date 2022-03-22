@@ -64,27 +64,28 @@ const WorkoutDetail = ({ propId }) => {
                 <FontAwesomeIcon icon={faGear} onClick={openMenu} className='gear' />
                 {showMenu && (
                     <>
-                        <button onClick={handleClickDelete} className='optionButton'>Delete Workout</button>
-                        <NavLink to={`/workout/${workout?.id}/edit`} ><button className='optionButton'>Edit Workout</button></NavLink>
+                        <button onClick={handleClickDelete} className='greyButton'>Delete Workout</button>
+                        <NavLink to={`/workout/${workout?.id}/edit`} ><button className='greyButton'>Edit Workout</button></NavLink>
                     </>
                 )}
             </>
         );
-    } else {
-        reviewLinks = (
-            <>
-            </>
-        );
     }
+
+    // else {
+    //     reviewLinks = (
+    //         <>
+    //         </>
+    //     );
+    // }
 
 
     return (
         <div className='containerWO'>
             <div className='singleWO'>
-                <div>
-                    <NavLink to={`/workout/${workout?.id}`} ><h3>Workout #{workout?.id}</h3></NavLink>
+                <h3><NavLink to={`/workout/${workout?.id}`} >Workout #{workout?.id}</NavLink>
                     {reviewLinks && reviewLinks}
-                </div>
+                </h3>
                 {workout?.date ? (<p>Date #{workout?.date}</p>) : (<></>)}
                 {workout?.notes ? (<p>Notes: {workout?.notes}</p>) : (<></>)}
                 {workout?.completion_time ? (<p>Completion Time: {workout?.completion_time}</p>) : (<></>)}

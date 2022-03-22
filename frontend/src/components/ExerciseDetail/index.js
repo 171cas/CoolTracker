@@ -1,14 +1,16 @@
 import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams, NavLink, useHistory, useLocation } from 'react-router-dom';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faGear } from "@fortawesome/free-solid-svg-icons";
 import { getExercises, deleteExercise } from '../../store/exercises';
 import './ExerciseDetail.css'
 
 const ExerciseDetail = ({ propId }) => {
     let { exerciseId, workoutId } = useParams();
-
     if (propId) exerciseId = propId;
 
+    const [showMenu, setShowMenu] = useState(false);
 
     const history = useHistory();
     const dispatch = useDispatch();
@@ -18,18 +20,38 @@ const ExerciseDetail = ({ propId }) => {
     const exercise = exercises[exerciseId]
 
 
+
     const handleClickDelete = async (e) => {
         e.preventDefault();
         await dispatch(deleteExercise(+exerciseId))
         if (!propId) history.push(`/exercises`)
     };
 
+    const openMenu = () => {
+        setShowMenu(true);
+    };
+    useEffect(() => {
+        if (!showMenu) return;
+
+        const closeMenu = () => {
+            setShowMenu(false);
+        };
+
+        document.addEventListener('click', closeMenu);
+
+        return () => document.removeEventListener("click", closeMenu);
+    }, [showMenu]);
     let reviewLinks;
     if (sessionUser?.id === exercise?.user_id) {
         reviewLinks = (
             <>
-                <button onClick={handleClickDelete}>Delete Exercise</button>
-                <NavLink to={`/exercise/${exercise?.id}/edit`}><button>Edit Exercise</button></NavLink>
+                <FontAwesomeIcon icon={faGear} onClick={openMenu} className='gear' />
+                {showMenu && (
+                    <>
+                        <button onClick={handleClickDelete} className='greyButton'>Delete Exercise</button>
+                        <NavLink to={`/exercise/${exercise?.id}/edit`} ><button className='greyButton'>Edit Exercise</button></NavLink>
+                    </>
+                )}
             </>
         );
     }

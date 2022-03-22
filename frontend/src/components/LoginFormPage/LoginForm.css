@@ -7,7 +7,7 @@
 }
 
 
-.loginButton{
+.greyButton{
     justify-self: center;
     margin: auto;
 
@@ -34,6 +34,6 @@
     touch-action: manipulation;
 }
 
-.loginButton:hover{
+.greyButton:hover{
     background-color: white;
 }

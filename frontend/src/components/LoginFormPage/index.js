@@ -59,8 +59,8 @@ function LoginFormPage() {
                         required
                     />
                 </label>
-                <button type="submit" className='loginButton'>Log In</button>
-                <button onClick={handleClickDemo} className='loginButton'>Demo User</button>
+                <button type="submit" className='greyButton'>Log In</button>
+                <button onClick={handleClickDemo} className='greyButton'>Demo User</button>
             </form>
         </div>
     );
