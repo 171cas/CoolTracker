@@ -48,9 +48,8 @@ router.get(
 
 const validateCreate = [
     check('name')
-        .notEmpty()
-        .isLength({ min: 1, max: 30 })
-        .withMessage('Please provide a valid Name.'),
+        .notEmpty().withMessage('Please provide a non-empty Name.')
+        .isLength({ min: 1, max: 30 }).withMessage('Please provide a valid length for Name (1-30).'),
     handleValidationErrors
 ];
 
