@@ -1,10 +1,6 @@
-import { useSelector } from 'react-redux';
-import { Redirect } from 'react-router-dom';
 import './HomePage.css'
 
 const HomePage = () => {
-    const sessionUser = useSelector(state => state.session.user);
-    let sessionLinks;
 
     return (
         <div className='containerHome'>

@@ -2,6 +2,7 @@
     overflow: visible;
     position: fixed;
     top: 0;
+    left: 0;
     width: 100%;
     /* min-width: 455px; */
     height: 75px;

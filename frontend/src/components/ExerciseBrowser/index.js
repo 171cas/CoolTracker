@@ -1,6 +1,4 @@
-import { useEffect, useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { useParams, NavLink, useHistory } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 import ExerciseDetail from '../ExerciseDetail';
 

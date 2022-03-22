@@ -15,6 +15,9 @@ import ExerciseDetail from "./components/ExerciseDetail";
 import ExerciseBrowser from "./components/ExerciseBrowser";
 import ExerciseEdit from "./components/ExerciseEdit";
 
+import ProtectedRoute from "./components/ProtectedRoute";
+import ProtectedLogOutRoute from "./components/ProtectedLogOutRoute";
+
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 
@@ -25,6 +28,8 @@ import { getLikes } from './store/likes'
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
+
+
   useEffect(() => {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
   }, [dispatch]);
@@ -43,46 +48,54 @@ function App() {
           <Route exact path="/">
             <HomePage />
           </Route>
-          <Route path="/login">
-            <LoginFormPage />
-          </Route>
-          <Route path="/signup">
+          <ProtectedLogOutRoute exact path="/login">
+            <div className='containerWO'>
+              <div className='singleWO'>
+                <h3 style={{ textDecoration: "none" }}>But first, Log In:</h3>
+                <LoginFormPage />
+              </div>
+            </div>
+          </ProtectedLogOutRoute>
+          <ProtectedLogOutRoute exact path="/signup">
             <SignupFormPage />
-          </Route>
-          <Route exact path="/profile">
+          </ProtectedLogOutRoute>
+          <ProtectedRoute exact path="/profile">
             <ProfilePage />
-          </Route>
-          <Route path="/workouts">
+          </ProtectedRoute>
+          <ProtectedRoute exact path="/workouts">
             <WorkoutBrowser />
-          </Route>
-          <Route exact path="/workout/:workoutId">
+          </ProtectedRoute>
+          <ProtectedRoute exact path="/workout/:workoutId">
             <WorkoutDetail />
-          </Route>
-          <Route exact path="/workout/:workoutId/edit">
+          </ProtectedRoute>
+          <ProtectedRoute exact path="/workout/:workoutId/edit">
             <WorkoutEdit />
-          </Route>
-          <Route path="/exercises">
+          </ProtectedRoute>
+          <ProtectedRoute exact path="/exercises">
             <div className='containerWO'>
               <div className='singleWO'>
                 <h3 style={{ textDecoration: "none" }} >Exercises</h3>
                 <ExerciseBrowser />
               </div>
             </div>
-          </Route>
-          <Route exact path="/exercise/:exerciseId">
+          </ProtectedRoute>
+          <ProtectedRoute exact path="/exercise/:exerciseId">
             <div className='containerWO'>
               <div className='singleWO'>
                 <ExerciseDetail />
               </div>
             </div>
-          </Route>
-          <Route exact path="/exercise/:exerciseId/edit">
+          </ProtectedRoute>
+          <ProtectedRoute exact path="/exercise/:exerciseId/edit">
             <div className='containerWO'>
               <div className='singleWO'>
                 <ExerciseEdit />
               </div>
             </div>
-          </Route>
+          </ProtectedRoute>
+          <ProtectedRoute >
+            <h1>NOthing </h1>
+          </ProtectedRoute>
         </Switch>
       )}
     </>

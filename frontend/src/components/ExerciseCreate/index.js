@@ -40,22 +40,22 @@ const ExerciseCreate = ({ propId }) => {
             weight: +weight,
         }
 
-        let new_exercise = await dispatch(createExercise(payload))
+        await dispatch(createExercise(payload))
+            .then(() => {
+                setName('')
+                setNotes('')
+                setDistance('')
+                setSets('')
+                setReps('')
+                setRest('')
+                setWeight('')
+                setErrors([])
+            })
             .catch(async (res) => {
                 const data = await res.json();
                 if (data?.errors) setErrors(data?.errors);
             });
 
-        if (new_exercise) {
-            setName('')
-            setNotes('')
-            setDistance('')
-            setSets('')
-            setReps('')
-            setRest('')
-            setWeight('')
-            setErrors([])
-        }
     };
 
     return (

@@ -1,7 +1,4 @@
-import { useEffect, useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { useParams, NavLink, useHistory } from 'react-router-dom';
-import { getWorkouts } from '../../store/workouts';
+import { useSelector } from 'react-redux';
 
 import WorkoutDetail from '../WorkoutDetail';
 import WorkoutCreate from '../WorkoutCreate';
@@ -13,12 +10,11 @@ const WorkoutBrowser = () => {
     const workoutList = Object.values(workouts).reverse()
 
 
-
     return (
         <div className='containerWO'>
             <WorkoutCreate />
             {workoutList && workoutList?.map((workout, i) => {
-                return (<WorkoutDetail propId={workout.id} key={i} />) // change it later to workout.id
+                return (<WorkoutDetail propId={workout.id} key={i} />)
             })}
         </div>
     )

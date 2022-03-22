@@ -33,19 +33,19 @@ const WorkoutCreate = () => {
             body_weight: +body_weight
         }
 
-        let new_workout = await dispatch(createWorkout(payload))
+        await dispatch(createWorkout(payload))
+            .then(() => {
+                setDate('')
+                setNotes('')
+                setCompletionT('')
+                setCaloriesB('')
+                setBodyW('')
+                setErrors([])
+            })
             .catch(async (res) => {
                 const data = await res.json();
                 if (data?.errors) setErrors(data.errors);
             });
-        if (new_workout) {
-            setDate('')
-            setNotes('')
-            setCompletionT('')
-            setCaloriesB('')
-            setBodyW('')
-            setErrors([])
-        }
     };
 
     return (
