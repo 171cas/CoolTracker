@@ -31,7 +31,7 @@
 .outterIcon{
     display: none;
     width: 100%;
-    flew-direction: row;
+    flex-direction: row;
     align-items: center;
     justify-content: space-around;
     height: 100%;
@@ -39,7 +39,7 @@
 .outterWord{
     display: flex;
     width: 100%;
-    flew-direction: row;
+    flex-direction: row;
     align-items: center;
     justify-content: space-around;
     height: 100%;
@@ -47,7 +47,7 @@
 .loggedOut{
     display: flex;
     width: 100%;
-    flew-direction: row;
+    flex-direction: row;
     align-items: center;
     justify-content: space-around;
     height: 100%;
