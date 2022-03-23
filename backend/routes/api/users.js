@@ -32,9 +32,11 @@ const validateSignup = [
         .isEmail()
         .withMessage('Username cannot be an email.'),
     check('password')
-        // .exists({ checkFalsy: true })
+        .exists({ checkFalsy: true })
         .isLength({ min: 6 })
-        .withMessage('Password must be 6 characters or more.'),
+        .withMessage('Password must be 6 characters or more.')
+        .matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])/, 'g')
+        .withMessage('Password must contain at least 1 lowercase letter, uppercase letter, number, and special character (i.e. "!@#$%^&*")'),
     check('first_name')
         .isLength({ max: 30 })
         .withMessage('First Name must be less than 30 characters.'),

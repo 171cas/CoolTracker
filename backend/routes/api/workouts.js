@@ -45,9 +45,9 @@ const validateCreate = [
         .withMessage('Please provide a valid Completion Time (1-86400).'),
     check('calories_burned')
         .notEmpty()
-        .isInt({ min: 0, max: 20000 })
-        .toInt()
-        .withMessage('Please provide valid Calories Burned (1-20000).'),
+        .isInt({ min: 0, max: 20000 }).withMessage('Calories Burned value must be a number')
+        .toInt().withMessage('?')
+        .withMessage('Please provide valid ranger for Calories Burned (1-20000).'),
     check('body_weight')
         .notEmpty()
         .isInt({ min: 0, max: 1500 })
