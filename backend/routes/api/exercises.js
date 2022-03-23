@@ -127,6 +127,8 @@ router.post(
             completion_time,
         } = req.body;
 
+        console.log('\n\n\n\n\n\n\n\n\n\n hellooo', req.body, '\n\n\n\n\n\n\n\n\n\n hellooo')
+
         if (notes === '') notes = null
         if (distance === '') distance = null
         if (sets === '') sets = 1
@@ -170,13 +172,13 @@ router.put(
             return
         }
         exercise.name = req.body.name;
-        exercise.distance = req.body.distance;
-        exercise.sets = req.body.sets;
-        exercise.reps = req.body.reps;
-        exercise.rest = req.body.rest;
-        exercise.weight = req.body.weight;
-        exercise.notes = req.body.notes;
-        exercise.completion_time = req.body.completion_time;
+        exercise.distance = (req.body.distance ? req.body.distance : null);
+        exercise.sets = (req.body.sets ? req.body.sets : null);
+        exercise.reps = (req.body.reps ? req.body.reps : null);
+        exercise.rest = (req.body.rest ? req.body.rest : null);
+        exercise.weight = (req.body.weight ? req.body.weight : null);
+        exercise.notes = (req.body.notes ? req.body.notes : null);
+        exercise.completion_time = (req.body.completion_time ? req.body.completion_time : null);
 
         await exercise.save()
         return res.json(
