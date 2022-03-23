@@ -6,3 +6,36 @@
     height: 100%;
     gap: 25px
   }
+
+  .linkClass{
+    color: white;
+    font-size: 55px;
+    margin: 0 15px;
+    cursor: pointer;
+  }
+  .linkClass:hover{
+    color: #ffa185;;
+  }
+
+  .gitClass{
+    color: white;
+    font-size: 55px;
+    margin: 0 15px;
+    cursor: pointer;
+  }
+  .gitClass:hover{
+    color: #ffa185;;
+  }
+
+  .myName{
+    color: #FF784F;
+    font-size: 40px;
+    cursor: pointer;
+  }
+  .myName:hover{
+    color: #ffa185;;
+  }
+  .paraClass{
+    width: 450px;
+    align-self: center;
+  }
