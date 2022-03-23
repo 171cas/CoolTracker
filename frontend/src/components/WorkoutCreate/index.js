@@ -28,10 +28,12 @@ const WorkoutCreate = () => {
         const payload = {
             date,
             notes,
-            completion_time: +completion_time,
-            calories_burned: +calories_burned,
-            body_weight: +body_weight
+            completion_time,
+            calories_burned,
+            body_weight
         }
+
+        console.log(payload, 'frontend \n\n\n\n\n')
 
         await dispatch(createWorkout(payload))
             .then(() => {
@@ -70,6 +72,7 @@ const WorkoutCreate = () => {
                         <p>Notes</p>
                         <input
                             type='text'
+                            maxLength={500}
                             placeholder='Notes'
                             value={notes}
                             onChange={updateNotes}

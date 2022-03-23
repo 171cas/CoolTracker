@@ -111,9 +111,11 @@ fetch('/api/exercises/1', {
 }).then(res => res.json()).then(data => console.log(data));
 
 backend
+    npx sequelize model:generate --name Like --attributes user_id:integer,workout_id:integer
+
+
     npx dotenv sequelize db:seed:undo:all
     npx dotenv sequelize db:migrate:undo:all
-    npx sequelize model:generate --name Like --attributes user_id:integer,workout_id:integer
     npx dotenv sequelize db:migrate
     npx dotenv sequelize db:seed:all
 

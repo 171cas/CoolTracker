@@ -16,6 +16,12 @@ module.exports = (sequelize, DataTypes) => {
         len: [1, 30]
       }
     },
+    notes: {
+      type: DataTypes.TEXT,
+      validate: {
+        len: [0, 500]
+      }
+    },
     distance: {
       type: DataTypes.INTEGER,
       validate: {
@@ -50,12 +56,6 @@ module.exports = (sequelize, DataTypes) => {
         min: 0,
         max: 5000
       },
-    },
-    notes: {
-      type: DataTypes.TEXT,
-      validate: {
-        len: [0, 500]
-      }
     },
     completion_time: {
       type: DataTypes.INTEGER,

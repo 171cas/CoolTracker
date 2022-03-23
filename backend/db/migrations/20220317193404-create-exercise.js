@@ -24,10 +24,11 @@ module.exports = {
         allowNull: false,
         type: Sequelize.STRING(30)
       },
+      notes: {
+        type: Sequelize.TEXT(500)
+      },
       distance: {
-        allowNull: false,
         type: Sequelize.INTEGER,
-        defaultValue: 0
       },
       sets: {
         allowNull: false,
@@ -40,22 +41,13 @@ module.exports = {
         defaultValue: 1
       },
       rest: {
-        allowNull: false,
         type: Sequelize.INTEGER,
-        defaultValue: 0
       },
       weight: {
-        allowNull: false,
         type: Sequelize.INTEGER,
-        defaultValue: 0
-      },
-      notes: {
-        type: Sequelize.TEXT
       },
       completion_time: {
-        allowNull: false,
         type: Sequelize.INTEGER,
-        defaultValue: 0
       },
       createdAt: {
         allowNull: false,
