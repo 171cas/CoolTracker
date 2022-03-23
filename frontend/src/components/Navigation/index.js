@@ -20,6 +20,8 @@ function Navigation({ isLoaded }) {
         sessionLinks = (
             <>
                 <NavLink to="/signup"><h3>Sign Up</h3></NavLink>
+                <NavLink to="/login" className="showLink"><h3>Login</h3></NavLink>
+                <div className="showComp"><LoginFormPage /></div>
             </>
         );
     }
@@ -28,7 +30,6 @@ function Navigation({ isLoaded }) {
         <div className='navBar'>
             <NavLink exact to="/"><h3>Home</h3></NavLink>
             {isLoaded && sessionLinks}
-            {!sessionUser && <LoginFormPage />}
         </div>
     );
 }
