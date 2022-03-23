@@ -1,5 +1,6 @@
 .gridC{
     display: grid;
+    height: auto;
 }
 .divPic{
     width: 100%;
