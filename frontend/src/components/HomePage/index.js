@@ -1,5 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons"
+import HowTo from "./howTo"
 import './HomePage.css'
 
 const HomePage = () => {
@@ -22,6 +23,7 @@ const HomePage = () => {
             <h2>Create a Workout!</h2>
             <h2>Add exercises to a Workout!</h2>
             <h2>Like Workouts!</h2>
+            <HowTo />
             <br /><br /><br />
             <h2>Develop By:</h2>
             <h3 className='myName' onClick={resumeLink}>Cesar Solano</h3>

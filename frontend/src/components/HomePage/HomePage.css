@@ -35,3 +35,7 @@
   .myName:hover{
     color: #ffa185;;
   }
+  .paraClass{
+    width: 450px;
+    align-self: center;
+  }
