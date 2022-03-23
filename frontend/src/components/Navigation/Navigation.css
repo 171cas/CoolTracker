@@ -31,3 +31,15 @@
 .navBar * {
     font-size: 20px;
 }
+
+@media screen and (max-width: 260px) {
+    .navBar * {
+        font-size: medium;
+    }
+  }
+
+  @media screen and (max-width: 190px) {
+    .navBar * {
+        font-size: small;
+    }
+  }

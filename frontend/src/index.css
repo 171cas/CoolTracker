@@ -61,10 +61,25 @@
     * {
         font-size: medium;
     }
-    .navBar * {
-        font-size: 15px;
-    }
     button {
         font-size: 11px;
+    }
+  }
+
+  @media screen and (max-width: 260px) {
+    * {
+        font-size: small;
+    }
+    button {
+        font-size: 8px;
+    }
+  }
+
+  @media screen and (max-width: 190px) {
+    * {
+        font-size: smaller;
+    }
+    button {
+        font-size: 6px;
     }
   }
