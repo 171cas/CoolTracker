@@ -38,21 +38,33 @@ const validateCreate = [
     check('date')
         .exists({ checkFalsy: true })
         .withMessage('Please provide a valid Date.'),
-    check('completion_time')
-        .notEmpty()
-        .isInt({ min: 0, max: 86400 })
-        .toInt()
-        .withMessage('Please provide a valid Completion Time (1-86400).'),
-    check('calories_burned')
-        .notEmpty()
-        .isInt({ min: 0, max: 20000 }).withMessage('Calories Burned value must be a number')
-        .toInt().withMessage('?')
-        .withMessage('Please provide valid ranger for Calories Burned (1-20000).'),
-    check('body_weight')
-        .notEmpty()
-        .isInt({ min: 0, max: 1500 })
-        .toInt()
-        .withMessage('Please provide a valid Body Weight (1-1500).'),
+    body('notes')
+        .custom((value, { req }) => {
+            if (value) {
+                if (value.length > 500) throw new Error('Notes lenght must be less than 500 characters.');
+            }
+            return true;
+        }),
+    body('completion_time')
+        .custom((value, { req }) => {
+            console.log(value, 'completion_time')
+            if ((isNaN(value) && value !== '') || (value < 0 || value > 86400)) throw new Error('Please provide a valid Completion Time (1-86400).');
+            return true;
+
+        }),
+    body('calories_burned')
+        .custom((value, { req }) => {
+            console.log(value, 'calories_burned')
+            if ((isNaN(value) && value !== '') || (value < 0 || value > 20000)) throw new Error('Please provide valid numeric range for Calories Burned (1-20000).');
+            return true;
+
+        }),
+    body('body_weight')
+        .custom((value, { req }) => {
+            console.log(value, 'body_weight')
+            if ((isNaN(value) && value !== '') || (value < 0 || value > 1500)) throw new Error('Please provide a valid numeric Body Weight (1-1500).');
+            return true;
+        }),
     handleValidationErrors
 ];
 
@@ -70,9 +82,11 @@ router.post(
             body_weight
         } = req.body;
 
-        if (completion_time === 0) completion_time = null
-        if (calories_burned === 0) calories_burned = null
-        if (body_weight === 0) body_weight = null
+        console.log(req.body, 'api \n\n\n\n\n')
+
+        if (completion_time === '') completion_time = null
+        if (calories_burned === '') calories_burned = null
+        if (body_weight === '') body_weight = null
 
         const workout = await Workout.createWo({
             user_id: req.user.id,
