@@ -6,3 +6,21 @@
     height: 100%;
     gap: 25px
   }
+
+  .linkClass{
+    font-size: 55px;
+    margin: 0 15px;
+    cursor: pointer;
+  }
+
+  .linkClass:hover{
+    color: #FF784F;
+  }
+
+  .myName{
+    font-size: 40px;
+    cursor: pointer;
+  }
+  .myName:hover{
+    color: #FF784F;
+  }
