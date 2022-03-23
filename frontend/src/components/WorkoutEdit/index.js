@@ -40,9 +40,9 @@ const WorkoutEdit = () => {
             id: workoutId,
             date,
             notes,
-            completion_time: +completion_time,
-            calories_burned: +calories_burned,
-            body_weight: +body_weight
+            completion_time,
+            calories_burned,
+            body_weight
         }
 
         let workout = await dispatch(editWorkout(payload))
@@ -77,6 +77,7 @@ const WorkoutEdit = () => {
                         <p>Notes</p>
                         <input
                             type='textArea'
+                            maxLength={500}
                             placeholder='Notes'
                             value={notes}
                             onChange={updateNotes}

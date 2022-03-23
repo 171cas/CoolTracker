@@ -19,7 +19,7 @@ module.exports = {
         type: Sequelize.DATEONLY
       },
       notes: {
-        type: Sequelize.TEXT
+        type: Sequelize.TEXT(500)
       },
       completion_time: {
         type: Sequelize.INTEGER

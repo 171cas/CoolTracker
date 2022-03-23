@@ -13,6 +13,7 @@ const ExerciseCreate = ({ propId }) => {
     const [reps, setReps] = useState('')
     const [rest, setRest] = useState('')
     const [weight, setWeight] = useState('')
+    const [completion_time, setComT] = useState('')
 
     const [errors, setErrors] = useState([]);
 
@@ -23,6 +24,7 @@ const ExerciseCreate = ({ propId }) => {
     const updateReps = (e) => setReps(e.target.value)
     const updateRest = (e) => setRest(e.target.value)
     const updateWeight = (e) => setWeight(e.target.value)
+    const updateComt = (e) => setComT(e.target.value)
 
 
     const handleSubmit = async (e) => {
@@ -33,12 +35,15 @@ const ExerciseCreate = ({ propId }) => {
             workout_id: propId,
             name,
             notes,
-            distance: +distance,
-            sets: +sets,
-            reps: +reps,
-            rest: +rest,
-            weight: +weight,
+            distance,
+            sets,
+            reps,
+            rest,
+            weight,
+            completion_time
         }
+
+        console.log(payload, 'payload \n\n\n\n\n')
 
         await dispatch(createExercise(payload))
             .then(() => {
@@ -49,6 +54,7 @@ const ExerciseCreate = ({ propId }) => {
                 setReps('')
                 setRest('')
                 setWeight('')
+                setComT('')
                 setErrors([])
             })
             .catch(async (res) => {
@@ -71,6 +77,7 @@ const ExerciseCreate = ({ propId }) => {
                         <input
                             required
                             type='text'
+                            maxLength={30}
                             placeholder='Name'
                             value={name}
                             onChange={updateName}
@@ -80,6 +87,7 @@ const ExerciseCreate = ({ propId }) => {
                         Notes
                         <input
                             type='text'
+                            maxLength={500}
                             placeholder='Notes'
                             value={notes}
                             onChange={updateNotes}
@@ -138,6 +146,17 @@ const ExerciseCreate = ({ propId }) => {
                             onChange={updateWeight}
                             min='0'
                             max='5000'
+                        />
+                    </label>
+                    <label className="singleLine">
+                        Completion Time
+                        <input
+                            type='number'
+                            placeholder='completion Time'
+                            value={completion_time}
+                            onChange={updateComt}
+                            min='0'
+                            max='86400'
                         />
                     </label>
                     <button type='submit' className="exButton">Add Exercise</button>

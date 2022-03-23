@@ -26,7 +26,9 @@ const validateSignup = [
     check('username')
         .exists({ checkFalsy: true })
         .isLength({ min: 4, max: 30 })
-        .withMessage('Please provide a username with at least 4 characters and less than 30.'),
+        .withMessage('Please provide a username with at least 4 characters and less than 30.')
+        .matches(/^(?=.{4,30}$)(?![_.])(?!.*[_.]{2})[a-zA-Z0-9._]+(?<![_.])$/, 'g')
+        .withMessage('Characters allowed: a-z, A-Z, 0-9, . and _ '),
     check('username')
         .not()
         .isEmail()

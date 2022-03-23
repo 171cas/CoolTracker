@@ -40,28 +40,23 @@ const validateCreate = [
         .withMessage('Please provide a valid Date.'),
     body('notes')
         .custom((value, { req }) => {
-            if (value) {
-                if (value.length > 500) throw new Error('Notes lenght must be less than 500 characters.');
-            }
+            if (value && value.length > 500) throw new Error('Notes lenght must be less than 500 characters.');
             return true;
         }),
     body('completion_time')
         .custom((value, { req }) => {
-            console.log(value, 'completion_time')
             if ((isNaN(value) && value !== '') || (value < 0 || value > 86400)) throw new Error('Please provide a valid Completion Time (1-86400).');
             return true;
 
         }),
     body('calories_burned')
         .custom((value, { req }) => {
-            console.log(value, 'calories_burned')
             if ((isNaN(value) && value !== '') || (value < 0 || value > 20000)) throw new Error('Please provide valid numeric range for Calories Burned (1-20000).');
             return true;
 
         }),
     body('body_weight')
         .custom((value, { req }) => {
-            console.log(value, 'body_weight')
             if ((isNaN(value) && value !== '') || (value < 0 || value > 1500)) throw new Error('Please provide a valid numeric Body Weight (1-1500).');
             return true;
         }),
@@ -82,8 +77,8 @@ router.post(
             body_weight
         } = req.body;
 
-        console.log(req.body, 'api \n\n\n\n\n')
 
+        if (notes === '') notes = null
         if (completion_time === '') completion_time = null
         if (calories_burned === '') calories_burned = null
         if (body_weight === '') body_weight = null
@@ -117,9 +112,9 @@ router.put(
         }
         workout.date = req.body.date;
         workout.notes = req.body.notes;
-        workout.completion_time = (req.body.completion_time === 0 ? null : req.body.completion_time);
-        workout.calories_burned = (req.body.calories_burned === 0 ? null : req.body.calories_burned);
-        workout.body_weight = (req.body.body_weight === 0 ? null : req.body.body_weight);
+        workout.completion_time = req.body.completion_time;
+        workout.calories_burned = req.body.calories_burned;
+        workout.body_weight = req.body.body_weight;
 
         await workout.save()
         return res.json(

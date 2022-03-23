@@ -72,6 +72,7 @@ const WorkoutCreate = () => {
                         <p>Notes</p>
                         <input
                             type='text'
+                            maxLength={500}
                             placeholder='Notes'
                             value={notes}
                             onChange={updateNotes}

@@ -71,6 +71,7 @@ const ExerciseEdit = () => {
                     Name
                     <input
                         type='text'
+                        maxLength={50}
                         placeholder='Name'
                         value={name}
                         onChange={updateName}
@@ -80,6 +81,7 @@ const ExerciseEdit = () => {
                     Notes
                     <input
                         type='text'
+                        maxLength={500}
                         placeholder='Notes'
                         value={notes}
                         onChange={updateNotes}
