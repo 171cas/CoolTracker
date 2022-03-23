@@ -21,6 +21,7 @@ const ExerciseEdit = () => {
     const [reps, setReps] = useState(exercise?.reps ? exercise?.reps : '')
     const [rest, setRest] = useState(exercise?.rest ? exercise?.rest : '')
     const [weight, setWeight] = useState(exercise?.weight ? exercise?.weight : '')
+    const [completion_time, setComT] = useState(exercise?.completion_time ? exercise?.completion_time : '')
 
     const [errors, setErrors] = useState([]);
 
@@ -31,6 +32,7 @@ const ExerciseEdit = () => {
     const updateReps = (e) => setReps(e.target.value)
     const updateRest = (e) => setRest(e.target.value)
     const updateWeight = (e) => setWeight(e.target.value)
+    const updateComt = (e) => setComT(e.target.value)
 
 
     const handleSubmit = async (e) => {
@@ -42,13 +44,15 @@ const ExerciseEdit = () => {
             workout_id,
             name,
             notes,
-            distance: +distance,
-            sets: +sets,
-            reps: +reps,
-            rest: +rest,
-            weight: +weight,
+            distance,
+            sets,
+            reps,
+            rest,
+            weight,
+            completion_time
         }
 
+        console.warn(payload)
 
         let exercise = await dispatch(editExercise(payload))
             .catch(async (res) => {
@@ -140,6 +144,17 @@ const ExerciseEdit = () => {
                         onChange={updateWeight}
                         min='0'
                         max='5000'
+                    />
+                </label>
+                <label className="singleLine">
+                    Completion Time
+                    <input
+                        type='number'
+                        placeholder='completion Time'
+                        value={completion_time}
+                        onChange={updateComt}
+                        min='0'
+                        max='86400'
                     />
                 </label>
                 <button type='submit'>Edit Exercise</button>

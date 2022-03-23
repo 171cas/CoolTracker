@@ -38,7 +38,7 @@ function HowTo() {
                     <div className="paraClass">
                         <p>
                             How to use Cool-tracker:<br />
-                            1) Cool-tracker is an open source web application where clients can create a user, a user can create Workouts and add Exercises to a Workout created by the user. Also users can interact with other users and their Workouts as well.<br />
+                            1) Cool-tracker is an open source web application where clients can create users, and users can create Workouts and add Exercises to their Workouts. Also users can interact with other users and their Workouts as well.<br />
                             <br />
                             2) Clients can try the application without signing up with the 'Demo User' log-in option. Once the clients click the demo user button, they will be logged in with the Demo User account. This will allowed the clients to try all the features provided by the application without signing-up first. Once the clients are satisfied with the interaction, they can create their personal account in the sign-up link.<br />
                             <br />

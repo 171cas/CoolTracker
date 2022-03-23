@@ -45,7 +45,7 @@ const validateCreate = [
         }),
     body('completion_time')
         .custom((value, { req }) => {
-            if ((isNaN(value) && value !== '') || (value < 0 || value > 86400)) throw new Error('Please provide a valid Completion Time (1-86400).');
+            if ((isNaN(value) && value !== '') || (value < 0 || value > 86400)) throw new Error('Please provide a valid numeric Completion Time (1-86400).');
             return true;
 
         }),
@@ -111,10 +111,10 @@ router.put(
             return
         }
         workout.date = req.body.date;
-        workout.notes = req.body.notes;
-        workout.completion_time = req.body.completion_time;
-        workout.calories_burned = req.body.calories_burned;
-        workout.body_weight = req.body.body_weight;
+        workout.notes = (req.body.notes ? req.body.notes : null);
+        workout.completion_time = (req.body.completion_time ? req.body.completion_time : null);
+        workout.calories_burned = (req.body.calories_burned ? req.body.calories_burned : null);
+        workout.body_weight = (req.body.body_weight ? req.body.body_weight : null);
 
         await workout.save()
         return res.json(

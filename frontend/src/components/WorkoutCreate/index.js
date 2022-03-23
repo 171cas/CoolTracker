@@ -91,14 +91,17 @@ const WorkoutCreate = () => {
                     </label>
                     <label className="singleLine">
                         <p>Calories Burned</p>
-                        <input
-                            type='number'
-                            placeholder='Calories Burned'
-                            value={calories_burned}
-                            onChange={updateCaloriesB}
-                            min='1'
-                            max='20000'
-                        />
+                        <div className="inputClass">
+
+                            <input
+                                type='number'
+                                placeholder='Calories Burned'
+                                value={calories_burned}
+                                onChange={updateCaloriesB}
+                                min='1'
+                                max='20000'
+                            />
+                        </div>
                     </label>
                     <label className="singleLine">
                         <p>Body Weight</p>
