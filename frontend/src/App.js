@@ -25,6 +25,8 @@ import { getWorkouts } from './store/workouts'
 import { getExercises } from './store/exercises'
 import { getLikes } from './store/likes'
 
+import './index.css'
+
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
