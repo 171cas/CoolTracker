@@ -9,7 +9,7 @@ const HomePage = () => {
     };
     const gitLink = async (e) => {
         e.preventDefault();
-        window.open('http://www.https://github.com/171cas/');
+        window.open('https://github.com/171cas/');
     };
     const linkeLink = async (e) => {
         e.preventDefault();
