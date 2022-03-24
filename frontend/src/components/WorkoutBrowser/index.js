@@ -6,8 +6,10 @@ import './WorkoutBrowser.css'
 
 const WorkoutBrowser = () => {
 
+    const sessionUser = useSelector(state => state.session.user);
+
     const workouts = useSelector((state) => state.workouts)
-    const workoutList = Object.values(workouts).reverse()
+    const workoutList = Object.values(workouts).reverse().filter(({ user_id }) => user_id === +sessionUser.id)
 
 
     return (
