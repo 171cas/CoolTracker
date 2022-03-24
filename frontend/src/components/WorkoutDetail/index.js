@@ -57,7 +57,8 @@ const WorkoutDetail = ({ propId }) => {
     };
 
     let reviewLinks;
-    if (sessionUser?.id === workout?.user_id) {
+    const isUser = sessionUser?.id === workout?.user_id
+    if (isUser) {
         reviewLinks = (
             <>
                 <FontAwesomeIcon icon={faGear} onClick={openMenu} className='gear' />
@@ -82,7 +83,7 @@ const WorkoutDetail = ({ propId }) => {
                 {workout?.completion_time ? (<p>Completion Time: {workout?.completion_time}</p>) : (<></>)}
                 {workout?.calories_burned ? (<p>Calories Burned: {workout?.calories_burned}</p>) : (<></>)}
                 {workout?.body_weight ? (<p>Body Weight: {workout?.body_weight}</p>) : (<></>)}
-                {!propId && <ExerciseCreate propId={workout?.id} />}
+                {isUser && <ExerciseCreate propId={workout?.id} />}
                 {propId ? <NavLink to={`/workout/${workout?.id}`}><h4>Exercises: {exCount}</h4></NavLink>
                     : <ExerciseBrowser propId={workout?.id} />}
             </div>
