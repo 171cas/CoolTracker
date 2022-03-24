@@ -65,8 +65,9 @@ If the screen is width enough, the user will have the option to log-in directly 
 <img src='https://user-images.githubusercontent.com/70457320/159936944-ed9a707a-5a3e-445b-a2fb-0f49a4bfdcdf.png' height=575/><br/><br/>
 
 Once the user is logged-in the Navbar will have the following links: Home, Workouts, Exercises and Profile.
-If the screen is too small (cellphones), this links will be represented by icons:!
-<img src='https://user-images.githubusercontent.com/70457320/159938964-7bf51d00-bb4e-4841-a4ab-fdee8731e584.png' height=575/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;!
+If the screen is too small (cellphones), this links will be represented by icons:
+<br/>
+<img src='https://user-images.githubusercontent.com/70457320/159938964-7bf51d00-bb4e-4841-a4ab-fdee8731e584.png' height=575/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <img src='https://user-images.githubusercontent.com/70457320/159939349-cb368572-7977-4be8-b68a-ef77a4578f56.png' height=575/> 
 
 
