@@ -18,6 +18,8 @@ import ExerciseEdit from "./components/ExerciseEdit";
 import ProtectedRoute from "./components/ProtectedRoute";
 import ProtectedLogOutRoute from "./components/ProtectedLogOutRoute";
 
+import NotFound from "./components/NotFound";
+
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 
@@ -96,7 +98,7 @@ function App() {
             </div>
           </ProtectedRoute>
           <ProtectedRoute >
-            <h1>NOthing </h1>
+            <NotFound />
           </ProtectedRoute>
         </Switch>
       )}
