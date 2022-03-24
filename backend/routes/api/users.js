@@ -3,7 +3,7 @@ const asyncHandler = require('express-async-handler');
 
 const { setTokenCookie, requireAuth } = require('../../utils/auth');
 const { User } = require('../../db/models');
-const { check } = require('express-validator');
+const { check, body } = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validation');
 
 const router = express.Router();
@@ -23,12 +23,26 @@ const validateSignup = [
         // .isLength({ min: 4, max: 30 })
         .isEmail()
         .withMessage('Please provide a valid email.'),
+    body('email').custom(async (value, { req }) => {
+        const user = await User.findOne({ where: { email: value } });
+        if (user) {
+            throw new Error('Email already used, please choose a different one.');
+        }
+        return true;
+    }),
     check('username')
         .exists({ checkFalsy: true })
         .isLength({ min: 4, max: 30 })
         .withMessage('Please provide a username with at least 4 characters and less than 30.')
         .matches(/^(?=.{4,30}$)(?![_.])(?!.*[_.]{2})[a-zA-Z0-9._]+(?<![_.])$/, 'g')
         .withMessage('Characters allowed: a-z, A-Z, 0-9, . and _ '),
+    body('username').custom(async (value, { req }) => {
+        const user = await User.findOne({ where: { username: value } });
+        if (user) {
+            throw new Error('Username already in used, please choose a different one.');
+        }
+        return true;
+    }),
     check('username')
         .not()
         .isEmail()
