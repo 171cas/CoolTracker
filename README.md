@@ -64,4 +64,4 @@ If the screen is width enough, the user will have the option to log-in directly 
 
 ### Splash page
 The splash page will show information about the app and how to use it. 
-<img src='https://postimg.cc/0K9jKbKr' height=275/>
+<img src='https://i.postimg.cc/SSZfnL3P/image-123986672.jpg' height=275/>
