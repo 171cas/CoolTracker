@@ -103,7 +103,7 @@ The profile page shill show the information about the user; username, image prof
 
 
 ### 404 Page Not Found
-If the Users try to access a page that doesn't exist the app will render a 404 message and a (hopefully) funny picture.
+If the Users try to access a page that doesn't exist the app will render a 404 message and a (hopefully) funny random picture.
 <br/><br/>
 <img src='https://user-images.githubusercontent.com/70457320/159971210-1e12736a-f958-4a29-ba50-5be84fd865a9.png' height=475/> 
 
