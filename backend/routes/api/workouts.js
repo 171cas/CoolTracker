@@ -107,7 +107,7 @@ router.put(
     asyncHandler(async (req, res) => {
         const workout = await Workout.findByPk(req.params.id)
         if (req.user.id !== workout.user_id) {
-            throw new Error('Access Denied. Your IP will be blocked and reported for suspicious activity. \n (Not really because this is a demo project, but it definitely will for the completed version.)');
+            throw new Error('Access Denied.');
             return
         }
         workout.date = req.body.date;

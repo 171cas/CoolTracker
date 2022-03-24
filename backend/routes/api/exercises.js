@@ -2,7 +2,7 @@ const express = require('express');
 const asyncHandler = require('express-async-handler');
 
 const { restoreUser } = require('../../utils/auth');
-const { Exercise } = require('../../db/models');
+const { Exercise, Workout } = require('../../db/models');
 const { check, body } = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validation');
 
@@ -105,6 +105,13 @@ const validateCreate = [
         }
         return true;
     }),
+    body('workout_id').custom(async (value, { req }) => {
+        const workout = await Workout.findByPk(value);
+        if (workout.user_id !== req.user.id) {
+            throw new Error('Access Denied');
+        }
+        return true;
+    }),
     handleValidationErrors
 ]
 
@@ -164,7 +171,7 @@ router.put(
     asyncHandler(async (req, res) => {
         const exercise = await Exercise.findByPk(req.params.id)
         if (req.user.id !== exercise.user_id) {
-            throw new Error('Access Denied. Your IP will be blocked and reported for suspicious activity. \n (Not really because this is a demo project, but it definitely will for the completed version.)');
+            throw new Error('Access Denied.');
             return
         }
         exercise.name = req.body.name;
@@ -188,10 +195,9 @@ router.delete(
     restoreUser,
     asyncHandler(async function (req, res) {
         const exercise = await Exercise.findByPk(req?.params?.id);
-        // if (req.user.id !== exercise.user_id) {
-        //     throw new Error('Access Denied. Your IP will be blocked and reported for suspicious activity. \n (Not really because this is a demo project, but it definitely will for the completed version.)');
-        //     return
-        // }
+        if (req.user.id !== exercise.user_id) {
+            throw new Error('Access Denied.');
+        }
         await Exercise.destroy({ where: { id: exercise?.id } })
         return res.json(exercise)
     })
