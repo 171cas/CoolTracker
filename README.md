@@ -73,9 +73,20 @@ If the screen is too small (cellphones), these links will be represented by icon
 
 
 ### Splash page / Home Page
-The splash page will show information about the app and how to use it. If the client click the button ```How to Use Cool-tracker```; a completed information of the app will be rendered at the screen. This information can hide again if the user clicks ```Show Less```. 
+The splash page will show information about the app and how to use it. If the client click the button ```How to Use Cool-tracker```; a completed information about the app will be rendered at the screen. This information can hide again if the user clicks ```Show Less```. 
 <br/><br/>
 <img src='https://user-images.githubusercontent.com/70457320/159941185-7c838bae-0173-4d87-9adb-473a0bafa37c.png' height=475/> 
 <br/><br/>
+
+
+### Workout Page
+The Workout page is where the users can create workouts and see all of the previous workouts created by themselves. If a user click the Workout title (link) it will be redirected to the detail page of that workout. If the user is the one who created that workout; a gear will appear next to the title and once it is clicked two buttons will be rendered: ```Delete WorkOut``` and ```Edit Workout``` which will allowed the user to performon those features.
+<br/><br/>
+<img src='https://user-images.githubusercontent.com/70457320/159942475-bb860c67-b187-420b-ac67-1aa74d0ecb7f.png' height=475/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<img src='https://user-images.githubusercontent.com/70457320/159943173-fe04c92c-018f-472f-a430-e317dcce8467.png' height=475/> 
+
+
+
+
 
 
