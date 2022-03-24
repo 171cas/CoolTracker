@@ -99,5 +99,11 @@ As shown above, in the workout detail page is where the users can add exercises 
 The profile page shill show the information about the user; username, image profile, first name, last name and email. Also it will have a log out button that once it's clicked the user's session will be ended.
 <br/><br/>
 <img src='https://user-images.githubusercontent.com/70457320/159946741-f5b78af6-82e6-4900-b12d-05a9f58422d7.png' height=475/> 
+<br/><br/>
 
+
+### 404 Page Not Found
+If the Users try to access a page that doesn't exist the app will render a 404 message and a (hopefully) funny picture.
+<br/><br/>
+<img src='https://user-images.githubusercontent.com/70457320/159971210-1e12736a-f958-4a29-ba50-5be84fd865a9.png' height=475/> 
 
