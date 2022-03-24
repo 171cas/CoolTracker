@@ -40,10 +40,10 @@ Future functionality: (coming soon)
 - HTML 5 
 - CSS 3 
 
-<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/2300px-React-icon.svg.png' height=45/> <img src='https://seeklogo.com/images/R/redux-logo-9CA6836C12-seeklogo.com.png' height=45/> <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvvAeWlSN7AH1QVZ8l5DXzhAqqllwTvdNj8fIHdVm-LadAdVyq9HHrWmBDPndgG9B238g&usqp=CAU' height=45/> <img src='https://icon-library.com/images/node-js-icon/node-js-icon-8.jpg' height=45/> <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/1024px-Unofficial_JavaScript_logo_2.svg.png' height=45/> <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/2048px-HTML5_logo_and_wordmark.svg.png' height=45/> <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/CSS3_logo_and_wordmark.svg/1200px-CSS3_logo_and_wordmark.svg.png' height=45/>
+<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/2300px-React-icon.svg.png' height=45/> <img src='https://seeklogo.com/images/R/redux-logo-9CA6836C12-seeklogo.com.png' height=45/> <img src='https://www.pngfind.com/pngs/m/136-1363736_express-js-icon-png-transparent-png.png' height=45/> <img src='https://icon-library.com/images/node-js-icon/node-js-icon-8.jpg' height=45/> <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/1024px-Unofficial_JavaScript_logo_2.svg.png' height=45/> <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/2048px-HTML5_logo_and_wordmark.svg.png' height=45/> <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/CSS3_logo_and_wordmark.svg/1200px-CSS3_logo_and_wordmark.svg.png' height=45/> <br/>
 
 
-##Getting the Project Started
+## Getting the Project Started
 1. Clone this repository ```git@github.com:171cas/CoolTracker```
 2. Install the dependencies ```npm start``` at the frontend and backend directories.
 3. Create a POSTGRESQL user with CREATEDB and PASSWORD in PSQL. ```CREATE USER <name>WITH CREATED PASSWORD '<password>'```.
