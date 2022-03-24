@@ -1,7 +1,7 @@
 # CoolTracker
 [Try the site live here](https://cool-tracker.herokuapp.com/)
 
-Important Link of the Project:
+Important Links of the Project:
 * [CoolTracker Capstone](https://github.com/171cas/CoolTracker/wiki)
 * [API Routes](https://github.com/171cas/CoolTracker/wiki/API-Routes)
 * [Database Schema](https://github.com/171cas/CoolTracker/wiki/Database-Schema)
@@ -32,7 +32,7 @@ Future functionality: (coming soon)
 - Follow and Unfollow Users
 
 ## Technologies Used
-- React
+- React <img src='https://image.pngaaa.com/930/2507930-middle.png' height=45/>
 - Redux
 - Express
 - Sequelize
