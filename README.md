@@ -1,11 +1,11 @@
 # CoolTracker
-[Try the site live here] (https://cool-tracker.herokuapp.com/)
+[Try the site live here](https://cool-tracker.herokuapp.com/)
 
-*[API Routes](https://github.com/171cas/CoolTracker/wiki/API-Routes)
-*[Database Schema](https://github.com/171cas/CoolTracker/wiki/Database-Schema)
-*[Feature List](https://github.com/171cas/CoolTracker/wiki/Feature-List)
-*[User Stories](https://github.com/171cas/CoolTracker/wiki/User-Stories)
-*[Wireframes](https://github.com/171cas/CoolTracker/wiki/Wireframes)
+* [API Routes](https://github.com/171cas/CoolTracker/wiki/API-Routes)
+* [Database Schema](https://github.com/171cas/CoolTracker/wiki/Database-Schema)
+* [Feature List](https://github.com/171cas/CoolTracker/wiki/Feature-List)
+* [User Stories](https://github.com/171cas/CoolTracker/wiki/User-Stories)
+* [Wireframes](https://github.com/171cas/CoolTracker/wiki/Wireframes)
 
 CoolTracker is a general workout tracker application with features inspired on Instagram and twitter. Users can create a workout and add exercises to it and be able to see their past workouts and exercises in order to know their progression. Clients can create users, and users can create, edit and delete Workouts and Exercises. Also users can interact with other users and their Workouts as well.
 
