@@ -1,6 +1,8 @@
 # CoolTracker
 [Try the site live here](https://cool-tracker.herokuapp.com/)
 
+Important Link of the Project:
+* [CoolTracker Capstone](https://github.com/171cas/CoolTracker/wiki)
 * [API Routes](https://github.com/171cas/CoolTracker/wiki/API-Routes)
 * [Database Schema](https://github.com/171cas/CoolTracker/wiki/Database-Schema)
 * [Feature List](https://github.com/171cas/CoolTracker/wiki/Feature-List)
