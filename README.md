@@ -65,12 +65,17 @@ If the screen is width enough, the user will have the option to log-in directly 
 <img src='https://user-images.githubusercontent.com/70457320/159936944-ed9a707a-5a3e-445b-a2fb-0f49a4bfdcdf.png' height=575/><br/><br/>
 
 Once the user is logged-in the Navbar will have the following links: Home, Workouts, Exercises and Profile.
-If the screen is too small (cellphones), this links will be represented by icons:
-<br/>
+If the screen is too small (cellphones), these links will be represented by icons:
+<br/><br/>
 <img src='https://user-images.githubusercontent.com/70457320/159938964-7bf51d00-bb4e-4841-a4ab-fdee8731e584.png' height=475/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <img src='https://user-images.githubusercontent.com/70457320/159939349-cb368572-7977-4be8-b68a-ef77a4578f56.png' height=475/> 
+<br/><br/>
 
 
+### Splash page / Home Page
+The splash page will show information about the app and how to use it. If the client click the button ```How to Use Cool-tracker```; a completed information of the app will be rendered at the screen. This information can hide again if the user clicks ```Show Less```. 
+<br/><br/>
+<img src='https://user-images.githubusercontent.com/70457320/159941185-7c838bae-0173-4d87-9adb-473a0bafa37c.png' height=475/> 
+<br/><br/>
 
-### Splash page
-The splash page will show information about the app and how to use it. 
+
