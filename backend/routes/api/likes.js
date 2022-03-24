@@ -11,6 +11,7 @@ const router = express.Router();
 async function list() {
     return await Like.findAll();
 }
+
 router.get('/', asyncHandler(async function (_req, res) {
     const likes = await list();
     return res.json(likes);
@@ -58,9 +59,9 @@ router.post(
             workout_id, //dont forget to change this later
         });
 
-        return res.json({
+        return res.json(
             like
-        });
+        );
     })
 );
 
@@ -70,7 +71,7 @@ router.delete(
     asyncHandler(async function (req, res) {
         const like = await Like.findByPk(req.params.id);
         if (req.user.id !== like.user_id) {
-            throw new Error('Access Denied. Your IP will be blocked and reported for suspicious activity. \n (Not really because this is a demo project, but it definitely will for the completed version.)');
+            throw new Error('Access Denied.');
             return
         }
         await Like.destroy({ where: { id: like.id } })
