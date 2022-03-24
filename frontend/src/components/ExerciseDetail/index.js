@@ -62,7 +62,7 @@ const ExerciseDetail = ({ propId }) => {
             <h3><NavLink to={`/exercise/${exercise?.id}`} >Exercise #{exercise?.id} </NavLink>
                 {reviewLinks && reviewLinks}
             </h3>
-            {exercise?.workout_id ? (<NavLink to={`/workout/${exercise?.workout_id}`} ><p>Workout: {exercise?.workout_id}</p></NavLink>) : (<></>)}
+            {(!propId) ? (<NavLink to={`/workout/${exercise?.workout_id}`} ><p>Workout: {exercise?.workout_id}</p></NavLink>) : (<></>)}
             {exercise?.name ? (<p>Name: {exercise?.name}</p>) : (<></>)}
             {exercise?.notes ? (<p>Notes: {exercise?.notes}</p>) : (<></>)}
             {exercise?.distance ? (<p>Distance: {exercise?.distance}</p>) : (<></>)}
