@@ -64,7 +64,7 @@ If the screen is width enough, the user will have the option to log-in directly 
 <br/><br/> <img src='https://i.postimg.cc/SSZfnL3P/image-123986672.jpg' height=575/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <img src='https://user-images.githubusercontent.com/70457320/159936944-ed9a707a-5a3e-445b-a2fb-0f49a4bfdcdf.png' height=575/><br/><br/>
 
-Once the user is logged-in the Navbar will have the following links: Home, Workouts, Exercises and Profile.
+Once the user is logged-in the Navbar will have the following links: Home, My Workouts, My Exercises and Profile.
 If the screen is too small (cellphones), these links will be represented by icons:
 <br/><br/>
 <img src='https://user-images.githubusercontent.com/70457320/159938964-7bf51d00-bb4e-4841-a4ab-fdee8731e584.png' height=475/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -72,14 +72,14 @@ If the screen is too small (cellphones), these links will be represented by icon
 <br/><br/>
 
 
-### Splash page / Home Page
+### Home Page / Splash Page
 The splash page will show information about the app and how to use it. If the client click the button ```How to Use Cool-tracker```; a completed information about the app will be rendered at the screen. This information can hide again if the user clicks ```Show Less```. 
 <br/><br/>
 <img src='https://user-images.githubusercontent.com/70457320/159941185-7c838bae-0173-4d87-9adb-473a0bafa37c.png' height=475/> 
 <br/><br/>
 
 
-### Workout Page
+### My Workouts Page
 The Workout page is where the users can create workouts and see all of the previous workouts created by themselves. If a user click the Workout title (link) it will be redirected to the detail page of that workout. If the user is the one who created that workout; a gear will appear next to the title and once it is clicked two buttons will be rendered: ```Delete WorkOut``` and ```Edit Workout``` which will allowed the user to performon those features.
 <br/><br/>
 <img src='https://user-images.githubusercontent.com/70457320/159942475-bb860c67-b187-420b-ac67-1aa74d0ecb7f.png' height=475/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -87,11 +87,17 @@ The Workout page is where the users can create workouts and see all of the previ
 <br/><br/>
 
 
-### Exercise Page
+### My Exercises Page
 As shown above, in the workout detail page is where the users can add exercises to their workouts. All exercises belonging to a workout will be rendered below the Add Exercise form. If a user click the exercise title, the page will be redirected to that exercise detail page. If the user is the one who created that exercise; a gear will appear next to the title and once it is clicked two buttons will be rendered: ```Delete Exercise``` and ```Edit Exercise``` which will allowed the user to performon those features.
 <br/><br/>
-<img src='https://user-images.githubusercontent.com/70457320/159945141-416edc14-41d9-4ea4-b082-59d8b4f345df.png' height=475/> 
+<img src='https://user-images.githubusercontent.com/70457320/159945141-416edc14-41d9-4ea4-b082-59d8b4f345df.png' height=475/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <img src='https://user-images.githubusercontent.com/70457320/159945548-9725ab52-3211-4812-bd8c-6e8eb03e2d11.png' height=475/> 
+<br/><br/>
 
+
+### My Profile Page
+The profile page shill show the information about the user; username, image profile, first name, last name and email. Also it will have a log out button that once it's clicked the user's session will be ended.
+<br/><br/>
+<img src='https://user-images.githubusercontent.com/70457320/159946741-f5b78af6-82e6-4900-b12d-05a9f58422d7.png' height=475/> 
 
 
