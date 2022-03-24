@@ -56,3 +56,12 @@ Future functionality: (coming soon)
 <br/><br/>
 
 ## Features:
+### Nav bar
+A Navegation bar will be rendered in every page of the application. 
+If the user is logged out. The navbar will have the following links: Home, Sign Up and Log In.
+If the screen is width enough, the user will have the option to log-in directly in the nav bar:
+
+
+### Splash page
+The splash page will show information about the app and how to use it. 
+<img src='https://mail.google.com/mail/u/0?ui=2&ik=8905ad244f&attid=0.1&permmsgid=msg-a:r7964833661941430682&th=17fbc32018f2e1cf&view=fimg&fur=ip&sz=s0-l75-ft&attbid=ANGjdJ_FrHbtXLfalkx-96hRmnrz2tq23S1RnBZWGtEER2EVU0FvmfZdBa3r-r-7n7bfamRcB5L4n1YqAtHb2xONJbaX0fCe1vLi2tEZ1pW_cRo7nXOhKUvMJ8o8Ft0&disp=emb&realattid=17fbc31d6c71d59b7601' height=275/>
