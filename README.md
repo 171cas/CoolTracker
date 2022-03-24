@@ -60,8 +60,8 @@ Future functionality: (coming soon)
 A Navegation bar will be rendered in every page of the application. 
 If the user is logged out. The navbar will have the following links: Home, Sign Up and Log In.
 If the screen is width enough, the user will have the option to log-in directly in the nav bar:
-<br/> <img src='https://i.postimg.cc/SSZfnL3P/image-123986672.jpg' width=275/>
-<img src='https://user-images.githubusercontent.com/70457320/159936944-ed9a707a-5a3e-445b-a2fb-0f49a4bfdcdf.png' width=475/>
+<br/> <img src='https://i.postimg.cc/SSZfnL3P/image-123986672.jpg' height=775/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<img src='https://user-images.githubusercontent.com/70457320/159936944-ed9a707a-5a3e-445b-a2fb-0f49a4bfdcdf.png' height=775/>
 
 
 ### Splash page
