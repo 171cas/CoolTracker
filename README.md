@@ -33,10 +33,12 @@ Future functionality: (coming soon)
 
 ## Technologies Used
 - React <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/2300px-React-icon.svg.png' height=45/>
-- Redux
-- Express
-- Sequelize
-- HTML & CSS
+- Redux <img src='' height=45/>
+- Express <img src='' height=45/>
+- Sequelize <img src='' height=45/>
+- Javascript <img src='https://img.icons8.com/color/344/javascript--v1.png' height=45/>
+- HTML 5 <img src='' height=45/>
+- CSS 3 <img src='' height=45/>
 
 ##Getting the Project Started
 1. Clone this repository ```git@github.com:171cas/CoolTracker```
