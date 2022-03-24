@@ -4,8 +4,6 @@ function HowTo() {
     const [showMenu, setShowMenu] = useState(false);
     const [title, setTitle] = useState('How to Use Cool-tracker?');
 
-    console.log(showMenu, 'showMenu')
-    console.log(title, 'title')
 
     const openMenu = () => {
         if (showMenu) return;

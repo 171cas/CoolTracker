@@ -86,7 +86,6 @@ const validateCreate = [
     }),
     body('rest').custom((value, { req }) => {
         if (value === '') return true;
-        console.log('\n\n\n\n\n\n\n\nvalueeee', isNaN(value))
         if (isNaN(value) || (value < 0 || value > 86400)) {
             throw new Error('Please provide valid rest [0-86400].');
         }
@@ -127,7 +126,6 @@ router.post(
             completion_time,
         } = req.body;
 
-        console.log('\n\n\n\n\n\n\n\n\n\n hellooo', req.body, '\n\n\n\n\n\n\n\n\n\n hellooo')
 
         if (notes === '') notes = null
         if (distance === '') distance = null
@@ -137,8 +135,6 @@ router.post(
         if (weight === '') weight = null
         if (completion_time === '') completion_time = null
 
-
-        console.log(req.body, 'api \n\n\n\n\n')
 
 
         const exercise = await Exercise.create({

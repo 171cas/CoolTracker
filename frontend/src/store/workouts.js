@@ -68,7 +68,7 @@ export const deleteWorkout = (id) => async dispatch => {
     const response = await csrfFetch(`/api/workouts/${id}`, {
         method: 'DELETE'
     });
-    // console.log("exercises from delete", exercises)
+
     if (response.ok) {
         const remove_workout = await response.json();
         dispatch(removeWorkout(id));

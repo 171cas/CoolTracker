@@ -43,8 +43,6 @@ const ExerciseCreate = ({ propId }) => {
             completion_time
         }
 
-        console.log(payload, 'payload \n\n\n\n\n')
-
         await dispatch(createExercise(payload))
             .then(() => {
                 setName('')

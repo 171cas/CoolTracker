@@ -33,7 +33,6 @@ const WorkoutCreate = () => {
             body_weight
         }
 
-        console.log(payload, 'frontend \n\n\n\n\n')
 
         await dispatch(createWorkout(payload))
             .then(() => {
