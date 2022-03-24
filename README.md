@@ -32,7 +32,7 @@ Future functionality: (coming soon)
 - Follow and Unfollow Users
 
 ## Technologies Used
-- React <img src='https://image.pngaaa.com/930/2507930-middle.png' height=45/>
+- React <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/2300px-React-icon.svg.png' height=45/>
 - Redux
 - Express
 - Sequelize
