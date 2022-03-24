@@ -86,6 +86,7 @@ function App() {
           <ProtectedRoute exact path="/exercise/:exerciseId">
             <div className='containerWO'>
               <div className='singleWO'>
+                <h3 style={{ color: 'white' }}>Exercise Detail:</h3>
                 <ExerciseDetail />
               </div>
             </div>
