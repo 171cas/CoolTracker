@@ -84,9 +84,14 @@ The Workout page is where the users can create workouts and see all of the previ
 <br/><br/>
 <img src='https://user-images.githubusercontent.com/70457320/159942475-bb860c67-b187-420b-ac67-1aa74d0ecb7f.png' height=475/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <img src='https://user-images.githubusercontent.com/70457320/159943173-fe04c92c-018f-472f-a430-e317dcce8467.png' height=475/> 
+<br/><br/>
 
 
-
+### Exercise Page
+As shown above, in the workout detail page is where the users can add exercises to their workouts. All exercises belonging to a workout will be rendered below the Add Exercise form. If a user click the exercise title, the page will be redirected to that exercise detail page. If the user is the one who created that exercise; a gear will appear next to the title and once it is clicked two buttons will be rendered: ```Delete Exercise``` and ```Edit Exercise``` which will allowed the user to performon those features.
+<br/><br/>
+<img src='https://user-images.githubusercontent.com/70457320/159945141-416edc14-41d9-4ea4-b082-59d8b4f345df.png' height=475/> 
+<img src='https://user-images.githubusercontent.com/70457320/159945548-9725ab52-3211-4812-bd8c-6e8eb03e2d11.png' height=475/> 
 
 
 
