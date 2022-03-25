@@ -11,7 +11,6 @@ const router = express.Router();
 async function list() {
     return await Like.findAll();
 }
-
 router.get('/', asyncHandler(async function (_req, res) {
     const likes = await list();
     return res.json(likes);
@@ -53,11 +52,18 @@ router.post(
         const {
             workout_id,
         } = req.body;
+        const user_id = req.user.id;
 
-        const like = await Like.create({
+        let like = await Like.findAll({ where: { user_id, workout_id } })
+        console.log('\n\n\n\n\n\n\nlike before if', like)
+
+        if (like) throw new Error('Access Denied.')
+
+        await Like.create({
             user_id: req.user.id,
             workout_id, //dont forget to change this later
         });
+        console.log('\n\n\n\n\n\n\nlike after if', like)
 
         return res.json(
             like
