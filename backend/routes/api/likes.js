@@ -54,15 +54,17 @@ router.post(
         } = req.body;
         const user_id = req.user.id;
 
-        let like = await Like.findAll({ where: { user_id, workout_id } })
+        let like = await Like.findOne({ where: { user_id, workout_id } })
         console.log('\n\n\n\n\n\n\nlike before if', like)
 
-        if (like) throw new Error('Access Denied.')
-
-        await Like.create({
-            user_id: req.user.id,
-            workout_id, //dont forget to change this later
-        });
+        if (like) {
+            await Like.destroy({ where: { id: like.id } })
+        } else {
+            like = await Like.create({
+                user_id: req.user.id,
+                workout_id, //dont forget to change this later
+            });
+        }
         console.log('\n\n\n\n\n\n\nlike after if', like)
 
         return res.json(

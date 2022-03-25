@@ -52,8 +52,6 @@ const ExerciseEdit = () => {
             completion_time
         }
 
-        console.warn(payload)
-
         let exercise = await dispatch(editExercise(payload))
             .catch(async (res) => {
                 const data = await res.json();

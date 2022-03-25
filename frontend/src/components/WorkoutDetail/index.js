@@ -5,7 +5,7 @@ import { useParams, NavLink, useHistory } from 'react-router-dom';
 import { deleteWorkout } from '../../store/workouts';
 import { deleteExercise } from '../../store/exercises';
 
-import { createLike } from '../../store/likes';
+import { createLike, deleteLike } from '../../store/likes';
 
 import ExerciseBrowser from '../ExerciseBrowser';
 import ExerciseCreate from '../ExerciseCreate';
@@ -40,10 +40,9 @@ const WorkoutDetail = ({ propId }) => {
     const likesWO = likesList.filter(({ workout_id }) => workout_id === +workoutId)
     const likesCount = likesWO.length
 
-    console.log('likes', likes)
-    console.log('likesList', likesList)
-    console.log('likesWO', likesWO)
-    console.log('likesCount', likesCount)
+    const isLiked = likesWO.find(likes => likes.user_id === sessionUser.id)
+
+
 
     const openMenu = () => {
         setShowMenu(true);
@@ -74,7 +73,11 @@ const WorkoutDetail = ({ propId }) => {
     };
 
     const handleLike = async (e) => {
-        await dispatch(createLike(+workoutId))
+        if (isLiked) {
+            await dispatch(deleteLike(isLiked.id))
+        } else {
+            await dispatch(createLike({ workout_id: workoutId }))
+        }
     };
 
     let reviewLinks;
@@ -112,7 +115,7 @@ const WorkoutDetail = ({ propId }) => {
                 <div className='interactions'>
                     <div>
                         {likesCount}&nbsp;
-                        <FontAwesomeIcon icon={faHeart} onClick={handleLike} className='' />
+                        <FontAwesomeIcon icon={(isLiked ? fatHeart : faHeart)} onClick={handleLike} className='' />
                     </div>
                     <FontAwesomeIcon icon={faComment} className='' />
                 </div>
