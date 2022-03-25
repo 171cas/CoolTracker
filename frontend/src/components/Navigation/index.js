@@ -14,30 +14,56 @@ function Navigation({ isLoaded }) {
     const [wo, setWo] = useState({});
     const [ex, setEx] = useState({});
     const [pr, setPr] = useState({});
+    const [su, setSu] = useState({});
+    const [li, setLi] = useState({});
     //style={{ backgroundColor: 'grey' }}
     const handleClickHo = async (e) => {
         setHo({ color: '#F5E663' })
         setWo({})
         setEx({})
         setPr({})
+        setSu({})
+        setLi({})
     };
     const handleClickWo = async (e) => {
         setHo({})
         setWo({ color: '#F5E663' })
         setEx({})
         setPr({})
+        setSu({})
+        setLi({})
     };
     const handleClickEx = async (e) => {
         setHo({})
         setWo({})
         setEx({ color: '#F5E663' })
         setPr({})
+        setSu({})
+        setLi({})
     };
     const handleClickPr = async (e) => {
         setHo({})
         setWo({})
         setEx({})
         setPr({ color: '#F5E663' })
+        setSu({})
+        setLi({})
+    };
+    const handleClickSu = async (e) => {
+        setHo({})
+        setWo({})
+        setEx({})
+        setPr({})
+        setSu({ color: '#F5E663' })
+        setLi({})
+    };
+    const handleClickLi = async (e) => {
+        setHo({})
+        setWo({})
+        setEx({})
+        setPr({})
+        setSu({})
+        setLi({ color: '#F5E663' })
     };
 
     let sessionLinks;
@@ -63,8 +89,8 @@ function Navigation({ isLoaded }) {
         sessionLinks = (
             <div className="loggedOut">
                 <NavLink exact to="/" className="wordsLink" style={ho} onClick={handleClickHo}><h3>Home</h3></NavLink>
-                <NavLink to="/signup" style={wo} onClick={handleClickWo}><h3>Sign Up</h3></NavLink>
-                <NavLink to="/login" className="showLink" style={ex} onClick={handleClickEx}><h3>Log In</h3></NavLink>
+                <NavLink to="/signup" style={su} onClick={handleClickSu}><h3>Sign Up</h3></NavLink>
+                <NavLink to="/login" className="showLink" style={li} onClick={handleClickLi}><h3>Log In</h3></NavLink>
                 <div className="showComp"><LoginFormPage /></div>
             </div>
         );
