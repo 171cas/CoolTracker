@@ -17,6 +17,7 @@ const WorkoutPublic = () => {
     return (
         <>
             <HowTo /><br /><br />
+            <h3 style={{ color: '#FF784F' }}>Public Workout Feed</h3><br /><br />
             <div className='containerWO'>
                 {workoutList && workoutList?.map((workout, i) => {
                     return (<WorkoutDetail propId={workout.id} key={i} />)

@@ -128,7 +128,7 @@ const ExerciseCreate = ({ propId }) => {
                                 Sets
                                 <input
                                     type='number'
-                                    placeholder='Sets'
+                                    placeholder='Sets (Default to 1)'
                                     value={sets}
                                     onChange={updateSets}
                                     min='1'
@@ -139,7 +139,7 @@ const ExerciseCreate = ({ propId }) => {
                                 Reps
                                 <input
                                     type='number'
-                                    placeholder='Reps'
+                                    placeholder='Reps (Default to 1)'
                                     value={reps}
                                     onChange={updateReps}
                                     min='1'

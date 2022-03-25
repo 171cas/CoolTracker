@@ -80,6 +80,11 @@ const WorkoutDetail = ({ propId }) => {
         }
     };
 
+    const handleClickGoBack = async (e) => {
+        e.preventDefault();
+        history.goBack()
+    };
+
     let reviewLinks;
     const isUser = sessionUser?.id === workout?.user_id
     if (isUser) {
@@ -120,6 +125,7 @@ const WorkoutDetail = ({ propId }) => {
                     <FontAwesomeIcon icon={faComment} className='' />
                 </div>
             </div>
+            {!propId && <button onClick={handleClickGoBack} className='addButton' style={{ backgroundColor: 'grey' }}>Go Back</button>}
         </div>
     )
 }
