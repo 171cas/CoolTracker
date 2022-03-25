@@ -4,14 +4,6 @@ function HowTo() {
     const [showMenu, setShowMenu] = useState(false);
     const [title, setTitle] = useState('How to Use Cool-tracker?');
 
-
-    const openMenu = () => {
-        if (showMenu) return;
-        setShowMenu(true);
-    };
-    const closeMenu = () => {
-        setShowMenu(false);
-    };
     const changemenu = () => {
         setShowMenu(!showMenu);
     }
@@ -36,15 +28,24 @@ function HowTo() {
                     <div className="paraClass">
                         <p>
                             How to use Cool-tracker:<br />
-                            1) Cool-tracker is an open source web application where clients can create users, and users can create Workouts and add Exercises to their Workouts. Also users can interact with other users and their Workouts as well.<br />
+                            1) Cool-tracker is an open source web application where clients can create users, and users can create Workouts and add Exercises to their Workouts. The idea of the app is to keep it as simple and effective as possible, but as detailed as the client wants to. Also, users can interact with other users and their Workouts as well.<br />
                             <br />
-                            2) Clients can try the application without signing up with the 'Demo User' log-in option. Once the clients click the demo user button, they will be logged in with the Demo User account. This will allowed the clients to try all the features provided by the application without signing-up first. Once the clients are satisfied with the interaction, they can create their personal account in the sign-up link.<br />
+                            2) Clients can try the application without signing up with the 'Demo User' log-in option. Once the clients click the demo user button, they will be logged in with the Demo User account. This will allow the clients to try all the features provided by the application without signing-up first. Once the clients are satisfied with the interaction, they can create their personal account in the sign-up link.<br />
                             <br />
-                            3) Signing Up section has it own Frontend and Backend validations. Characters allowed for usernames are alphanumeric, "." and "_". A Password must contain at least 1 lowercase letter, uppercase letter, number, and special character (i.e. "!@#$%^&*") and contain at least 6 characters.<br />
+                            3) Sign Up has it own Frontend and Backend validations. Characters allowed for usernames are alphanumeric, "." and "_". A Password must contain at least one lowercase letter, uppercase letter, number and special character (i.e. !@#$%^&*.-_ ) and contain at least 6 characters.<br />
                             <br />
-                            4) Logged-in users can create Workouts. The only required attribute for a Workout is the Date, but Notes, Calories Burned, Completion Time and Body Weight are also provided for a more detailed Workout. Later on, users are allowed to modify or delete Workouts created by them. Create, Update and Delete a Workout have their own Fronted and Backend validations as well. Users can log-out their session from their profile page.<br />
+                            4) Logged-in users can create Workouts. The only required attribute for a Workout is the Date, but Notes, Calories Burned, Completion Time and Body Weight are also provided for a more detailed Workout.
+                            Why only keeping Date required though? Because that's the goal of the app, to keep track of the clients' workouts and exercises through time so they can evaluate their progression
+                            Later on, users are allowed to modify or delete Workouts created by themselves. Create, Update and Delete a Workout have their own Frontend and Backend validations as well. Users can log-out of their sessions from their profile pages.<br />
                             <br />
-                            5) Logged-in users can add Exercises to their own Workouts. The only required attribute for an Exercise is the Name, but Notes, Distance, Sets, Reps, Rest, Weight and Completion Time are also provided for a more detailed Exercise. Later on, users are allowed to modify or delete Exercises created by them. Create, Update and Delete an Exercise have their own Fronted and Backend validations as well. If a Workout is deleted, all the Exercises related to that Workout will be deleted as well.<br />
+                            5) Logged-in users can add Exercises to their own Workouts. The only required attribute for an Exercise is the Name, but Notes, Distance, Sets, Reps, Rest, Weight and Completion Time are also provided for a more detailed Exercise.
+                            Name is required to know in the future what exercise it was realized.
+                            Reps and Sets are requerid as well because it is wrong to say 'one completed an exercise of zero rep or zero set'. Regardless of the exercise some one completes, theoretically it will always be at least one set of one rep.
+                            Must of users forget about this when they do a distance exercise, for instance: 3 miles running, 1 mile swimming or 5 mile hiking. All those exercises where one set of one rep. If a user forget to add this theoretically and required data, which is a really common mistake, the app will set those values as Set=1 and Rep=1, rather than (which is somehow anoying) forcing the user to add the value of 1 to those attributes.
+
+                            <br /><br />
+                            6) Later on, users are allowed to modify or delete Exercises created by themselves. Create, Update and Delete an Exercise have their own Frontend and Backend validations as well. If a Workout is deleted, all the Exercises related to that Workout will be deleted as well.<br />
+                            <br />
                             <br />
                         </p>
                     </div>

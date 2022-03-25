@@ -22,7 +22,7 @@ const NotFound = () => {
             <h3 className='nfText'>Get a meme instead:</h3>
             <br /><br /><br />
             <div className='notFound'>
-                <img className='inside-pic' src={imgArr[count]} />
+                <img className='inside-pic' src={imgArr[count]} alt='' />
             </div>
         </>
     );

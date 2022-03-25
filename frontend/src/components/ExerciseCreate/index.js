@@ -29,13 +29,7 @@ const ExerciseCreate = ({ propId }) => {
     const updateWeight = (e) => setWeight(e.target.value)
     const updateComt = (e) => setComT(e.target.value)
 
-    const openMenu = () => {
-        if (showMenu) return;
-        setShowMenu(true);
-    };
-    const closeMenu = () => {
-        setShowMenu(false);
-    };
+
     const changemenu = () => {
         setShowMenu(!showMenu);
     }
@@ -46,7 +40,7 @@ const ExerciseCreate = ({ propId }) => {
             return;
         }
         if (showMenu) {
-            setTitle('Show Less')
+            setTitle('Cancel Add Exercise')
             return;
         }
     }, [showMenu]);
