@@ -25,6 +25,15 @@ const WorkoutCreate = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
+        //date frontend validation
+        const today = new Date()
+        const month = (today.getMonth() + 1 < 10 ? `0${today.getMonth() + 1}` : `${today.getMonth() + 1}`)
+        const dateVar = `${today.getFullYear()}-${month}-${today.getDate()}`
+
+        if (date > dateVar) {
+            return setErrors(['Workout date must be in the past.']);
+        }
+
         const payload = {
             date,
             notes,
