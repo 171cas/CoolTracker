@@ -4,13 +4,15 @@ import ExerciseDetail from '../ExerciseDetail';
 
 const ExerciseBrowser = ({ propId }) => {
 
+    const sessionUser = useSelector(state => state.session.user);
+
     const exercises = useSelector((state) => state.exercises)
     const exerciseList = (propId ?
         Object.values(exercises)
             .filter((exercise) => exercise.workout_id === +propId)
             .reverse()
         :
-        Object.values(exercises).reverse()
+        Object.values(exercises).reverse().filter(({ user_id }) => user_id === +sessionUser.id)
     )
 
     return (
