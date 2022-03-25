@@ -68,7 +68,7 @@ const WorkoutCreate = () => {
                     <h3>Workout #ID</h3>
 
                     <label className="singleLine">
-                        <p>Date:</p>
+                        <p>Date: (Must be in the past) </p>
                         <input
                             type='date'
                             required
