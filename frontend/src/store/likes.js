@@ -1,3 +1,5 @@
+import { csrfFetch } from './csrf';
+
 const ADD = '/likes/add'
 const LOAD = '/likes/load'
 const REMOVE = '/likes/remove'
@@ -9,9 +11,10 @@ const removeLike = remove_like => ({ type: REMOVE, remove_like })
 
 
 export const createLike = (payload) => async dispatch => {
-    const response = await fetch('/api/likes/', {
+
+    const response = await csrfFetch('/api/likes/', {
         method: 'POST',
-        body: payload,
+        body: JSON.stringify(payload),
     });
     if (response.ok) {
         const new_like = await response.json();
@@ -37,7 +40,7 @@ export const getLikes = () => async dispatch => {
 }
 
 export const deleteLike = (id) => async dispatch => {
-    const response = await fetch(`/api/likes/${id}`, {
+    const response = await csrfFetch(`/api/likes/${id}`, {
         method: 'DELETE'
     });
     if (response.ok) {

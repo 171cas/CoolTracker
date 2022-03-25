@@ -138,5 +138,4 @@ heroku run npm run sequelize db:migrate
 heroku run npm run sequelize db:seed:all
 
 frontend
-npm install --save @fortawesome/free-
-brands-svg-icons
+npm install --save @fortawesome/free-brands-svg-icons

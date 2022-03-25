@@ -1,12 +1,19 @@
 import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams, NavLink, useHistory } from 'react-router-dom';
+
 import { deleteWorkout } from '../../store/workouts';
 import { deleteExercise } from '../../store/exercises';
+
+import { createLike, deleteLike } from '../../store/likes';
+
 import ExerciseBrowser from '../ExerciseBrowser';
 import ExerciseCreate from '../ExerciseCreate';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faGear } from "@fortawesome/free-solid-svg-icons";
+
+import { faHeart as fatHeart } from "@fortawesome/free-solid-svg-icons";
+import { faHeart, faComment } from "@fortawesome/free-regular-svg-icons";
 import './WorkoutDetail.css'
 
 const WorkoutDetail = ({ propId }) => {
@@ -27,6 +34,15 @@ const WorkoutDetail = ({ propId }) => {
     const exList = Object.values(exercises)
     const exercisesWO = exList.filter(({ workout_id }) => workout_id === +workoutId)
     const exCount = exercisesWO.length
+
+    const likes = useSelector((state) => state.likes)
+    const likesList = Object.values(likes)
+    const likesWO = likesList.filter(({ workout_id }) => workout_id === +workoutId)
+    const likesCount = likesWO.length
+
+    const isLiked = likesWO.find(likes => likes.user_id === sessionUser.id)
+
+
 
     const openMenu = () => {
         setShowMenu(true);
@@ -56,6 +72,14 @@ const WorkoutDetail = ({ propId }) => {
         if (!propId) history.push(`/workouts`)
     };
 
+    const handleLike = async (e) => {
+        if (isLiked) {
+            await dispatch(deleteLike(isLiked.id))
+        } else {
+            await dispatch(createLike({ workout_id: workoutId }))
+        }
+    };
+
     let reviewLinks;
     const isUser = sessionUser?.id === workout?.user_id
     if (isUser) {
@@ -78,14 +102,23 @@ const WorkoutDetail = ({ propId }) => {
                 <h3><NavLink to={`/workout/${workout?.id}`} >Workout #{workout?.id}</NavLink>
                     {reviewLinks && reviewLinks}
                 </h3>
-                {workout?.date ? (<p>Date: {workout?.date}</p>) : (<></>)}
-                {workout?.notes ? (<p>Notes: {workout?.notes}</p>) : (<></>)}
-                {workout?.completion_time ? (<p>Completion Time: {workout?.completion_time}</p>) : (<></>)}
-                {workout?.calories_burned ? (<p>Calories Burned: {workout?.calories_burned}</p>) : (<></>)}
-                {workout?.body_weight ? (<p>Body Weight: {workout?.body_weight}</p>) : (<></>)}
-                {(isUser && !propId) && <ExerciseCreate propId={workout?.id} />}
-                {propId ? <NavLink to={`/workout/${workout?.id}`}><h4>Exercises: {exCount}</h4></NavLink>
-                    : <ExerciseBrowser propId={workout?.id} />}
+                <div className='details'>
+                    {workout?.date ? (<p>Date: {workout?.date}</p>) : (<></>)}
+                    {workout?.notes ? (<p>Notes: {workout?.notes}</p>) : (<></>)}
+                    {workout?.completion_time ? (<p>Completion Time: {workout?.completion_time}</p>) : (<></>)}
+                    {workout?.calories_burned ? (<p>Calories Burned: {workout?.calories_burned}</p>) : (<></>)}
+                    {workout?.body_weight ? (<p>Body Weight: {workout?.body_weight}</p>) : (<></>)}
+                    {(isUser && !propId) && <ExerciseCreate propId={workout?.id} />}
+                    {propId ? <NavLink to={`/workout/${workout?.id}`}><h4>Exercises: {exCount}</h4></NavLink>
+                        : <ExerciseBrowser propId={workout?.id} />}
+                </div>
+                <div className='interactions'>
+                    <div>
+                        {likesCount}&nbsp;
+                        <FontAwesomeIcon icon={(isLiked ? fatHeart : faHeart)} onClick={handleLike} className='' />
+                    </div>
+                    <FontAwesomeIcon icon={faComment} className='' />
+                </div>
             </div>
         </div>
     )
