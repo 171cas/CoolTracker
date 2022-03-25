@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import WorkoutDetail from '../WorkoutDetail';
 import WorkoutCreate from '../WorkoutCreate';
 
-import HowTo from '../HomePage/HowTo'
+import HowTo from '../HowTo';
 
 
 const WorkoutPublic = () => {
