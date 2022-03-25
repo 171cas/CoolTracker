@@ -38,6 +38,18 @@ const validateCreate = [
     check('date')
         .exists({ checkFalsy: true })
         .withMessage('Please provide a valid Date.'),
+    body('date')
+        .custom((value, { req }) => {
+            const today = new Date()
+            const month = (today.getMonth() + 1 < 10 ? `0${today.getMonth() + 1}` : `${today.getMonth() + 1}`)
+            const dateVar = `${today.getFullYear()}-${month}-${today.getDate()}`
+
+            if (value > dateVar) {
+                throw new Error(['Workout date must be in the past.']);
+            }
+
+            return true;
+        }),
     body('notes')
         .custom((value, { req }) => {
             if (value && value.length > 500) throw new Error('Notes lenght must be less than 500 characters.');

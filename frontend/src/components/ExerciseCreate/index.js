@@ -40,7 +40,7 @@ const ExerciseCreate = ({ propId }) => {
             return;
         }
         if (showMenu) {
-            setTitle('Show Less')
+            setTitle('Cancel Add Exercise')
             return;
         }
     }, [showMenu]);
