@@ -36,7 +36,7 @@ function Navigation({ isLoaded }) {
             <div className="loggedOut">
                 <NavLink exact to="/" className="wordsLink"><h3>Home</h3></NavLink>
                 <NavLink to="/signup"><h3>Sign Up</h3></NavLink>
-                <NavLink to="/login" className="showLink"><h3>Login</h3></NavLink>
+                <NavLink to="/login" className="showLink"><h3>Log In</h3></NavLink>
                 <div className="showComp"><LoginFormPage /></div>
             </div>
         );
