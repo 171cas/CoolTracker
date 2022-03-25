@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons"
-import HowTo from "./howTo"
+import HowTo from "./HowTo"
 import './HomePage.css'
 
 const HomePage = () => {

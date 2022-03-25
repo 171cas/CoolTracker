@@ -3,6 +3,8 @@ import { useDispatch } from "react-redux";
 import { Route, Switch } from "react-router-dom";
 
 import HomePage from './components/HomePage'
+import WorkoutPublic from "./components/WorkoutPublic";
+import SplashPage from "./components/SplashPage";
 import LoginFormPage from "./components/LoginFormPage";
 import SignupFormPage from "./components/SignupFormPage";
 import ProfilePage from "./components/ProfilePage";
@@ -50,7 +52,7 @@ function App() {
       {isLoaded && (
         <Switch>
           <Route exact path="/">
-            <HomePage />
+            <SplashPage isLoaded={isLoaded} />
           </Route>
           <ProtectedLogOutRoute exact path="/login">
             <div className='containerWO'>
