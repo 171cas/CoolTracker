@@ -7,7 +7,9 @@ import WorkoutPublic from "./components/WorkoutPublic";
 import SplashPage from "./components/SplashPage";
 import LoginFormPage from "./components/LoginFormPage";
 import SignupFormPage from "./components/SignupFormPage";
+
 import ProfilePage from "./components/ProfilePage";
+import ProfileUser from "./components/ProfileUser";
 
 import WorkoutDetail from "./components/WorkoutDetail";
 import WorkoutBrowser from "./components/WorkoutBrowser";
@@ -28,6 +30,7 @@ import Navigation from "./components/Navigation";
 import { getWorkouts } from './store/workouts'
 import { getExercises } from './store/exercises'
 import { getLikes } from './store/likes'
+import { getUsers } from "./store/users";
 
 import './index.css'
 
@@ -42,8 +45,9 @@ function App() {
 
   useEffect(() => {
     dispatch(getWorkouts());
-    dispatch(getExercises())
+    dispatch(getExercises());
     dispatch(getLikes());
+    dispatch(getUsers());
   }, [dispatch])
 
   return (
@@ -67,6 +71,9 @@ function App() {
           </ProtectedLogOutRoute>
           <ProtectedRoute exact path="/profile">
             <ProfilePage />
+          </ProtectedRoute>
+          <ProtectedRoute exact path="/user/:profUserId">
+            <ProfileUser />
           </ProtectedRoute>
           <ProtectedRoute exact path="/workouts">
             <WorkoutBrowser />
