@@ -20,6 +20,7 @@ const ExerciseBrowser = ({ propId }) => {
             {exerciseList && exerciseList?.map((exercise, i) => {
                 return (<ExerciseDetail propId={exercise.id} key={i} />) // change it later
             })}
+            {exerciseList.length == 0 && <p>No Exercises yet!</p>}
         </div>
     )
 }

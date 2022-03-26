@@ -13,6 +13,9 @@ const WorkoutPublic = ({ propId }) => {
         woFeed = Object.values(workouts).reverse()
     }
 
+    const users = useSelector((state) => state.users)
+    const usersList = Object.values(users)
+
 
     return (
         <>
@@ -22,7 +25,9 @@ const WorkoutPublic = ({ propId }) => {
             </>}
             <div className='containerWO'>
                 {woFeed && woFeed?.map((workout, i) => {
-                    return (<WorkoutDetail propId={workout.id} key={i} />)
+                    const userArrWO = usersList.filter(({ id }) => id === +workout.user_id)
+                    const userWO = userArrWO[0]
+                    return (<WorkoutDetail propId={workout.id} user={userWO} key={i} />)
                 })}
             </div>
         </>

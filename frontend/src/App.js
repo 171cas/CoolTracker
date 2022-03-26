@@ -22,6 +22,8 @@ import ExerciseEdit from "./components/ExerciseEdit";
 import ProtectedRoute from "./components/ProtectedRoute";
 import ProtectedLogOutRoute from "./components/ProtectedLogOutRoute";
 
+import GoBack from "./components/GoBack";
+
 import NotFound from "./components/NotFound";
 
 import * as sessionActions from "./store/session";
@@ -83,6 +85,7 @@ function App() {
           </ProtectedRoute>
           <ProtectedRoute exact path="/workout/:workoutId/edit">
             <WorkoutEdit />
+            <GoBack />
           </ProtectedRoute>
           <ProtectedRoute exact path="/exercises">
             <div className='containerWO'>
@@ -99,6 +102,7 @@ function App() {
                 <ExerciseDetail />
               </div>
             </div>
+            <GoBack />
           </ProtectedRoute>
           <ProtectedRoute exact path="/exercise/:exerciseId/edit">
             <div className='containerWO'>

@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { useSelector, useDispatch } from 'react-redux';
-import { useHistory, useParams } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
 
 import WorkoutPublic from "../WorkoutPublic";
+
+import GoBack from "../GoBack";
 
 import './ProfileUser.css'
 
@@ -12,7 +14,7 @@ const ProfileUser = () => {
 
     const users = useSelector((state) => state.users)
     const userArr = Object.values(users)
-    const profUser = userArr.find(user => user.id == profUserId)
+    const profUser = userArr.find(user => user.id === profUserId)
     const [showMenu, setShowMenu] = useState(false);
     const [title, setTitle] = useState(`Get User's Workouts`);
 
@@ -32,7 +34,6 @@ const ProfileUser = () => {
     }, [showMenu]);
 
 
-
     return (
         <>
             <div className='containerWO'>
@@ -47,6 +48,7 @@ const ProfileUser = () => {
                         <button className='addButton'>Coming Soon: Message {profUser?.username}</button>
                     </div>
                 </div>
+                <GoBack />
                 <button onClick={changemenu} className='addButton'>{title}</button><br />
             </div>
             {showMenu && (
