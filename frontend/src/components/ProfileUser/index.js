@@ -14,7 +14,7 @@ const ProfileUser = () => {
 
     const users = useSelector((state) => state.users)
     const userArr = Object.values(users)
-    const profUser = userArr.find(user => user.id === profUserId)
+    const profUser = userArr.find(user => user.id === +profUserId)
     const [showMenu, setShowMenu] = useState(false);
     const [title, setTitle] = useState(`Get User's Workouts`);
 
