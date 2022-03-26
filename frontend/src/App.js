@@ -7,7 +7,9 @@ import WorkoutPublic from "./components/WorkoutPublic";
 import SplashPage from "./components/SplashPage";
 import LoginFormPage from "./components/LoginFormPage";
 import SignupFormPage from "./components/SignupFormPage";
+
 import ProfilePage from "./components/ProfilePage";
+import ProfileUser from "./components/ProfileUser";
 
 import WorkoutDetail from "./components/WorkoutDetail";
 import WorkoutBrowser from "./components/WorkoutBrowser";
@@ -20,6 +22,8 @@ import ExerciseEdit from "./components/ExerciseEdit";
 import ProtectedRoute from "./components/ProtectedRoute";
 import ProtectedLogOutRoute from "./components/ProtectedLogOutRoute";
 
+import GoBack from "./components/GoBack";
+
 import NotFound from "./components/NotFound";
 
 import * as sessionActions from "./store/session";
@@ -28,6 +32,7 @@ import Navigation from "./components/Navigation";
 import { getWorkouts } from './store/workouts'
 import { getExercises } from './store/exercises'
 import { getLikes } from './store/likes'
+import { getUsers } from "./store/users";
 
 import './index.css'
 
@@ -42,8 +47,9 @@ function App() {
 
   useEffect(() => {
     dispatch(getWorkouts());
-    dispatch(getExercises())
+    dispatch(getExercises());
     dispatch(getLikes());
+    dispatch(getUsers());
   }, [dispatch])
 
   return (
@@ -68,6 +74,9 @@ function App() {
           <ProtectedRoute exact path="/profile">
             <ProfilePage />
           </ProtectedRoute>
+          <ProtectedRoute exact path="/user/:profUserId">
+            <ProfileUser />
+          </ProtectedRoute>
           <ProtectedRoute exact path="/workouts">
             <WorkoutBrowser />
           </ProtectedRoute>
@@ -76,6 +85,7 @@ function App() {
           </ProtectedRoute>
           <ProtectedRoute exact path="/workout/:workoutId/edit">
             <WorkoutEdit />
+            <GoBack />
           </ProtectedRoute>
           <ProtectedRoute exact path="/exercises">
             <div className='containerWO'>
@@ -92,6 +102,7 @@ function App() {
                 <ExerciseDetail />
               </div>
             </div>
+            <GoBack />
           </ProtectedRoute>
           <ProtectedRoute exact path="/exercise/:exerciseId/edit">
             <div className='containerWO'>

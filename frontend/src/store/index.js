@@ -1,6 +1,7 @@
 import { createStore, combineReducers, applyMiddleware, compose } from "redux";
 import thunk from "redux-thunk";
 import sessionReducer from './session';
+import usersReducer from "./users";
 import workoutReducer from './workouts';
 import exerciseReducer from './exercises';
 import likeReducer from './likes';
@@ -8,7 +9,7 @@ import likeReducer from './likes';
 const rootReducer = combineReducers({
   // add reducer functions here
   session: sessionReducer,
-  //user: usersReducer,
+  users: usersReducer,
   workouts: workoutReducer,
   exercises: exerciseReducer,
   likes: likeReducer,

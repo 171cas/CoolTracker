@@ -4,6 +4,8 @@ import { useParams, NavLink, useHistory } from 'react-router-dom';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faGear } from "@fortawesome/free-solid-svg-icons";
 import { deleteExercise } from '../../store/exercises';
+
+
 import './ExerciseDetail.css'
 
 const ExerciseDetail = ({ propId }) => {
@@ -58,19 +60,21 @@ const ExerciseDetail = ({ propId }) => {
 
 
     return (
-        <div className='singleEx'>
-            <h3><NavLink to={`/exercise/${exercise?.id}`} >Exercise #{exercise?.id} </NavLink>
-                {reviewLinks && reviewLinks}
-            </h3>
-            {(!propId) ? (<NavLink to={`/workout/${exercise?.workout_id}`} ><p>Workout: {exercise?.workout_id}</p></NavLink>) : (<></>)}
-            {exercise?.name ? (<p>Name: {exercise?.name}</p>) : (<></>)}
-            {exercise?.notes ? (<p>Notes: {exercise?.notes}</p>) : (<></>)}
-            {exercise?.distance ? (<p>Distance: {exercise?.distance}</p>) : (<></>)}
-            {exercise?.sets ? (<p>Sets: {exercise?.sets}</p>) : (<></>)}
-            {exercise?.reps ? (<p>Reps: {exercise?.reps}</p>) : (<></>)}
-            {exercise?.rest ? (<p>Rest: {exercise?.rest}</p>) : (<></>)}
-            {exercise?.weight ? (<p>Weight: {exercise?.weight}</p>) : (<></>)}
-        </div>
+        <>
+            <div className='singleEx'>
+                <h3><NavLink to={`/exercise/${exercise?.id}`} >Exercise #{exercise?.id} </NavLink>
+                    {reviewLinks && reviewLinks}
+                </h3>
+                {(!propId) ? (<NavLink to={`/workout/${exercise?.workout_id}`} ><p>Workout: {exercise?.workout_id}</p></NavLink>) : (<></>)}
+                {exercise?.name ? (<p>Name: {exercise?.name}</p>) : (<></>)}
+                {exercise?.notes ? (<p>Notes: {exercise?.notes}</p>) : (<></>)}
+                {exercise?.distance ? (<p>Distance: {exercise?.distance}</p>) : (<></>)}
+                {exercise?.sets ? (<p>Sets: {exercise?.sets}</p>) : (<></>)}
+                {exercise?.reps ? (<p>Reps: {exercise?.reps}</p>) : (<></>)}
+                {exercise?.rest ? (<p>Rest: {exercise?.rest}</p>) : (<></>)}
+                {exercise?.weight ? (<p>Weight: {exercise?.weight}</p>) : (<></>)}
+            </div>
+        </>
     )
 }
 

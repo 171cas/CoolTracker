@@ -55,7 +55,6 @@ router.post(
         const user_id = req.user.id;
 
         let like = await Like.findOne({ where: { user_id, workout_id } })
-        console.log('\n\n\n\n\n\n\nlike before if', like)
 
         if (like) {
             await Like.destroy({ where: { id: like.id } })
@@ -65,7 +64,6 @@ router.post(
                 workout_id, //dont forget to change this later
             });
         }
-        console.log('\n\n\n\n\n\n\nlike after if', like)
 
         return res.json(
             like

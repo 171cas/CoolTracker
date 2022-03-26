@@ -16,6 +16,11 @@ router.get('/', asyncHandler(async function (_req, res) {
     return res.json(users);
 }));
 
+router.get('/:id(\\d+)', asyncHandler(async function (_req, res) {
+    const user = await User.findByPk(_req.params.id);
+    return res.json(user);
+}));
+
 const validateSignup = [
     check('email')
         .exists({ checkFalsy: true })

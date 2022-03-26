@@ -7,9 +7,10 @@
     /* min-width: 455px; */
     height: 75px;
     background-color: #1c1b1b;
+    border-style: groove none;
     /* background-image: linear-gradient(#D8DBE2, #020202); */
     z-index: 100;
-    background-image: url('https://wallpapercave.com/dwp1x/wp2639534.jpg');
+    /* background-image: url('https://wallpapercave.com/dwp1x/wp2639534.jpg'); */
     background-repeat: no-repeat;
     background-size: cover;
 }
