@@ -17,9 +17,7 @@ function Navigation({ isLoaded }) {
     const [su, setSu] = useState({});
     const [li, setLi] = useState({});
     const [myUrl, setMyUrl] = useState(location.pathname)
-    //style={{ backgroundColor: 'grey' }}
 
-    // console.log('out myUrl', myUrl)
 
 
     const handleClickHo = () => {
@@ -96,12 +94,9 @@ function Navigation({ isLoaded }) {
 
     useEffect(() => {
         setMyUrl(location.pathname)
-        console.log(location.pathname, 'location.pathname')
-        console.log(myUrl, 'myUrl')
     }, [location])
 
     useEffect(() => {
-        console.log(myUrl, 'myUrl other useEffect')
         checkUrl()
     }, [myUrl])
 
