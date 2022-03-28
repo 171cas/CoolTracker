@@ -1,0 +1,16 @@
+.loginContainer{
+    max-width: 300px;
+}
+.loginFormPage{
+    max-width: 300px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+.loginFormPage label{
+    margin: 5px 0;
+    justify-content: space-between;
+}
+.LoginDemo{
+    align-self: center;
+}

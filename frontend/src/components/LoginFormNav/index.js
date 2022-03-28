@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import * as sessionActions from '../../store/session';
 import { useDispatch } from 'react-redux';
 import { Redirect, useHistory } from 'react-router-dom';
-import './LoginFormPage.css';
+import './LoginFormNav.css';
 
-function LoginFormPage() {
+function LoginFormNav() {
     const dispatch = useDispatch();
     const [credential, setCredential] = useState('');
     const [password, setPassword] = useState('');
@@ -35,11 +35,11 @@ function LoginFormPage() {
     }
 
     return (
-        <div className='loginContainer'>
-            <form onSubmit={handleSubmit} className='loginFormPage'>
+        <div>
+            <form onSubmit={handleSubmit} className='loginForm'>
                 {errors.length ? <p className='important'>The provided credentials were invalid</p> : <></>}
-                <label className="singleLine">
-                    <span>Login</span>
+                <label>
+                    Login
                     <input
                         placeholder='Username/Email'
                         type="text"
@@ -48,8 +48,8 @@ function LoginFormPage() {
                         required
                     />
                 </label>
-                <label className="singleLine">
-                    <span>Password</span>
+                <label>
+                    Password
                     <input
                         placeholder='Password'
                         type="password"
@@ -58,14 +58,11 @@ function LoginFormPage() {
                         required
                     />
                 </label>
-                <div className="LoginDemo">
-
-                    <button type="submit" className='greyButton'>Log In</button>
-                    <button onClick={handleClickDemo} className='greyButton'>Demo User</button>
-                </div>
+                <button type="submit" className='greyButton'>Log In</button>
+                <button onClick={handleClickDemo} className='greyButton'>Demo User</button>
             </form>
         </div>
     );
 }
 
-export default LoginFormPage;
+export default LoginFormNav;
