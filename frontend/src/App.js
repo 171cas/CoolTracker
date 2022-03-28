@@ -62,7 +62,7 @@ function App() {
           </Route>
           <ProtectedLogOutRoute exact path="/login">
             <div className='containerWO'>
-              <div className='singleWO'>
+              <div className='singleWO' style={{ maxWidth: '300px' }}>
                 <h3 style={{ textDecoration: "none" }}>But first, Log In:</h3>
                 <LoginFormPage />
               </div>

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { NavLink, useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import LoginFormPage from '../LoginFormPage';
+import LoginFormNav from '../LoginFormNav';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faHouse, faDumbbell, faPencil, faUserLarge } from "@fortawesome/free-solid-svg-icons";
 import './Navigation.css';
@@ -125,7 +125,7 @@ function Navigation({ isLoaded }) {
                 <NavLink exact to="/" className="wordsLink" style={ho} ><h3>Home</h3></NavLink>
                 <NavLink to="/signup" style={su} onClick={handleClickSu}><h3>Sign Up</h3></NavLink>
                 <NavLink to="/login" className="showLink" style={li} ><h3>Log In</h3></NavLink>
-                <div className="showComp"><LoginFormPage /></div>
+                <div className="showComp"><LoginFormNav /></div>
             </div>
         );
     }
