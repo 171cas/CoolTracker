@@ -9,6 +9,7 @@ import { createLike, deleteLike } from '../../store/likes';
 
 import ExerciseBrowser from '../ExerciseBrowser';
 import ExerciseCreate from '../ExerciseCreate';
+import LikeModal from '../LikeModal'
 import GoBack from '../GoBack';
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
@@ -120,9 +121,10 @@ const WorkoutDetail = ({ propId, user }) => {
                         : <ExerciseBrowser propId={workout?.id} />}
                 </div>
                 <div className='interactions'>
-                    <div>
-                        {likesCount}&nbsp;
-                        <FontAwesomeIcon icon={(isLiked ? fatHeart : faHeart)} onClick={handleLike} className='' />
+                    <div style={{ display: 'flex' }}>
+                        {/* {likesCount}&nbsp; */}
+                        <LikeModal likes={likesWO} users={useSelector((state) => state.users)} />&nbsp;
+                        <FontAwesomeIcon icon={(isLiked ? fatHeart : faHeart)} onClick={handleLike} className='' style={{ cursor: 'pointer' }} />
                     </div>
                     {/* <FontAwesomeIcon icon={faComment} className='' /> */}
                 </div>
