@@ -108,7 +108,7 @@ const WorkoutDetail = ({ propId, user }) => {
                     {reviewLinks && reviewLinks}
                 </h3>
                 <div className='details'>
-                    {user ? (<NavLink to={`/user/${user.id}`}><p>By {user.username}:</p></NavLink>) : (<></>)}
+                    {user ? (<p><NavLink to={`/user/${user.id}`} style={{ fontFamily: 'Fjalla One' }}>By {user.username}:</NavLink></p>) : (<></>)}
                     {workout?.date ? (<p>Date: {workout?.date}</p>) : (<></>)}
                     {isUser && !workout.notes && !workout.completion_time &&
                         <NavLink to={`/workout/${workout?.id}/edit`} style={{ color: 'white' }}> <p>Hey! Do you want to add more details to this workout? &#9997; &nbsp; &#128170; </p></NavLink>}
@@ -117,7 +117,7 @@ const WorkoutDetail = ({ propId, user }) => {
                     {workout?.calories_burned ? (<p>Calories Burned: {workout?.calories_burned}</p>) : (<></>)}
                     {workout?.body_weight ? (<p>Body Weight: {workout?.body_weight}</p>) : (<></>)}
                     {(isUser && !propId) && <ExerciseCreate propId={workout?.id} />}
-                    {propId ? <NavLink to={`/workout/${workout?.id}`}><h4>Exercises: {exCount}</h4></NavLink>
+                    {propId ? <h4><NavLink to={`/workout/${workout?.id}`} style={{ fontFamily: 'Fjalla One' }}>Exercises: {exCount}</NavLink></h4>
                         : <ExerciseBrowser propId={workout?.id} />}
                 </div>
                 <div className='interactions'>
