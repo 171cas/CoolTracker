@@ -11,6 +11,7 @@ function LikeModal({ likes, users }) {
             <p onClick={() => setShowModal(value)} style={{ cursor: pointer, borderBottom: 'none' }}>{likes.length}</p>
             {showModal && (
                 <Modal onClose={() => setShowModal(false)}>
+                    <h3>Liked by:</h3>
                     <LikeBrowser likes={likes} users={users} />
                 </Modal>
             )}

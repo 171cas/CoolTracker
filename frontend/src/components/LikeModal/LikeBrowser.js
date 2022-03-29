@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import './LikeModal.css'
 
 const LikeBrowser = ({ likes, users }) => {
@@ -14,7 +15,13 @@ const LikeBrowser = ({ likes, users }) => {
     return (
         <div className='likesCont'>
             {likes && usersList?.map((user, i) => {
-                if (likesIds.includes(user.id)) return (<p key={user.id}>{user.username}</p>)
+                if (likesIds.includes(user.id)) return (<NavLink to={`/user/${user.id}`}
+                    className='likesUserLink'
+                    key={user.id}
+                    style={{ textDecoration: 'none' }}
+                ><p
+                    className='likesUserText'
+                >@{user.username}</p></NavLink>)
             })}
         </div>
     )
