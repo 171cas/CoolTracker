@@ -1,6 +1,18 @@
 # CoolTracker
 [Try the site live here](https://cool-tracker.herokuapp.com/)
 
+## Technologies Used
+- React 
+- Redux 
+- Express (NodeJs) 
+- PostgreSQL 
+- Javascript 
+- HTML 5 
+- CSS 3 
+
+<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/2300px-React-icon.svg.png' height=75/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src='https://seeklogo.com/images/R/redux-logo-9CA6836C12-seeklogo.com.png' height=75/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src='https://www.mementotech.in/assets/images/icons/express.png' height=75/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src='https://icon-library.com/images/node-js-icon/node-js-icon-8.jpg' height=75/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/1024px-Unofficial_JavaScript_logo_2.svg.png' height=75/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/2048px-HTML5_logo_and_wordmark.svg.png' height=75/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/CSS3_logo_and_wordmark.svg/1200px-CSS3_logo_and_wordmark.svg.png' height=75/> <br/><br/>
+
+
 Important Links of the Project:
 * [CoolTracker Capstone](https://github.com/171cas/CoolTracker/wiki)
 * [API Routes](https://github.com/171cas/CoolTracker/wiki/API-Routes)
@@ -30,17 +42,6 @@ Future functionality: (coming soon)
    - Comments
    - Direct Messages to other Users
 - Follow and Unfollow Users
-
-## Technologies Used
-- React 
-- Redux 
-- Express (NodeJs) 
-- PostgreSQL 
-- Javascript 
-- HTML 5 
-- CSS 3 
-
-<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/2300px-React-icon.svg.png' height=75/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src='https://seeklogo.com/images/R/redux-logo-9CA6836C12-seeklogo.com.png' height=75/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src='https://www.mementotech.in/assets/images/icons/express.png' height=75/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src='https://icon-library.com/images/node-js-icon/node-js-icon-8.jpg' height=75/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/1024px-Unofficial_JavaScript_logo_2.svg.png' height=75/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/2048px-HTML5_logo_and_wordmark.svg.png' height=75/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/CSS3_logo_and_wordmark.svg/1200px-CSS3_logo_and_wordmark.svg.png' height=75/> <br/><br/>
 
 
 ## Getting the Project Started
