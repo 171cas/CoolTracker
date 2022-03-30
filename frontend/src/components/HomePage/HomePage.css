@@ -14,7 +14,7 @@
     cursor: pointer;
   }
   .linkClass:hover{
-    color: #ffa185;;
+    color: #ffa185;
   }
 
   .gitClass{
@@ -24,7 +24,7 @@
     cursor: pointer;
   }
   .gitClass:hover{
-    color: #ffa185;;
+    color: #ffa185;
   }
 
   .myName{
@@ -33,7 +33,7 @@
     cursor: pointer;
   }
   .myName:hover{
-    color: #ffa185;;
+    color: #ffa185;
   }
   .paraClass{
     width: 80%;
