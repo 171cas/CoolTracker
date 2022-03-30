@@ -10,7 +10,7 @@ const HomePage = () => {
     };
     const gitLink = async (e) => {
         e.preventDefault();
-        window.open('https://github.com/171cas/');
+        window.open('https://github.com/171cas/CoolTracker');
     };
     const linkeLink = async (e) => {
         e.preventDefault();
