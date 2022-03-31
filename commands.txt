@@ -21,7 +21,7 @@ backend
     npx dotenv sequelize db:seed:undo:all
     npx dotenv sequelize db:migrate:undo:all
     npx sequelize model:generate --name Workout --attributes user_id:integer,date:dateonly,notes:text,completion_time:integer,calories_burned:integer,body_weight:float
-
+    npx sequelize model:generate --name Comment --attributes user_id:integer,workout_id:integer,content:text
     npx dotenv sequelize db:seed:undo:all
     npx dotenv sequelize db:migrate:undo:all
     npx dotenv sequelize db:migrate
@@ -127,6 +127,18 @@ fetch('/api/likes', {
   },
   body: JSON.stringify({
     workout_id: 1
+  })
+}).then(res => res.json()).then(data => console.log(data));
+
+fetch('/api/comments', {
+  method: 'POST',
+  headers: {
+    "Content-Type": "application/json",
+    "XSRF-TOKEN": `Ng5mK0Ao-N7NBtclbQeleQuxN2oygcQ6u8ts`
+  },
+  body: JSON.stringify({
+    workout_id: 1,
+    content: 'First Comment'
   })
 }).then(res => res.json()).then(data => console.log(data));
 
