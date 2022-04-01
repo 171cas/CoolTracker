@@ -132,7 +132,7 @@ const WorkoutDetail = ({ propId, user }) => {
                     </div>
 
                     <div style={{ display: 'flex' }}>
-                        <CommentModal comments={commentsWO} users={useSelector((state) => state.users)} />&nbsp;
+                        <CommentModal comments={commentsWO} users={useSelector((state) => state.users)} workoutId={workoutId} />&nbsp;
                         <FontAwesomeIcon icon={faComment} className='' />
                     </div>
                 </div>

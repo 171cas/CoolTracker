@@ -12,13 +12,7 @@ async function list() {
     return await Comment.findAll();
 }
 router.get('/', asyncHandler(async function (_req, res) {
-    const comments = await Comment.findAll({
-        include: [
-            {
-                model: User
-            },
-        ]
-    });
+    const comments = await Comment.findAll({ include: User });
     return res.json(comments);
 }));
 
@@ -80,10 +74,10 @@ router.post(
         const comment = await Comment.create({
             user_id,
             workout_id,
-            content
+            content,
         });
-
-
+        const user = await User.findByPk(comment.user_id)
+        comment.dataValues.User = user.dataValues
         return res.json(
             comment
         );

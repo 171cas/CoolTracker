@@ -17,8 +17,8 @@ const CommentBrowser = ({ comments, users }) => {
         <div className='commentsCont'>
             {comments && comments?.map((comment, i) => {
                 return (
-                    <div className='commentLine' key={comment.id}>
-                        <NavLink to={`/user/${comment.User.id}`}
+                    <div className='commentLine' key={comment?.id}>
+                        <NavLink to={`/user/${comment?.User?.id}`}
                             className='userLink'
 
                             style={{ textDecoration: 'none' }}
@@ -26,11 +26,11 @@ const CommentBrowser = ({ comments, users }) => {
                             <p
                                 className='commentsUserText'
                             >
-                                @{comment.User.username}:
+                                @{comment?.User?.username}:
                             </p>
                         </NavLink>
                         <p>
-                            &nbsp;{comment.content}.
+                            &nbsp;{comment?.content}.
                         </p>
                     </div>
                 )
