@@ -2,15 +2,11 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import './CommentModal.css'
 
-const CommentBrowser = ({ comments, users }) => {
+const CommentBrowser = ({ comments }) => {
     const commentsIds = [];
     comments.forEach(comment => {
         commentsIds.push(comment.user_id)
     })
-
-    console.log(comments, 'asdasdasdas')
-
-    const usersList = Object.values(users)
 
 
     return (
@@ -26,11 +22,11 @@ const CommentBrowser = ({ comments, users }) => {
                             <p
                                 className='commentsUserText'
                             >
-                                @{comment?.User?.username}:
+                                @{comment?.User?.username}
                             </p>
                         </NavLink>
                         <p>
-                            &nbsp;{comment?.content}.
+                            :&nbsp;"{comment?.content}"
                         </p>
                     </div>
                 )

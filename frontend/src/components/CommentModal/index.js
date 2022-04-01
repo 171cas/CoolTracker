@@ -2,6 +2,12 @@ import React, { useState } from 'react';
 import { Modal } from '../../context/Modal';
 import CommentBrowser from './CommentBrowser';
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faGear } from "@fortawesome/free-solid-svg-icons";
+
+import { faHeart as fatHeart } from "@fortawesome/free-solid-svg-icons";
+import { faHeart, faComment } from "@fortawesome/free-regular-svg-icons";
+
 import CommentForm from './CommentForm'
 
 function CommentModal({ comments, users, workoutId }) {
@@ -14,10 +20,12 @@ function CommentModal({ comments, users, workoutId }) {
             {showModal && (
                 <Modal onClose={() => setShowModal(false)}>
                     <h3>Comments</h3>
-                    <CommentBrowser comments={comments} users={users} />
+                    <CommentBrowser comments={comments} />
                     <CommentForm workoutId={workoutId} />
                 </Modal>
             )}
+
+            &nbsp;<FontAwesomeIcon icon={faComment} onClick={() => setShowModal(true)} className='' style={{ cursor: 'pointer' }} />
         </>
     );
 }

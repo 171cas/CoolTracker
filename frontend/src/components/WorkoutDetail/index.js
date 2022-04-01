@@ -127,13 +127,12 @@ const WorkoutDetail = ({ propId, user }) => {
                 </div>
                 <div className='interactions'>
                     <div style={{ display: 'flex' }}>
-                        <LikeModal likes={likesWO} users={useSelector((state) => state.users)} />&nbsp;
+                        <LikeModal likes={likesWO} />&nbsp;
                         <FontAwesomeIcon icon={(isLiked ? fatHeart : faHeart)} onClick={handleLike} className='' style={{ cursor: 'pointer' }} />
                     </div>
 
                     <div style={{ display: 'flex' }}>
-                        <CommentModal comments={commentsWO} users={useSelector((state) => state.users)} workoutId={workoutId} />&nbsp;
-                        <FontAwesomeIcon icon={faComment} className='' />
+                        <CommentModal comments={commentsWO} users={useSelector((state) => state.users)} workoutId={workoutId} />
                     </div>
                 </div>
             </div>
