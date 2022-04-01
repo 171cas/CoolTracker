@@ -1,6 +1,11 @@
 .commentsCont {
     margin: 15px;
     width: 300px;
+    border-style: solid;
+    border-radius: 5px;
+    border-color: #1f1f1f;
+    background-color: #1f1f1f;
+    padding: 5px;
 }
 
 .commentLine {
@@ -9,11 +14,18 @@
     width: 300px;
 }
 
-.likesUserLink {
+.userLink {
     color: #FF784F;
     text-decoration: 'none';
 }
 
-.likesUserLink:hover {
+.userLink:hover {
     color: #ffa185;
+}
+
+.commentForm {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 5px;
 }

@@ -35,6 +35,8 @@ const CommentBrowser = ({ comments, users }) => {
                     </div>
                 )
             })}
+
+            <br />
         </div>
     )
 }

@@ -16,7 +16,7 @@ const LikeBrowser = ({ likes, users }) => {
         <div className='likesCont'>
             {likes && usersList?.map((user, i) => {
                 if (likesIds.includes(user.id)) return (<NavLink to={`/user/${user.id}`}
-                    className='likesUserLink'
+                    className='userLink'
                     key={user.id}
                     style={{ textDecoration: 'none' }}
                 ><p

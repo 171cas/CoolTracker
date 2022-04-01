@@ -1,5 +1,10 @@
+const ADD = 'users/ADD'
 const LOAD = 'users/LOAD'
 
+const addUsers = (users) => ({
+    type: ADD,
+    users
+});
 const loadUsers = (users) => ({
     type: LOAD,
     users

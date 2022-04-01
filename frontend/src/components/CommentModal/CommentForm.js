@@ -38,12 +38,12 @@ const CommentForm = ({ workoutId }) => {
     };
 
     return (
-        <div className="createWOCont">
-            <section>
+        <div style={{ width: '100%' }}>
+            <section >
                 <ul>
                     {errors?.map((error, idx) => <li className='important' key={idx}>{error}</li>)}
                 </ul>
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={handleSubmit} className="commentForm">
                     <label >
                         <input
                             type='text'
