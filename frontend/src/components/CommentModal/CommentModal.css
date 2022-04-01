@@ -1,0 +1,19 @@
+.commentsCont {
+    margin: 15px;
+    width: 300px;
+}
+
+.commentLine {
+    display: flex;
+    flex-direction: row;
+    width: 300px;
+}
+
+.likesUserLink {
+    color: #FF784F;
+    text-decoration: 'none';
+}
+
+.likesUserLink:hover {
+    color: #ffa185;
+}

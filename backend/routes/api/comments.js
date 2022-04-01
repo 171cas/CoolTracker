@@ -2,7 +2,7 @@ const express = require('express');
 const asyncHandler = require('express-async-handler');
 
 const { restoreUser } = require('../../utils/auth');
-const { Comment } = require('../../db/models');
+const { Comment, User } = require('../../db/models');
 const { check, body } = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validation');
 
@@ -12,7 +12,13 @@ async function list() {
     return await Comment.findAll();
 }
 router.get('/', asyncHandler(async function (_req, res) {
-    const comments = await list();
+    const comments = await Comment.findAll({
+        include: [
+            {
+                model: User
+            },
+        ]
+    });
     return res.json(comments);
 }));
 
@@ -32,7 +38,11 @@ async function listWO(workout_id) {
 router.get(
     '/workout/:id',
     asyncHandler(async function (req, res) {
-        const comments = await listWO(req.params.id);
+        const comments = await listWO(req.params.id, {
+            include: [
+                { model: User }
+            ]
+        });
         return res.json(comments);
     }));
 
@@ -40,7 +50,11 @@ router.get(
 router.get(
     '/:id',
     asyncHandler(async function (req, res) {
-        const comment = await Comment.findByPk(req.params.id);
+        const comment = await Comment.findByPk(req.params.id, {
+            include: [
+                { model: User }
+            ]
+        });
         return res.json(comment);
     }));
 

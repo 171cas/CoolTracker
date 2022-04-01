@@ -6,10 +6,12 @@ import { deleteWorkout } from '../../store/workouts';
 import { deleteExercise } from '../../store/exercises';
 
 import { createLike, deleteLike } from '../../store/likes';
+import { createComment, deleteComment } from '../../store/comments';
 
 import ExerciseBrowser from '../ExerciseBrowser';
 import ExerciseCreate from '../ExerciseCreate';
 import LikeModal from '../LikeModal'
+import CommentModal from '../CommentModal'
 import GoBack from '../GoBack';
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
@@ -41,7 +43,10 @@ const WorkoutDetail = ({ propId, user }) => {
     const likes = useSelector((state) => state.likes)
     const likesList = Object.values(likes)
     const likesWO = likesList.filter(({ workout_id }) => workout_id === +workoutId)
-    const likesCount = likesWO.length
+
+    const comments = useSelector((state) => state.comments)
+    const commentsList = Object.values(comments)
+    const commentsWO = commentsList.filter(({ workout_id }) => workout_id === +workoutId)
 
 
     const isLiked = likesWO.find(likes => likes.user_id === sessionUser.id)
@@ -122,11 +127,14 @@ const WorkoutDetail = ({ propId, user }) => {
                 </div>
                 <div className='interactions'>
                     <div style={{ display: 'flex' }}>
-                        {/* {likesCount}&nbsp; */}
                         <LikeModal likes={likesWO} users={useSelector((state) => state.users)} />&nbsp;
                         <FontAwesomeIcon icon={(isLiked ? fatHeart : faHeart)} onClick={handleLike} className='' style={{ cursor: 'pointer' }} />
                     </div>
-                    {/* <FontAwesomeIcon icon={faComment} className='' /> */}
+
+                    <div style={{ display: 'flex' }}>
+                        <CommentModal comments={commentsWO} users={useSelector((state) => state.users)} />&nbsp;
+                        <FontAwesomeIcon icon={faComment} className='' />
+                    </div>
                 </div>
             </div>
             {!propId && <GoBack />}
