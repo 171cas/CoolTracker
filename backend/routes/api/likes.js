@@ -2,17 +2,12 @@ const express = require('express');
 const asyncHandler = require('express-async-handler');
 
 const { restoreUser } = require('../../utils/auth');
-const { Like } = require('../../db/models');
-const { check, body } = require('express-validator');
-const { handleValidationErrors } = require('../../utils/validation');
+const { Like, User } = require('../../db/models');
 
 const router = express.Router();
 
-async function list() {
-    return await Like.findAll();
-}
 router.get('/', asyncHandler(async function (_req, res) {
-    const likes = await list();
+    const likes = await Like.findAll({ include: User });
     return res.json(likes);
 }));
 
@@ -63,6 +58,8 @@ router.post(
                 user_id: req.user.id,
                 workout_id, //dont forget to change this later
             });
+            const user = await User.findByPk(like.user_id)
+            like.dataValues.User = user.dataValues
         }
 
         return res.json(

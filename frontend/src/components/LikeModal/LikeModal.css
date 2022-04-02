@@ -1,8 +1,23 @@
-.likesUserLink{
+.likesUserLink {
     color: white;
     text-decoration: 'none';
 }
-.likesUserText{
+
+.likesUserText {
     text-decoration: 'none';
     margin: 15px 0;
+}
+
+.likesCont {
+    max-height: 400px;
+    overflow: auto;
+    margin: 0 5px;
+    padding: 0 15px;
+}
+
+.commentsCont {
+    max-height: 400px;
+    overflow: auto;
+    margin: 0 5px;
+    padding: 0 15px;
 }

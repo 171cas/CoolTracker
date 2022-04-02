@@ -12,7 +12,7 @@ function LikeModal({ likes, users }) {
             {showModal && (
                 <Modal onClose={() => setShowModal(false)}>
                     <h3>Liked by:</h3>
-                    <LikeBrowser likes={likes} users={users} />
+                    <LikeBrowser likes={likes} />
                 </Modal>
             )}
         </>
