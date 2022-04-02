@@ -8,13 +8,13 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      follower: {
+      follower_id: {
         allowNull: false,
         references: { model: 'Users' },
         onDelete: 'CASCADE',
         type: Sequelize.INTEGER
       },
-      followed: {
+      followed_id: {
         allowNull: false,
         references: { model: 'Users' },
         onDelete: 'CASCADE',
