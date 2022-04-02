@@ -2,7 +2,7 @@ const express = require('express');
 const asyncHandler = require('express-async-handler');
 
 const { restoreUser } = require('../../utils/auth');
-const { Comment, User } = require('../../db/models');
+const { Comment, User, Workout } = require('../../db/models');
 const { check, body } = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validation');
 
@@ -12,7 +12,7 @@ async function list() {
     return await Comment.findAll();
 }
 router.get('/', asyncHandler(async function (_req, res) {
-    const comments = await Comment.findAll({ include: User });
+    const comments = await Comment.findAll({ include: [User, Workout] });
     return res.json(comments);
 }));
 
@@ -78,6 +78,8 @@ router.post(
         });
         const user = await User.findByPk(comment.user_id)
         comment.dataValues.User = user.dataValues
+        const workout = await Workout.findByPk(comment.workout_id)
+        comment.dataValues.Workout = workout.dataValues
         return res.json(
             comment
         );
