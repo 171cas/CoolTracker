@@ -6,6 +6,7 @@ import workoutReducer from './workouts';
 import exerciseReducer from './exercises';
 import likeReducer from './likes';
 import commentReducer from "./comments";
+import followerReducer from "./followers";
 
 const rootReducer = combineReducers({
   // add reducer functions here
@@ -15,6 +16,7 @@ const rootReducer = combineReducers({
   exercises: exerciseReducer,
   likes: likeReducer,
   comments: commentReducer,
+  followers: followerReducer,
 });
 
 let enhancer;
