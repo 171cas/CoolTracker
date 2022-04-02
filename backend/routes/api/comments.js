@@ -90,13 +90,13 @@ router.delete(
     '/:id',
     restoreUser,
     asyncHandler(async function (req, res) {
-        const comment = await Comment.findByPk(req.params.id);
-        if (req.user.id !== comment.user_id) {
-            throw new Error('Access Denied.');
-            return
+        const comment = await Comment.findByPk(req.params.id, { include: [User, Workout] });
+        if (req.user.id === comment.user_id || req.user.id === comment.Workout.user_id) {
+            await Comment.destroy({ where: { id: comment.id } })
+            return res.json(comment)
         }
-        await Comment.destroy({ where: { id: comment.id } })
-        return res.json(comment)
+        throw new Error('Access Denied.');
+        return
     })
 );
 

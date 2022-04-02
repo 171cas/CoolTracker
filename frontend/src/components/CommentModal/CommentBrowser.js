@@ -1,34 +1,19 @@
 import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
+import CommentDetail from './CommentDetail';
 import './CommentModal.css'
 
 const CommentBrowser = ({ comments }) => {
-    const commentsIds = [];
-    comments.forEach(comment => {
-        commentsIds.push(comment.user_id)
-    })
+
+    const sessionUser = useSelector(state => state.session.user);
 
 
     return (
         <div className='commentsCont'>
             {comments && comments?.map((comment, i) => {
                 return (
-                    <div className='commentLine' key={comment?.id}>
-                        <NavLink to={`/user/${comment?.User?.id}`}
-                            className='userLink'
-
-                            style={{ textDecoration: 'none' }}
-                        >
-                            <p
-                                className='commentsUserText'
-                            >
-                                @{comment?.User?.username}
-                            </p>
-                        </NavLink>
-                        <p>
-                            :&nbsp;"{comment?.content}"
-                        </p>
-                    </div>
+                    <CommentDetail sessionUser={sessionUser} comment={comment} key={comment.id} />
                 )
             })}
 
