@@ -24,6 +24,11 @@ const ProfileUser = () => {
 
     const followers = useSelector((state) => state.followers)
     const followersList = Object.values(followers)
+
+    const userFollowers = followersList.filter(({ followed_id }) => followed_id === +profUserId)
+    const userFollowing = followersList.filter(({ follower_id }) => follower_id === +profUserId)
+
+
     const myFolloweds = followersList.filter(({ follower_id }) => follower_id === sessionUser.id)
 
     const isFollowed = myFolloweds.find(followed => followed.followed_id === +profUserId)
@@ -65,6 +70,8 @@ const ProfileUser = () => {
                     <div className='gridC'>
                         <div className='divPic'><div className='profilePic'></div></div>
                         <p>{profUser?.first_name} {profUser?.last_name}</p>
+                        <p>Followers: {userFollowers.length}</p>
+                        <p>Following: {userFollowing.length}</p>
                     </div>
                     <div className='follDm'>
                         <button onClick={handleFollow} className='addButton'>{isFollowed ? 'Unfollow' : 'Follow'} {profUser?.username}</button>
