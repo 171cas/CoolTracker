@@ -56,7 +56,7 @@ router.post(
         } else {
             like = await Like.create({
                 user_id: req.user.id,
-                workout_id, //dont forget to change this later
+                workout_id,
             });
             const user = await User.findByPk(like.user_id)
             like.dataValues.User = user.dataValues
