@@ -66,7 +66,7 @@ const followerReducer = (state = {}, action) => {
             return newState;
         case REMOVE:
             newState = { ...state };
-            delete newState[action.removeFollower];
+            delete newState[action.remove_follower];
             return newState;
         default:
             return state;

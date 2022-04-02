@@ -52,8 +52,11 @@ router.delete(
     '/:id',
     restoreUser,
     asyncHandler(async function (req, res) {
-        const follow = await Follower.findOne({ where: { follower_id: req.user.id, followed_id: req.params.id } });
-
+        const follow = await Follower.findByPk(req.params.id);
+        if (req.user.id !== follow.follower_id) {
+            throw new Error('Access Denied.');
+            return
+        }
         await Follower.destroy({ where: { id: follow.id } })
         return res.json(follow)
     })
