@@ -153,3 +153,6 @@ frontend
 npm install --save @fortawesome/free-brands-svg-icons
 
 npx kill-port 3000
+
+
+npx sequelize model:generate --name Follower --attributes follower:integer,followed:integer
