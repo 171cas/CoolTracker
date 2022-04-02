@@ -1,6 +1,5 @@
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { NavLink } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import CommentDetail from './CommentDetail';
 import './CommentModal.css'
 

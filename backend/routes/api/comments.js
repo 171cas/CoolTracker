@@ -3,7 +3,7 @@ const asyncHandler = require('express-async-handler');
 
 const { restoreUser } = require('../../utils/auth');
 const { Comment, User, Workout } = require('../../db/models');
-const { check, body } = require('express-validator');
+const { check } = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validation');
 
 const router = express.Router();
