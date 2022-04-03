@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { Modal } from '../../context/Modal';
-import { NavLink, useHistory } from 'react-router-dom';
-import FollowerBrowser from './FollowerBrowser';
+import { NavLink } from 'react-router-dom';
 
 function FollowerModal({ followers, modalVal }) {
     const [showModal, setShowModal] = useState(modalVal);
-    const history = useHistory();
+    const closeModal = () => {
+        setShowModal(false)
+    }
+
     const value = followers.length > 0
     const pointer = (followers.length > 0 ? 'pointer' : '')
     return (
@@ -19,7 +21,9 @@ function FollowerModal({ followers, modalVal }) {
                     <h3>Followers:</h3>
                     <div className='likesCont'>
                         {followers && followers?.map((follower, i) => {
-                            return (<NavLink to={`/user/${follower.User.id}`}
+                            return (<NavLink
+                                onClick={closeModal}
+                                to={`/user/${follower.User.id}`}
                                 className='userLink'
                                 key={follower.id}
                                 style={{ textDecoration: 'none' }}
