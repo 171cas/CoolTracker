@@ -34,6 +34,7 @@ import { getExercises } from './store/exercises'
 import { getLikes } from './store/likes'
 import { getUsers } from "./store/users";
 import { getComments } from "./store/comments";
+import { getFollowers } from "./store/followers";
 
 import './index.css'
 
@@ -51,7 +52,8 @@ function App() {
     dispatch(getExercises());
     dispatch(getLikes());
     dispatch(getUsers());
-    dispatch(getComments())
+    dispatch(getComments());
+    dispatch(getFollowers());
   }, [dispatch])
 
   return (

@@ -15,6 +15,7 @@ const CommentBrowser = ({ comments }) => {
                     <CommentDetail sessionUser={sessionUser} comment={comment} key={comment.id} />
                 )
             })}
+            {comments.length === 0 ? <p>No comments yet.</p> : ''}
 
             <br />
         </div>

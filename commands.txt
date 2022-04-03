@@ -153,3 +153,17 @@ frontend
 npm install --save @fortawesome/free-brands-svg-icons
 
 npx kill-port 3000
+
+
+npx sequelize model:generate --name Follower --attributes follower:integer,followed:integer
+
+fetch('/api/followers', {
+  method: 'POST',
+  headers: {
+    "Content-Type": "application/json",
+    "XSRF-TOKEN": `3Jzu6RTJ-mDlksxhYrZsdBdquIa3KpOpAaNU`
+  },
+  body: JSON.stringify({
+    followed_id: 2,
+  })
+}).then(res => res.json()).then(data => console.log(data));

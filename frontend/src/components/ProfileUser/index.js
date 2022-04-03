@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
-import WorkoutPublic from "../WorkoutPublic";
 
+import { createFollow, deleteFollower } from '../../store/followers';
+
+import WorkoutPublic from "../WorkoutPublic";
+import FollowerModal from "../FollowerModal";
+import FollowedModal from "../FollowedModal";
 import GoBack from "../GoBack";
 
 import './ProfileUser.css'
@@ -11,12 +15,30 @@ import './ProfileUser.css'
 const ProfileUser = () => {
 
     const { profUserId } = useParams();
+    const dispatch = useDispatch();
+
+    const sessionUser = useSelector(state => state.session.user);
 
     const users = useSelector((state) => state.users)
     const userArr = Object.values(users)
     const profUser = userArr.find(user => user.id === +profUserId)
+
+    const isSameUser = profUser?.id === sessionUser?.id
+    console.log(isSameUser)
+
+    const followers = useSelector((state) => state.followers)
+    const followersList = Object.values(followers)
+
+    const userFollowers = followersList.filter(({ followed_id }) => followed_id === +profUserId)
+    const userFollowing = followersList.filter(({ follower_id }) => follower_id === +profUserId)
+
+
+    const myFolloweds = followersList.filter(({ follower_id }) => follower_id === sessionUser.id)
+
+    const isFollowed = myFolloweds.find(followed => followed.followed_id === +profUserId)
+
     const [showMenu, setShowMenu] = useState(false);
-    const [title, setTitle] = useState(`Get User's Workouts`);
+    const [title, setTitle] = useState('');
 
     const changemenu = () => {
         setShowMenu(!showMenu);
@@ -24,14 +46,22 @@ const ProfileUser = () => {
 
     useEffect(() => {
         if (!showMenu) {
-            setTitle(`Get User's Workouts`)
+            setTitle(`Get ${profUser?.username}'s Workouts`)
             return;
         }
         if (showMenu) {
             setTitle('Close Workouts Feed')
             return;
         }
-    }, [showMenu]);
+    }, [showMenu, profUser]);
+
+    const handleFollow = async (e) => {
+        if (isFollowed) {
+            await dispatch(deleteFollower(isFollowed.id))
+        } else {
+            await dispatch(createFollow({ followed_id: +profUserId }))
+        }
+    };
 
 
     return (
@@ -42,10 +72,18 @@ const ProfileUser = () => {
                     <div className='gridC'>
                         <div className='divPic'><div className='profilePic'></div></div>
                         <p>{profUser?.first_name} {profUser?.last_name}</p>
+                        <div style={{ display: 'flex', justifyContent: 'space-around', alignItems: 'center' }}>
+                            <FollowerModal followers={userFollowers} modalVal={false} /> <FollowedModal following={userFollowing} userArr={userArr} />
+                        </div>
                     </div>
                     <div className='follDm'>
-                        <button className='addButton'>Coming Soon: Follow {profUser?.username}</button>
-                        <button className='addButton'>Coming Soon: Message {profUser?.username}</button>
+
+                        {isSameUser ? '' : (
+                            <>
+                                <button onClick={handleFollow} className='addButton'>{isFollowed ? 'Unfollow' : 'Follow'}</button>
+                                <button className='addButton'>Coming Soon: Message {profUser?.username}</button>
+                            </>
+                        )}
                     </div>
                 </div>
                 <GoBack />
