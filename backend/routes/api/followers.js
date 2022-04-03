@@ -7,7 +7,7 @@ const { Follower, User } = require('../../db/models');
 const router = express.Router();
 
 router.get('/', asyncHandler(async function (_req, res) {
-    const follow = await Follower.findAll();//{ include: User }
+    const follow = await Follower.findAll({ include: User });//{ include: { all: true, nested: true } }
     return res.json(follow);
 }));
 
@@ -40,6 +40,8 @@ router.post(
                 follower_id: req.user.id,
                 followed_id,
             });
+            const user = await User.findByPk(follow.follower_id)
+            follow.dataValues.User = user.dataValues
         }
 
         return res.json(

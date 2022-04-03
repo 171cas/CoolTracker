@@ -1,40 +1,43 @@
-.gridC{
+.gridC {
     display: grid;
     height: auto;
 }
-.divPic{
+
+.divPic {
     width: 100%;
     height: 100%;
     display: flex;
     justify-content: center;
 }
-.profilePic{
+
+.profilePic {
     width: 180px;
     height: 180px;
     border-radius: 50%;
-    background-image: url('https://www.beachfitbondi.com.au/wp-content/uploads/2019/07/Sean-Syd1-min-768x862.png');
+    background-image: url('https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png');
     background-size: 180px;
 }
+
 @media screen and (max-width: 930px) {
-    .profilePic{
+    .profilePic {
         width: 150px;
         height: 150px;
         background-size: 150px;
     }
-  }
+}
 
-  @media screen and (max-width: 260px) {
-    .profilePic{
+@media screen and (max-width: 260px) {
+    .profilePic {
         width: 100px;
         height: 100px;
         background-size: 100px;
     }
-  }
+}
 
-  @media screen and (max-width: 190px) {
-    .profilePic{
+@media screen and (max-width: 190px) {
+    .profilePic {
         width: 70px;
         height: 70px;
         background-size: 70px;
     }
-  }
+}

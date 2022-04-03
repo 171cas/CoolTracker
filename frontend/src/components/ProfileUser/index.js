@@ -6,7 +6,8 @@ import { useParams } from 'react-router-dom';
 import { createFollow, deleteFollower } from '../../store/followers';
 
 import WorkoutPublic from "../WorkoutPublic";
-
+import FollowerModal from "../FollowerModal";
+import FollowedModal from "../FollowedModal";
 import GoBack from "../GoBack";
 
 import './ProfileUser.css'
@@ -22,6 +23,9 @@ const ProfileUser = () => {
     const userArr = Object.values(users)
     const profUser = userArr.find(user => user.id === +profUserId)
 
+    const isSameUser = profUser?.id === sessionUser?.id
+    console.log(isSameUser)
+
     const followers = useSelector((state) => state.followers)
     const followersList = Object.values(followers)
 
@@ -33,10 +37,8 @@ const ProfileUser = () => {
 
     const isFollowed = myFolloweds.find(followed => followed.followed_id === +profUserId)
 
-    console.log(isFollowed)
-
     const [showMenu, setShowMenu] = useState(false);
-    const [title, setTitle] = useState(`Get User's Workouts`);
+    const [title, setTitle] = useState('');
 
     const changemenu = () => {
         setShowMenu(!showMenu);
@@ -44,14 +46,14 @@ const ProfileUser = () => {
 
     useEffect(() => {
         if (!showMenu) {
-            setTitle(`Get User's Workouts`)
+            setTitle(`Get ${profUser?.username}'s Workouts`)
             return;
         }
         if (showMenu) {
             setTitle('Close Workouts Feed')
             return;
         }
-    }, [showMenu]);
+    }, [showMenu, profUser]);
 
     const handleFollow = async (e) => {
         if (isFollowed) {
@@ -70,12 +72,18 @@ const ProfileUser = () => {
                     <div className='gridC'>
                         <div className='divPic'><div className='profilePic'></div></div>
                         <p>{profUser?.first_name} {profUser?.last_name}</p>
-                        <p>Followers: {userFollowers.length}</p>
-                        <p>Following: {userFollowing.length}</p>
+                        <div style={{ display: 'flex', justifyContent: 'space-around', alignItems: 'center' }}>
+                            <FollowerModal followers={userFollowers} modalVal={false} /> <FollowedModal following={userFollowing} userArr={userArr} />
+                        </div>
                     </div>
                     <div className='follDm'>
-                        <button onClick={handleFollow} className='addButton'>{isFollowed ? 'Unfollow' : 'Follow'} {profUser?.username}</button>
-                        <button className='addButton'>Coming Soon: Message {profUser?.username}</button>
+
+                        {isSameUser ? '' : (
+                            <>
+                                <button onClick={handleFollow} className='addButton'>{isFollowed ? 'Unfollow' : 'Follow'}</button>
+                                <button className='addButton'>Coming Soon: Message {profUser?.username}</button>
+                            </>
+                        )}
                     </div>
                 </div>
                 <GoBack />
