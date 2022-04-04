@@ -6,7 +6,7 @@ import './HomePage.css'
 const HomePage = () => {
     const resumeLink = async (e) => {
         e.preventDefault();
-        window.open('https://www.linkedin.com/in/cesar-solano-320211230/');
+        window.open('https://171cas.github.io/');
     };
     const gitLink = async (e) => {
         e.preventDefault();

@@ -2,14 +2,14 @@ const express = require('express');
 const asyncHandler = require('express-async-handler');
 
 const { restoreUser } = require('../../utils/auth');
-const { Workout } = require('../../db/models');
+const { Workout, User } = require('../../db/models');
 const { check, body } = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validation');
 
 const router = express.Router();
 
 async function list() {
-    return await Workout.findAll();
+    return await Workout.findAll({ include: User });
 }
 router.get('/', asyncHandler(async function (_req, res) {
     const workouts = await list();
@@ -17,7 +17,7 @@ router.get('/', asyncHandler(async function (_req, res) {
 }));
 
 async function listUser(user_id) {
-    return await Workout.findAll({ where: { user_id: user_id } });
+    return await Workout.findAll({ where: { user_id: user_id }, include: User });
 }
 router.get(
     '/user/:id',
@@ -29,7 +29,7 @@ router.get(
 router.get(
     '/:id',
     asyncHandler(async function (req, res) {
-        const workout = await Workout.findByPk(req.params.id);
+        const workout = await Workout.findByPk(req.params.id, { include: User });
         return res.json(workout);
     }));
 
@@ -104,6 +104,9 @@ router.post(
             body_weight
         });
 
+        const user = await User.findByPk(workout.user_id)
+        workout.dataValues.User = user.dataValues
+
         return res.json(
             workout
         );
@@ -117,7 +120,7 @@ router.put(
     restoreUser,
     validateCreate,
     asyncHandler(async (req, res) => {
-        const workout = await Workout.findByPk(req.params.id)
+        const workout = await Workout.findByPk(req.params.id, { include: User })
         if (req.user.id !== workout.user_id) {
             throw new Error('Access Denied.');
             return
