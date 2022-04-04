@@ -2,6 +2,7 @@ import { useSelector } from 'react-redux';
 
 import HomePage from "../HomePage";
 import WorkoutPublic from "../WorkoutPublic";
+import WorkoutMyFeed from '../WorkoutMyFeed';
 
 const SplashPage = ({ isLoaded }) => {
     const sessionUser = useSelector(state => state.session.user);
@@ -9,7 +10,7 @@ const SplashPage = ({ isLoaded }) => {
     let sessionLinks;
     if (sessionUser) {
         sessionLinks = (
-            <WorkoutPublic />
+            <WorkoutMyFeed sessionUser={sessionUser} />
         );
     } else {
         sessionLinks = (
