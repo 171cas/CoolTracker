@@ -7,6 +7,7 @@ import WorkoutPublic from "./components/WorkoutPublic";
 import SplashPage from "./components/SplashPage";
 import LoginFormPage from "./components/LoginFormPage";
 import SignupFormPage from "./components/SignupFormPage";
+import Search from "./components/Search";
 
 import ProfilePage from "./components/ProfilePage";
 import ProfileUser from "./components/ProfileUser";
@@ -75,6 +76,9 @@ function App() {
           <ProtectedLogOutRoute exact path="/signup">
             <SignupFormPage />
           </ProtectedLogOutRoute>
+          <ProtectedRoute exact path="/search">
+            <Search />
+          </ProtectedRoute>
           <ProtectedRoute exact path="/profile">
             <ProfilePage />
           </ProtectedRoute>

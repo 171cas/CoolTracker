@@ -1,7 +1,6 @@
 import { useSelector } from 'react-redux';
 
 import HomePage from "../HomePage";
-import WorkoutPublic from "../WorkoutPublic";
 import WorkoutMyFeed from '../WorkoutMyFeed';
 
 const SplashPage = ({ isLoaded }) => {
