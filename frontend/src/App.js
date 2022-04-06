@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Route, Switch } from "react-router-dom";
 
 import HomePage from './components/HomePage'
@@ -43,7 +43,6 @@ function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
 
-
   useEffect(() => {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
   }, [dispatch]);
@@ -56,6 +55,8 @@ function App() {
     dispatch(getComments());
     dispatch(getFollowers());
   }, [dispatch])
+
+
 
   return (
     <>
@@ -76,7 +77,7 @@ function App() {
           <ProtectedLogOutRoute exact path="/signup">
             <SignupFormPage />
           </ProtectedLogOutRoute>
-          <ProtectedRoute exact path="/search">
+          <ProtectedRoute exact path={["/search", "/search/", "/search/:search"]} >
             <Search />
           </ProtectedRoute>
           <ProtectedRoute exact path="/profile">
