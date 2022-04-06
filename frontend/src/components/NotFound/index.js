@@ -4,7 +4,6 @@ import './NotFound.css'
 
 const NotFound = () => {
     const location = useLocation();
-    console.log(location.pathname)
     const imgArr = [
         'https://thefunnybeavercomd030b.zapwp.com/q:i/r:1/wp:1/w:412/u:https://thefunnybeaver.com/wp-content/uploads/2017/08/gym-soundofmusic.jpg',
         'https://origympersonaltrainercourses.co.uk/files/img_cache/2103/450_450__1554909082_gymmeme3.jpg',
@@ -15,7 +14,6 @@ const NotFound = () => {
     ]
     const [count, setCount] = useState(0);
 
-    console.log()
 
     useEffect(() => {
         setCount(Math.floor(Math.random() * imgArr.length))

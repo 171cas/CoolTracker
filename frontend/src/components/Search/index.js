@@ -3,6 +3,9 @@ import { getExercises } from '../../store/exercises';
 import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams, NavLink, useHistory } from 'react-router-dom';
+import SearchForm from './SearchForm';
+import ExerciseDetail from '../ExerciseDetail';
+import UserBrowser from './UserBrowser';
 
 const Search = () => {
     const { search } = useParams()
@@ -11,9 +14,6 @@ const Search = () => {
     const [isLoaded, setIsLoaded] = useState(false);
     const [users, setUsers] = useState([]);
     const [exercises, setExercises] = useState([]);
-
-    console.log(urlSearch, 'urlSearch')
-    console.log(`/api/search${urlSearch}`)
 
     useEffect(() => {
         fetch(`/api/search${urlSearch}`)
@@ -25,43 +25,50 @@ const Search = () => {
                     setUsers(result.users);
                     setExercises(result.exercises);
                 },
-                // Note: it's important to handle errors here
-                // instead of a catch() block so that we don't swallow
-                // exceptions from actual bugs in components.
                 (error) => {
                     setIsLoaded(true);
                     setError(error);
                 }
             )
-    }, [])
+    }, [search])
 
     console.log(users)
     console.log(exercises)
-    return <h1>hello</h1>
-    // if (error) {
-    //     return <div>Error: {error.message}</div>;
-    // } else if (!isLoaded) {
-    //     return <div>Loading...</div>;
-    // } else {
-    //     return (
-    //         <>
-    //             <ul>
-    //                 {users.map(item => (
-    //                     <li key={item.id}>
-    //                         {item.username}
-    //                     </li>
-    //                 ))}
-    //             </ul>
-    //             <ul>
-    //                 {exercises.map(item => (
-    //                     <li key={item.id}>
-    //                         {item.name}
-    //                     </li>
-    //                 ))}
-    //             </ul>
-    //         </>
-    //     );
-    // }
+    if (error) {
+        return <div>Error: {error.message}</div>;
+    } else if (!isLoaded) {
+        return <div>Loading...</div>;
+    } else {
+        return (
+            <div>
+                <SearchForm />
+                <br />
+
+                <div className='containerWO' >
+                    <div className='singleWO' >
+                        <div className='containerEx' style={{ marginBottom: '15px' }}>
+                            <h3>Users:</h3>
+                            {users?.length === 0 && <h3 style={{ color: '#FF784F', margin: '15px 0' }}>No users</h3>}
+                            <UserBrowser users={users} />
+                        </div >
+                    </div>
+                </div>
+                <br />
+                <div className='containerWO'>
+                    <div className='singleWO'>
+                        <div className='containerEx'>
+                            <h3 style={{ textDecoration: "none" }} >Exercises</h3>
+                            {exercises?.length === 0 && <h3 style={{ color: '#FF784F', margin: '15px 0' }} >No exercises</h3>}
+                            {exercises?.map(exercise => {
+                                return (<ExerciseDetail propId={exercise.id} key={exercise.id} />) // change it later
+                            }
+                            )}
+                        </div >
+                    </div>
+                </div>
+            </div>
+        );
+    }
 }
 
 export default Search;

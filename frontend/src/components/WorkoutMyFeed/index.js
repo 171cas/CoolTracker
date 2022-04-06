@@ -22,7 +22,6 @@ const WorkoutMyFeed = ({ sessionUser }) => {
         // names must be equal
         return 0;
     });
-    console.log(myWOFeed)
     //let woFeed = Object.values(workouts).filter((workout) => workout.user_id === +profUserId).reverse()
 
     const users = useSelector((state) => state.users)

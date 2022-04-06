@@ -19,7 +19,6 @@ router.get('/', asyncHandler(async function (_req, res) {
 // }
 router.get('/:search', asyncHandler(async function (_req, res) {
     const mySearch = _req.params.search
-    console.log('\n\n\n\n\n\n\n\n', mySearch, '\n\n\n\n\n\n\n')
     const users = await User.findAll(
         {
             where: {
@@ -36,10 +35,13 @@ router.get('/:search', asyncHandler(async function (_req, res) {
     const exercises = await Exercise.findAll({
         where: {
             [Op.or]: [
-                { name: { [Op.iLike]: mySearch } },
+                { name: { [Op.iLike]: `%${mySearch}%` } },
             ],
         },
         order: [['createdAt', 'DESC']],
+        include: [
+            { model: User }
+        ],
     }); //{ limit: 10 }
     return res.json({ users, exercises });
 }));

@@ -55,7 +55,7 @@ router.get(
 const validateCreate = [
     check('content')
         .notEmpty().withMessage('Comment cannot be empty.')
-        .isLength({ min: 1, max: 500 }).withMessage('Please provide a valid position.'),
+        .isLength({ min: 1, max: 500 }).withMessage('Comment\'s length must be less than 500 characters.'),
     handleValidationErrors
 ];
 // Create comment
