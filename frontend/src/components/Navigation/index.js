@@ -3,7 +3,7 @@ import { NavLink, useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import LoginFormNav from '../LoginFormNav';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faHouse, faDumbbell, faPencil, faUserLarge } from "@fortawesome/free-solid-svg-icons";
+import { faHouse, faDumbbell, faPencil, faUserLarge, faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import './Navigation.css';
 
 function Navigation({ isLoaded }) {
@@ -11,6 +11,7 @@ function Navigation({ isLoaded }) {
     const location = useLocation();
 
     const [ho, setHo] = useState({ color: '#F5E663' });
+    const [se, setSe] = useState({});
     const [wo, setWo] = useState({});
     const [ex, setEx] = useState({});
     const [pr, setPr] = useState({});
@@ -22,6 +23,16 @@ function Navigation({ isLoaded }) {
 
     const handleClickHo = () => {
         setHo({ color: '#F5E663' })
+        setSe({})
+        setWo({})
+        setEx({})
+        setPr({})
+        setSu({})
+        setLi({})
+    };
+    const handleClickSe = () => {
+        setHo({})
+        setSe({ color: '#F5E663' })
         setWo({})
         setEx({})
         setPr({})
@@ -30,6 +41,7 @@ function Navigation({ isLoaded }) {
     };
     const handleClickWo = () => {
         setHo({})
+        setSe({})
         setWo({ color: '#F5E663' })
         setEx({})
         setPr({})
@@ -38,6 +50,7 @@ function Navigation({ isLoaded }) {
     };
     const handleClickEx = () => {
         setHo({})
+        setSe({})
         setWo({})
         setEx({ color: '#F5E663' })
         setPr({})
@@ -46,6 +59,7 @@ function Navigation({ isLoaded }) {
     };
     const handleClickPr = () => {
         setHo({})
+        setSe({})
         setWo({})
         setEx({})
         setPr({ color: '#F5E663' })
@@ -54,6 +68,7 @@ function Navigation({ isLoaded }) {
     };
     const handleClickSu = () => {
         setHo({})
+        setSe({})
         setWo({})
         setEx({})
         setPr({})
@@ -62,6 +77,7 @@ function Navigation({ isLoaded }) {
     };
     const handleClickLi = () => {
         setHo({})
+        setSe({})
         setWo({})
         setEx({})
         setPr({})
@@ -72,6 +88,9 @@ function Navigation({ isLoaded }) {
     const checkUrl = () => {
         if (myUrl.includes('workout')) {
             handleClickWo()
+        }
+        else if (myUrl.includes('search')) {
+            handleClickSe()
         }
         else if (myUrl.includes('exercise')) {
             handleClickEx()
@@ -106,6 +125,7 @@ function Navigation({ isLoaded }) {
             <>
                 <div className="outterWord">
                     <NavLink exact to="/" className="wordsLink" style={ho} ><h3>Home</h3></NavLink>
+                    <NavLink exact to="/search" className="wordsLink" style={se} ><h3>Search</h3></NavLink>
                     <NavLink exact to="/workouts" className="wordsLink" style={wo} ><h3>My Workouts</h3></NavLink>
                     <NavLink exact to="/exercises" className="wordsLink" style={ex} ><h3>My Exercises</h3></NavLink>
                     <NavLink exact to="/profile" className="wordsLink" style={pr} ><h3>My Profile</h3></NavLink>
@@ -113,6 +133,7 @@ function Navigation({ isLoaded }) {
 
                 <div className="outterIcon">
                     <NavLink exact to="/" ><FontAwesomeIcon icon={faHouse} className='iconLink' style={ho} /></NavLink>
+                    <NavLink exact to="/search"><FontAwesomeIcon icon={faMagnifyingGlass} className='iconLink' style={se} /></NavLink>
                     <NavLink exact to="/workouts"><FontAwesomeIcon icon={faDumbbell} className='iconLink' style={wo} /></NavLink>
                     <NavLink exact to="/exercises"><FontAwesomeIcon icon={faPencil} className='iconLink' style={ex} /></NavLink>
                     <NavLink exact to="/profile"><FontAwesomeIcon icon={faUserLarge} className='iconLink' style={pr} /></NavLink>

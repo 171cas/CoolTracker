@@ -22,7 +22,6 @@ const WorkoutMyFeed = ({ sessionUser }) => {
         // names must be equal
         return 0;
     });
-    console.log(myWOFeed)
     //let woFeed = Object.values(workouts).filter((workout) => workout.user_id === +profUserId).reverse()
 
     const users = useSelector((state) => state.users)
@@ -36,7 +35,7 @@ const WorkoutMyFeed = ({ sessionUser }) => {
                     if (feedIds.includes(workout.user_id)) {
                         return (<WorkoutDetail propId={workout.id} user={workout.User} key={i} />)
                     }
-                })) : <h3>Nothing in your feed.<br /> Create a Workout or follow other Users </h3>}
+                })) : <h3 style={{ color: '#FF784F' }}>Nothing in your feed.<br /> Create a Workout or follow other Users </h3>}
             </div>
         </>
     )

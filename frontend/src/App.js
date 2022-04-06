@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Route, Switch } from "react-router-dom";
 
 import HomePage from './components/HomePage'
@@ -7,6 +7,7 @@ import WorkoutPublic from "./components/WorkoutPublic";
 import SplashPage from "./components/SplashPage";
 import LoginFormPage from "./components/LoginFormPage";
 import SignupFormPage from "./components/SignupFormPage";
+import Search from "./components/Search";
 
 import ProfilePage from "./components/ProfilePage";
 import ProfileUser from "./components/ProfileUser";
@@ -42,7 +43,6 @@ function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
 
-
   useEffect(() => {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
   }, [dispatch]);
@@ -55,6 +55,8 @@ function App() {
     dispatch(getComments());
     dispatch(getFollowers());
   }, [dispatch])
+
+
 
   return (
     <>
@@ -75,6 +77,9 @@ function App() {
           <ProtectedLogOutRoute exact path="/signup">
             <SignupFormPage />
           </ProtectedLogOutRoute>
+          <ProtectedRoute exact path={["/search", "/search/", "/search/:search"]} >
+            <Search />
+          </ProtectedRoute>
           <ProtectedRoute exact path="/profile">
             <ProfilePage />
           </ProtectedRoute>

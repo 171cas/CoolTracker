@@ -24,7 +24,6 @@ const ProfileUser = () => {
     const profUser = userArr.find(user => user.id === +profUserId)
 
     const isSameUser = profUser?.id === sessionUser?.id
-    console.log(isSameUser)
 
     const followers = useSelector((state) => state.followers)
     const followersList = Object.values(followers)

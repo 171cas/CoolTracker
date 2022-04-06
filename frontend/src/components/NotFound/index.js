@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import './NotFound.css'
 
 const NotFound = () => {
+    const location = useLocation();
     const imgArr = [
         'https://thefunnybeavercomd030b.zapwp.com/q:i/r:1/wp:1/w:412/u:https://thefunnybeaver.com/wp-content/uploads/2017/08/gym-soundofmusic.jpg',
         'https://origympersonaltrainercourses.co.uk/files/img_cache/2103/450_450__1554909082_gymmeme3.jpg',
@@ -11,6 +13,7 @@ const NotFound = () => {
         'https://www.womensrunning.com/wp-content/uploads/2016/07/7-pause.png',
     ]
     const [count, setCount] = useState(0);
+
 
     useEffect(() => {
         setCount(Math.floor(Math.random() * imgArr.length))
