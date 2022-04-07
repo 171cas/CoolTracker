@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 
+import * as sessionActions from '../../store/session';
 
 import { createFollow, deleteFollower } from '../../store/followers';
 
@@ -13,6 +14,8 @@ import GoBack from "../GoBack";
 import './ProfileUser.css'
 
 const ProfileUser = () => {
+
+    const history = useHistory();
 
     const { profUserId } = useParams();
     const dispatch = useDispatch();
@@ -42,6 +45,12 @@ const ProfileUser = () => {
     const changemenu = () => {
         setShowMenu(!showMenu);
     }
+
+    const logout = (e) => {
+        e.preventDefault();
+        dispatch(sessionActions.logout());
+        //history.push("/");
+    };
 
     useEffect(() => {
         if (!showMenu) {
@@ -77,12 +86,16 @@ const ProfileUser = () => {
                     </div>
                     <div className='follDm'>
 
-                        {isSameUser ? '' : (
-                            <>
-                                <button onClick={handleFollow} className='addButton'>{isFollowed ? 'Unfollow' : 'Follow'}</button>
-                                <button className='addButton'>Coming Soon: Message {profUser?.username}</button>
-                            </>
-                        )}
+                        {isSameUser ?
+
+                            <button className="addButton" onClick={logout}>Log Out</button>
+
+                            : (
+                                <>
+                                    <button onClick={handleFollow} className='addButton'>{isFollowed ? 'Unfollow' : 'Follow'}</button>
+                                    <button className='addButton'>Coming Soon: Message {profUser?.username}</button>
+                                </>
+                            )}
                     </div>
                 </div>
                 <GoBack />
