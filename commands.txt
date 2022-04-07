@@ -167,3 +167,17 @@ fetch('/api/followers', {
     followed_id: 2,
   })
 }).then(res => res.json()).then(data => console.log(data));
+
+npx sequelize model:generate --name Chat --attributes user_a:integer,user_b:integer
+npx sequelize model:generate --name Message --attributes user_id:integer,message:text,chat_id:integer
+
+fetch('/api/chat', {
+  method: 'POST',
+  headers: {
+    "Content-Type": "application/json",
+    "XSRF-TOKEN": `N9t6LBZU-MlOHttR1WYv_joIHiGoCk7KLFjk`
+  },
+  body: JSON.stringify({
+    user_a: 2,
+  })
+}).then(res => res.json()).then(data => console.log(data));

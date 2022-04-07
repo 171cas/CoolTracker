@@ -70,6 +70,9 @@ module.exports = (sequelize, DataTypes) => {
     User.hasMany(models.Like, { foreignKey: 'user_id' });
     User.hasMany(models.Comment, { foreignKey: 'user_id' });
     User.hasMany(models.Follower, { foreignKey: 'follower_id' });
+    User.hasMany(models.Chat, { foreignKey: 'user_a' });
+    User.hasMany(models.Chat, { foreignKey: 'user_b' });
+    User.hasMany(models.Message, { foreignKey: 'user_id' });
     User.belongsTo(models.Follower, { foreignKey: 'id' });
   };
   //---------

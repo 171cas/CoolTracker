@@ -87,8 +87,10 @@ const ProfileUser = () => {
                     <div className='follDm'>
 
                         {isSameUser ?
-
-                            <button className="addButton" onClick={logout}>Log Out</button>
+                            <div>
+                                <button className="addButton" onClick={logout}>Log Out</button>
+                                <button className="addButton">My Messages</button>
+                            </div>
 
                             : (
                                 <>
