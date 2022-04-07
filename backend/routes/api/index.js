@@ -8,6 +8,7 @@ const commentRouter = require('./comments.js');
 const followerRouter = require('./followers.js');
 const searchRouter = require('./search.js');
 const chatRouter = require('./chat.js');
+const messageRouter = require('./messages.js');
 
 router.use('/session', sessionRouter);
 router.use('/users', usersRouter);
@@ -18,6 +19,7 @@ router.use('/comments', commentRouter);
 router.use('/followers', followerRouter);
 router.use('/search', searchRouter);
 router.use('/chat', chatRouter);
+router.use('/messages', messageRouter);
 
 
 module.exports = router;

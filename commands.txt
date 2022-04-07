@@ -181,3 +181,16 @@ fetch('/api/chat', {
     user_a: 2,
   })
 }).then(res => res.json()).then(data => console.log(data));
+
+
+fetch('/api/messages', {
+  method: 'POST',
+  headers: {
+    "Content-Type": "application/json",
+    "XSRF-TOKEN": `KFSaFaqE-p7vCxXGFVueEobLkDlZ_4RjvuA4`
+  },
+  body: JSON.stringify({
+    message: 'hola',
+    chat_id: 1,
+  })
+}).then(res => res.json()).then(data => console.log(data));

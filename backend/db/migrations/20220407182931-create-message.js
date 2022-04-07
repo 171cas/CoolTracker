@@ -18,6 +18,9 @@ module.exports = {
         type: Sequelize.TEXT(500)
       },
       chat_id: {
+        allowNull: false,
+        references: { model: 'Chats' },
+        onDelete: 'CASCADE',
         type: Sequelize.INTEGER
       },
       createdAt: {

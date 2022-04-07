@@ -57,11 +57,7 @@ router.post(
                 },
             })
 
-
-        console.log('\n\n\n\n\n\n\n\n\n\n\n', chat, 'is it true?')
-
         if (!chat) {
-            console.log('\n\n\n\n\n\n\n\n\n\n\n', chat, 'hits !chat')
             chat = await Chat.create({
                 user_a: user_a,
                 user_b: user_b
