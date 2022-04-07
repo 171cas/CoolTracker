@@ -9,12 +9,12 @@ import LoginFormPage from "./components/LoginFormPage";
 import SignupFormPage from "./components/SignupFormPage";
 import Search from "./components/Search";
 
-import ProfilePage from "./components/ProfilePage";
 import ProfileUser from "./components/ProfileUser";
 
 import WorkoutDetail from "./components/WorkoutDetail";
 import WorkoutBrowser from "./components/WorkoutBrowser";
 import WorkoutEdit from "./components/WorkoutEdit";
+import WorkoutMyFeed from "./components/WorkoutMyFeed";
 
 import ExerciseDetail from "./components/ExerciseDetail";
 import ExerciseBrowser from "./components/ExerciseBrowser";
@@ -56,6 +56,8 @@ function App() {
     dispatch(getFollowers());
   }, [dispatch])
 
+  const sessionUser = useSelector(state => state.session.user);
+
 
 
   return (
@@ -63,13 +65,13 @@ function App() {
       <Navigation isLoaded={isLoaded} />
       {isLoaded && (
         <Switch>
-          <Route exact path="/">
-            <SplashPage isLoaded={isLoaded} />
-          </Route>
+          <ProtectedLogOutRoute exact path="/">
+            <HomePage />
+          </ProtectedLogOutRoute>
           <ProtectedLogOutRoute exact path="/login">
             <div className='containerWO'>
               <div className='singleWO' style={{ maxWidth: '300px' }}>
-                <h3 style={{ textDecoration: "none" }}>But first, Log In:</h3>
+                <h3 style={{ textDecoration: "none" }}>Log In:</h3>
                 <LoginFormPage />
               </div>
             </div>
@@ -77,11 +79,13 @@ function App() {
           <ProtectedLogOutRoute exact path="/signup">
             <SignupFormPage />
           </ProtectedLogOutRoute>
+
+
+          <ProtectedRoute exact path="/home">
+            <WorkoutMyFeed sessionUser={sessionUser} />
+          </ProtectedRoute>
           <ProtectedRoute exact path={["/search", "/search/", "/search/:search"]} >
             <Search />
-          </ProtectedRoute>
-          <ProtectedRoute exact path="/profile">
-            <ProfilePage />
           </ProtectedRoute>
           <ProtectedRoute exact path="/user/:profUserId">
             <ProfileUser />

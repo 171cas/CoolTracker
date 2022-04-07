@@ -7,6 +7,11 @@ function FollowedModal({ following, userArr }) {
     const history = useHistory();
     const value = following.length > 0
     const pointer = (following.length > 0 ? 'pointer' : '')
+
+    const closeModal = () => {
+        setShowModal(false)
+    }
+
     return (
         <>
             <div style={{ display: 'inline' }}>
@@ -18,7 +23,9 @@ function FollowedModal({ following, userArr }) {
                     <h3>Following:</h3>
                     <div className='likesCont'>
                         {following && following?.map((followed, i) => {
-                            return (<NavLink to={`/user/${followed.followed_id}`}
+                            return (<NavLink
+                                onClick={closeModal}
+                                to={`/user/${followed.followed_id}`}
                                 className='userLink'
                                 key={followed.id}
                                 style={{ textDecoration: 'none' }}

@@ -20,7 +20,7 @@ function LoginFormNav() {
                 const data = await res.json();
                 if (data && data.errors) setErrors(data.errors);
             });
-        history.push("/")
+        history.push("/home")
     };
 
     const handleSubmit = (e) => {
@@ -31,7 +31,7 @@ function LoginFormNav() {
                 const data = await res.json();
                 if (data && data.errors) setErrors(data.errors);
             });
-        history.push("/")
+        history.push("/home")
     }
 
     return (

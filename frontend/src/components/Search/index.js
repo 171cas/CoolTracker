@@ -20,7 +20,6 @@ const Search = () => {
             .then(res => res.json())
             .then(
                 (result) => {
-                    console.log(result)
                     setIsLoaded(true);
                     setUsers(result.users);
                     setExercises(result.exercises);
@@ -32,8 +31,6 @@ const Search = () => {
             )
     }, [search])
 
-    console.log(users)
-    console.log(exercises)
     if (error) {
         return <div>Error: {error.message}</div>;
     } else if (!isLoaded) {
