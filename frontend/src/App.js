@@ -14,6 +14,7 @@ import ProfileUser from "./components/ProfileUser";
 import WorkoutDetail from "./components/WorkoutDetail";
 import WorkoutBrowser from "./components/WorkoutBrowser";
 import WorkoutEdit from "./components/WorkoutEdit";
+import WorkoutMyFeed from "./components/WorkoutMyFeed";
 
 import ExerciseDetail from "./components/ExerciseDetail";
 import ExerciseBrowser from "./components/ExerciseBrowser";
@@ -64,9 +65,9 @@ function App() {
       <Navigation isLoaded={isLoaded} />
       {isLoaded && (
         <Switch>
-          <Route exact path="/">
-            <SplashPage isLoaded={isLoaded} />
-          </Route>
+          <ProtectedLogOutRoute exact path="/">
+            <HomePage />
+          </ProtectedLogOutRoute>
           <ProtectedLogOutRoute exact path="/login">
             <div className='containerWO'>
               <div className='singleWO' style={{ maxWidth: '300px' }}>
@@ -78,6 +79,11 @@ function App() {
           <ProtectedLogOutRoute exact path="/signup">
             <SignupFormPage />
           </ProtectedLogOutRoute>
+
+
+          <ProtectedRoute exact path="/home">
+            <WorkoutMyFeed sessionUser={sessionUser} />
+          </ProtectedRoute>
           <ProtectedRoute exact path={["/search", "/search/", "/search/:search"]} >
             <Search />
           </ProtectedRoute>

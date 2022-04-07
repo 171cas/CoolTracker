@@ -124,7 +124,7 @@ function Navigation({ isLoaded }) {
         sessionLinks = (
             <>
                 <div className="outterWord">
-                    <NavLink exact to="/" className="wordsLink" style={ho} ><h3>Home</h3></NavLink>
+                    <NavLink exact to="/home" className="wordsLink" style={ho} ><h3>Home</h3></NavLink>
                     <NavLink exact to="/search" className="wordsLink" style={se} ><h3>Search</h3></NavLink>
                     <NavLink exact to="/workouts" className="wordsLink" style={wo} ><h3>My Workouts</h3></NavLink>
                     <NavLink exact to="/exercises" className="wordsLink" style={ex} ><h3>My Exercises</h3></NavLink>
@@ -132,7 +132,7 @@ function Navigation({ isLoaded }) {
                 </div>
 
                 <div className="outterIcon">
-                    <NavLink exact to="/" ><FontAwesomeIcon icon={faHouse} className='iconLink' style={ho} /></NavLink>
+                    <NavLink exact to="/home" ><FontAwesomeIcon icon={faHouse} className='iconLink' style={ho} /></NavLink>
                     <NavLink exact to="/search"><FontAwesomeIcon icon={faMagnifyingGlass} className='iconLink' style={se} /></NavLink>
                     <NavLink exact to="/workouts"><FontAwesomeIcon icon={faDumbbell} className='iconLink' style={wo} /></NavLink>
                     <NavLink exact to="/exercises"><FontAwesomeIcon icon={faPencil} className='iconLink' style={ex} /></NavLink>
