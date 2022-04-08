@@ -9,8 +9,8 @@ const { Op } = require("sequelize");
 const router = express.Router();
 
 router.get('/', asyncHandler(async function (_req, res) {
-    const users = await User.findAll({ order: [['createdAt', 'DESC']] });
-    const exercises = await Exercise.findAll({ order: [['createdAt', 'DESC']] }); //{ limit: 10 }
+    const users = await User.findAll({ order: [['createdAt', 'DESC']], limit: 10 });
+    const exercises = await Exercise.findAll({ order: [['createdAt', 'DESC']], limit: 10 }); //{ limit: 10 }
     return res.json({ users, exercises });
 }));
 
