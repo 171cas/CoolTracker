@@ -87,7 +87,7 @@ const ProfileUser = () => {
                 <div className='singleWO'>
                     <h3>{profUser?.username}</h3>
                     <div className='gridC'>
-                        <div className='divPic'><div className='profilePic'></div></div>
+                        <div className='divPic'><img className='profilePic' src={`${profUser?.prof_pic}`} alt="Profile Pic" /></div>
                         <p>{profUser?.first_name} {profUser?.last_name}</p>
                         <div style={{ display: 'flex', justifyContent: 'space-around', alignItems: 'center' }}>
                             <FollowerModal followers={userFollowers} modalVal={false} /> <FollowedModal following={userFollowing} userArr={userArr} />

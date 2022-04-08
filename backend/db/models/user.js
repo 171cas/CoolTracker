@@ -28,6 +28,9 @@ module.exports = (sequelize, DataTypes) => {
         len: [2, 30],
       }
     },
+    prof_pic: {
+      type: DataTypes.STRING,
+    },
     email: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -77,8 +80,8 @@ module.exports = (sequelize, DataTypes) => {
   };
   //---------
   User.prototype.toSafeObject = function () {
-    const { id, username, email, first_name, last_name } = this; // context will be the User instance
-    return { id, username, email, first_name, last_name };
+    const { id, username, email, first_name, last_name, prof_pic } = this; // context will be the User instance
+    return { id, username, email, first_name, last_name, prof_pic };
   };
   User.prototype.validatePassword = function (password) {
     return bcrypt.compareSync(password, this.hashedPassword.toString());
@@ -106,6 +109,7 @@ module.exports = (sequelize, DataTypes) => {
       username,
       first_name,
       last_name,
+      prof_pic,
       email,
       hashedPassword
     });
