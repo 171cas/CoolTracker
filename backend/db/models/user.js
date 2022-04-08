@@ -28,6 +28,9 @@ module.exports = (sequelize, DataTypes) => {
         len: [2, 30],
       }
     },
+    prof_pic: {
+      type: DataTypes.STRING,
+    },
     email: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -70,12 +73,15 @@ module.exports = (sequelize, DataTypes) => {
     User.hasMany(models.Like, { foreignKey: 'user_id' });
     User.hasMany(models.Comment, { foreignKey: 'user_id' });
     User.hasMany(models.Follower, { foreignKey: 'follower_id' });
+    User.hasMany(models.Chat, { foreignKey: 'user_a' });
+    User.hasMany(models.Chat, { foreignKey: 'user_b' });
+    User.hasMany(models.Message, { foreignKey: 'user_id' });
     User.belongsTo(models.Follower, { foreignKey: 'id' });
   };
   //---------
   User.prototype.toSafeObject = function () {
-    const { id, username, email, first_name, last_name } = this; // context will be the User instance
-    return { id, username, email, first_name, last_name };
+    const { id, username, email, first_name, last_name, prof_pic } = this; // context will be the User instance
+    return { id, username, email, first_name, last_name, prof_pic };
   };
   User.prototype.validatePassword = function (password) {
     return bcrypt.compareSync(password, this.hashedPassword.toString());
@@ -97,12 +103,13 @@ module.exports = (sequelize, DataTypes) => {
       return await User.scope('currentUser').findByPk(user.id);
     }
   };
-  User.signup = async function ({ username, first_name, last_name, email, password }) {
+  User.signup = async function ({ username, first_name, last_name, email, prof_pic, password }) {
     const hashedPassword = bcrypt.hashSync(password);
     const user = await User.create({
       username,
       first_name,
       last_name,
+      prof_pic,
       email,
       hashedPassword
     });

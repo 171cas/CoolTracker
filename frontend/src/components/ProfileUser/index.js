@@ -9,6 +9,9 @@ import { createFollow, deleteFollower } from '../../store/followers';
 import WorkoutPublic from "../WorkoutPublic";
 import FollowerModal from "../FollowerModal";
 import FollowedModal from "../FollowedModal";
+import MessageModal from "../MessageModal";
+
+
 import GoBack from "../GoBack";
 
 import './ProfileUser.css'
@@ -35,6 +38,10 @@ const ProfileUser = () => {
     const userFollowing = followersList.filter(({ follower_id }) => follower_id === +profUserId)
 
 
+
+
+
+
     const myFolloweds = followersList.filter(({ follower_id }) => follower_id === sessionUser.id)
 
     const isFollowed = myFolloweds.find(followed => followed.followed_id === +profUserId)
@@ -51,6 +58,8 @@ const ProfileUser = () => {
         dispatch(sessionActions.logout());
         //history.push("/");
     };
+
+
 
     useEffect(() => {
         if (!showMenu) {
@@ -78,7 +87,7 @@ const ProfileUser = () => {
                 <div className='singleWO'>
                     <h3>{profUser?.username}</h3>
                     <div className='gridC'>
-                        <div className='divPic'><div className='profilePic'></div></div>
+                        <div className='divPic'><img className='profilePic' src={`${profUser?.prof_pic}`} alt="Profile Pic" /></div>
                         <p>{profUser?.first_name} {profUser?.last_name}</p>
                         <div style={{ display: 'flex', justifyContent: 'space-around', alignItems: 'center' }}>
                             <FollowerModal followers={userFollowers} modalVal={false} /> <FollowedModal following={userFollowing} userArr={userArr} />
@@ -87,13 +96,15 @@ const ProfileUser = () => {
                     <div className='follDm'>
 
                         {isSameUser ?
-
-                            <button className="addButton" onClick={logout}>Log Out</button>
+                            <div>
+                                <button className="addButton" onClick={logout}>Log Out</button>
+                                <button className="addButton">My Messages</button>
+                            </div>
 
                             : (
                                 <>
                                     <button onClick={handleFollow} className='addButton'>{isFollowed ? 'Unfollow' : 'Follow'}</button>
-                                    <button className='addButton'>Coming Soon: Message {profUser?.username}</button>
+                                    <MessageModal sessionUser={sessionUser} profUserId={profUserId} />
                                 </>
                             )}
                     </div>

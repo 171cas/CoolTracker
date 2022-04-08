@@ -9,6 +9,7 @@ function SignupFormPage() {
     const [username, setUsername] = useState("");
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
+    const [prof_pic, setPic] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
     const [errors, setErrors] = useState([]);
@@ -18,7 +19,7 @@ function SignupFormPage() {
         e.preventDefault();
         if (password === confirmPassword) {
             setErrors([]);
-            return dispatch(sessionActions.signup({ email, username, password, firstName, lastName }))
+            return dispatch(sessionActions.signup({ email, username, password, firstName, lastName, prof_pic }))
                 .catch(async (res) => {
                     const data = await res.json();
                     if (data && data.errors) setErrors(data.errors);
@@ -71,6 +72,16 @@ function SignupFormPage() {
                         type="text"
                         value={lastName}
                         onChange={(e) => setLastName(e.target.value)}
+                        required
+                    />
+                </label>
+                <label className="singleLine">
+                    Image URL
+                    <input
+                        placeholder="Image URL"
+                        type="text"
+                        value={prof_pic}
+                        onChange={(e) => setPic(e.target.value)}
                         required
                     />
                 </label>

@@ -7,6 +7,8 @@ import exerciseReducer from './exercises';
 import likeReducer from './likes';
 import commentReducer from "./comments";
 import followerReducer from "./followers";
+import messageReducer from "./messages";
+import chatReducer from "./chat";
 
 const rootReducer = combineReducers({
   // add reducer functions here
@@ -17,6 +19,8 @@ const rootReducer = combineReducers({
   likes: likeReducer,
   comments: commentReducer,
   followers: followerReducer,
+  messages: messageReducer,
+  chats: chatReducer,
 });
 
 let enhancer;

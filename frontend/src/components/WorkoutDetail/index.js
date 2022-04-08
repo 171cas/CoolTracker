@@ -113,7 +113,7 @@ const WorkoutDetail = ({ propId, user }) => {
                     {reviewLinks && reviewLinks}
                 </h3>
                 <div className='details'>
-                    {user ? (<p><NavLink to={`/user/${user.id}`} style={{ fontFamily: 'Fjalla One' }}>By {user.username}:</NavLink></p>) : (<></>)}
+                    {workout?.User ? (<p><NavLink to={`/user/${workout?.User?.id}`} style={{ fontFamily: 'Fjalla One' }}>By {workout?.User?.username}:</NavLink></p>) : (<></>)}
                     {workout?.date ? (<p>Date: {workout?.date}</p>) : (<></>)}
                     {isUser && !workout.notes && !workout.completion_time &&
                         <NavLink to={`/workout/${workout?.id}/edit`} style={{ color: 'white' }}> <p>Hey! Do you want to add more details to this workout? &#9997; &nbsp; &#128170; </p></NavLink>}

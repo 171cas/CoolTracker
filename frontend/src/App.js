@@ -36,6 +36,8 @@ import { getLikes } from './store/likes'
 import { getUsers } from "./store/users";
 import { getComments } from "./store/comments";
 import { getFollowers } from "./store/followers";
+import { getChats } from "./store/chat";
+import { getMessages } from "./store/messages";
 
 import './index.css'
 
@@ -54,6 +56,8 @@ function App() {
     dispatch(getUsers());
     dispatch(getComments());
     dispatch(getFollowers());
+    dispatch(getChats());
+    dispatch(getMessages());
   }, [dispatch])
 
   const sessionUser = useSelector(state => state.session.user);

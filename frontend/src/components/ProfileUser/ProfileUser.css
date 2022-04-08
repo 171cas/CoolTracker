@@ -18,11 +18,13 @@
 }
 
 .profilePic {
-    width: 180px;
-    height: 180px;
-    border-radius: 50%;
     background-image: url('https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png');
-    background-size: 180px;
+    height: 180px;
+    width: 180px;
+    border-radius: 50%;
+    background-repeat: no-repeat;
+    object-fit: cover;
+    object-position: center;
 }
 
 @media screen and (max-width: 930px) {
