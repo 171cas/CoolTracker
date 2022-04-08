@@ -8,9 +8,7 @@ const { handleValidationErrors } = require('../../utils/validation');
 
 const router = express.Router();
 
-async function list() {
-    return await Message.findAll();
-}
+
 router.get('/', asyncHandler(async function (_req, res) {
     const messages = await Message.findAll({ include: [User] });
     return res.json(messages);
@@ -27,16 +25,16 @@ router.get(
     }));
 
 
-// router.get(
-//     '/:id',
-//     asyncHandler(async function (req, res) {
-//         const message = await Message.findByPk(req.params.id, {
-//             include: [
-//                 { model: User }
-//             ]
-//         });
-//         return res.json(message);
-//     }));
+router.get(
+    '/:id',
+    asyncHandler(async function (req, res) {
+        const message = await Message.findByPk(req.params.id, {
+            include: [
+                { model: User }
+            ]
+        });
+        return res.json(message);
+    }));
 
 const validateCreate = [
     check('message')
@@ -44,7 +42,8 @@ const validateCreate = [
         .isLength({ min: 1, max: 500 }).withMessage('Message\'s length must be less than 500 characters.'),
     handleValidationErrors
 ];
-// Create comment
+
+// Create Message
 router.post(
     '/',
     restoreUser,
@@ -58,21 +57,23 @@ router.post(
 
         const chat = await Chat.findByPk(chat_id)
 
-        console.log('\n\n\n\n\n\n\n\n', user_id)
-        console.log('\n\n\n\n\n\n\n\n', chat)
-
-        if (user_id === chat.user_a || user_id === chat.user_b) {
-            const newMessage = await Message.create({
-                user_id,
-                message,
-                chat_id,
-            });
-
-            return res.json(
-                newMessage
-            );
+        if (!chat) {
+            throw new Error('Access Denied.');
         }
-        throw new Error('Access Denied.');
+        if (user_id !== chat.user_a && user_id !== chat.user_b) {
+            throw new Error('Access Denied.');
+        }
+        const newMessage = await Message.create({
+            user_id,
+            message,
+            chat_id,
+        });
+        const user = await User.findByPk(newMessage.user_id)
+        newMessage.dataValues.User = user.dataValues
+
+        return res.json(
+            newMessage
+        );
     })
 );
 

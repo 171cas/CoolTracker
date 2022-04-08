@@ -74,13 +74,13 @@ router.post(
 //     '/:id',
 //     restoreUser,
 //     asyncHandler(async function (req, res) {
-//         const follow = await Follower.findByPk(req.params.id);
-//         if (req.user.id !== follow.follower_id) {
-//             throw new Error('Access Denied.');
-//             return
-//         }
-//         await Follower.destroy({ where: { id: follow.id } })
-//         return res.json(follow)
+//         const chat = await Chat.findByPk(req.params.id);
+//         8if (req.user.id !== follow.follower_id) {
+//         8    throw new Error('Access Denied.');
+//         8    return
+//         8}
+//         await Chat.destroy({ where: { id: chat.id } })
+//         return res.json(chat)
 //     })
 // );
 

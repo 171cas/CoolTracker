@@ -9,6 +9,9 @@ import { createFollow, deleteFollower } from '../../store/followers';
 import WorkoutPublic from "../WorkoutPublic";
 import FollowerModal from "../FollowerModal";
 import FollowedModal from "../FollowedModal";
+import MessageModal from "../MessageModal";
+
+
 import GoBack from "../GoBack";
 
 import './ProfileUser.css'
@@ -35,6 +38,10 @@ const ProfileUser = () => {
     const userFollowing = followersList.filter(({ follower_id }) => follower_id === +profUserId)
 
 
+
+
+
+
     const myFolloweds = followersList.filter(({ follower_id }) => follower_id === sessionUser.id)
 
     const isFollowed = myFolloweds.find(followed => followed.followed_id === +profUserId)
@@ -51,6 +58,8 @@ const ProfileUser = () => {
         dispatch(sessionActions.logout());
         //history.push("/");
     };
+
+
 
     useEffect(() => {
         if (!showMenu) {
@@ -95,7 +104,7 @@ const ProfileUser = () => {
                             : (
                                 <>
                                     <button onClick={handleFollow} className='addButton'>{isFollowed ? 'Unfollow' : 'Follow'}</button>
-                                    <button className='addButton'>Coming Soon: Message {profUser?.username}</button>
+                                    <MessageModal sessionUser={sessionUser} profUserId={profUserId} />
                                 </>
                             )}
                     </div>
