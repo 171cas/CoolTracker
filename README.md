@@ -1,5 +1,4 @@
 # CoolTracker
-[Try the site live here](https://cool-tracker.herokuapp.com/)
 
 ## Technologies Used
 - React 
